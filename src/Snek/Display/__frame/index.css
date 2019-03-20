@@ -1,0 +1,14 @@
+.display__frame {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  float: left;
+  width: 27.5vh;
+  height: 55vh;
+  margin: 4% 0 4% 3%;
+  outline: .5vh solid #313729;
+  padding: 0 .5vh;
+}

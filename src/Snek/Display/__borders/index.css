@@ -1,0 +1,11 @@
+.display__borders {
+  width: 42vh;
+  height: 58vh;
+  background-color: #909D83;
+  border-width: 2.5vh;
+  border-style: solid;
+  border-top-color: #d6d8c3;
+  border-left-color: #bdbfae;
+  border-bottom-color: #caccb7;
+  border-right-color: #e3e5ce;
+}

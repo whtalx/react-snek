@@ -1,0 +1,6 @@
+.display__edging {
+  width: 47vh;
+  margin: 1.25vh auto 0;
+  padding: 0 1vh 1vh;
+  border: .5vh solid #911;
+}

@@ -1,0 +1,6 @@
+.display__glass {
+  width: 100%;
+  height: 100%;
+  border-radius: .5vh;
+  box-shadow: inset .25vh .25vh 1vh 0 #313729, 1vh 0 1vh 0 #f8f9e3, -1vh 0 1vh 0 #97998c;
+}
