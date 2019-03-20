@@ -1,6 +1,7 @@
 {
   "name": "rect-snek",
-  "version": "0.1.0",
+  "version": "0.0.0",
+  "homepage": "http://whtalx.github.io/rect-snek",
   "private": true,
   "dependencies": {
     "react": "^16.8.4",
@@ -9,6 +10,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -21,5 +24,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }
