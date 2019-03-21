@@ -5,7 +5,7 @@ import Borders from '../__borders'
 
 function Edging() {
   return (
-    <fieldset className ='display__edging'>
+    <fieldset className = 'display__edging'>
       <Legend />
       <Borders />
     </fieldset>

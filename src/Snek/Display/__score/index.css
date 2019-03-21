@@ -1,0 +1,15 @@
+.display__score {
+  text-align: center;
+  font-family: arial;
+  font-style: italic;
+  font-size: 7px;
+  line-height: 15px;
+  margin-bottom: 5px;
+}
+@media all and (min-height: 400px) {
+  .display__score {
+    font-size: 1.75vh;
+    line-height: 3.75vh;
+    margin-bottom: 1.25vh;
+  }
+}

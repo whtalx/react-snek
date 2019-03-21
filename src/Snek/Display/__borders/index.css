@@ -1,11 +1,23 @@
 .display__borders {
+  margin: 0 auto;
   width: 42vh;
   height: 58vh;
+  min-width: 168px;
+  min-height: 234px;
   background-color: #909D83;
-  border-width: 2.5vh;
+  border-width: 10px;
   border-style: solid;
+  border-radius: 2px;
   border-top-color: #d6d8c3;
   border-left-color: #bdbfae;
   border-bottom-color: #caccb7;
   border-right-color: #e3e5ce;
+}
+@media all and (min-height: 400px) {
+  .display__borders {
+    border-width: 2.5vh;
+    -moz-border-radius: .5vh;
+    -webkit-border-radius: .5vh;
+    border-radius: .5vh;
+  }
 }

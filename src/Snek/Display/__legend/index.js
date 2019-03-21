@@ -3,7 +3,7 @@ import './index.css'
 
 function Legend () {
   return (
-    <legend className ='display__legend'></legend>
+    <legend className = 'display__legend'></legend>
   )
 }
 

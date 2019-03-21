@@ -5,7 +5,7 @@ import Controls from './Controls'
 
 function Snek () {
   return (
-    <div className='snek'>
+    <div className = 'snek'>
       <Display />
       <Controls />
     </div>

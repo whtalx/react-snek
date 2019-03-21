@@ -2,5 +2,6 @@
   position: relative;
   margin: 0 auto;
   width: 57vh;
+  min-width: 200px;
   height: 100%;
 }

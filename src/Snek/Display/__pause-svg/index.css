@@ -1,0 +1,12 @@
+.display__pause-svg {
+  height: 5vh;
+  width: 5vh;
+  min-height: 25px;
+  min-width: 25px;
+  margin-top: 4px;
+}
+@media all and (min-height: 400px) {
+  .display__pause-svg {
+    margin-top: 1vh;
+  }
+}

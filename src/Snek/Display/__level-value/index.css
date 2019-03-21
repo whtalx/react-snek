@@ -1,0 +1,14 @@
+.display__level-value {
+  margin: 0;
+  font-style: normal;
+  line-height: 15px;
+  font-family: "DS-Digital";
+  font-size: 25px;
+  margin-top: 4px;
+}
+@media all and (min-height: 400px) {
+  .display__level-value {
+    font-size: 6.25vh;
+    margin-top: 1vh;
+  }
+}

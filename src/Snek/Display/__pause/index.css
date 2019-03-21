@@ -1,0 +1,17 @@
+.display__pause {
+  position: relative;
+  text-align: center;
+  font-family: arial;
+  font-style: italic;
+  font-size: 7px;
+  line-height: 15px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  color: #7E916C;
+  fill: #7E916C;
+}
+@media all and (min-height: 400px) {
+  .display__pause {
+    margin-top: 5vh;
+  }
+}

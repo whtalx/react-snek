@@ -1,6 +1,14 @@
 .display__edging {
   width: 47vh;
-  margin: 1.25vh auto 0;
-  padding: 0 1vh 1vh;
-  border: .5vh solid #911;
+  min-width: 188px;
+  margin: 0 auto;
+  padding: 0 3.5px 3.5px;
+  border: 2px solid #911;
+}
+@media all and (min-height: 400px) {
+  .display__edging {
+    padding: 0 1vh 1vh;
+    border-width: .5vh;
+    font-size: 4vh;
+  }
 }
