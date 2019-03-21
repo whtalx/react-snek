@@ -5,17 +5,9 @@
   justify-content: space-around;
   align-items: center;
   float: left;
-  width: 27.5vh;
-  height: 55vh;
-  min-width: 110px;
-  min-height: 220px;
-  outline: 2px solid #313729;
+  width: 20vh;
+  height: 40vh;
+  outline: .5vh solid #313729;
   margin: 4% 0 4% 3%;
-  padding: 0 2px;
-}
-@media all and (min-height: 400px) {
-  .display__frame {
-    outline: .5vh solid #313729;
-    padding: 0 .5vh;
-  }
+  padding: 0 .5vh;
 }

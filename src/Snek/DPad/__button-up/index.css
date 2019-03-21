@@ -1,0 +1,22 @@
+.d-pad__button-up {
+  position: relative;
+  margin: 0;
+  height: 33%;
+  width: 99%;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right,#ffe033 0%,#ffd700 100%);
+  cursor:pointer;
+  box-shadow:
+    0 -.5vh 0 0 #e6c300,
+    0 -.5vh 0 .25vh #b8baab,
+    inset -.25vh -.25vh 3px 0 #e6c300,
+    inset .25vh .25vh .5vh 0 #fff033;
+}
+.d-pad__button-up:active, .d-pad__button-up_pressed {
+  transform: translateY(-.5vh);
+  box-shadow:
+    0 0 0 .25vh #b8baab,
+    0 .5vh .5vh #f4f7ee,
+    inset 0 0 .25vh #b39800,
+    inset 0 .25vh .25vh #ccad00;
+}

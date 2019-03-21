@@ -1,0 +1,9 @@
+.controls__pause {
+  display: inline-block;
+  float: right;
+  width: 9vh;
+  height: 8vh;
+  text-align: center;
+  color: #041b17;
+  font: bold small-caps 2.5vh Tahoma, Geneva, sans-serif;
+}

@@ -1,0 +1,20 @@
+.controls__start-button {
+  height: 2.5vh;
+  width: 8vh;
+  border-radius: 2.5vh;
+  background: linear-gradient(to bottom right,#ffe033 0%,#ffd700 100%);
+  cursor:pointer;
+  box-shadow:
+    0 -.5vh 0 0 #e6c300,
+    0 -.5vh 0 .25vh #b8baab,
+    inset -.25vh -.25vh 3px 0 #e6c300,
+    inset .25vh .25vh .5vh 0 #fff033;
+}
+.controls__start-button:active, .controls__start-button_pressed {
+  transform: translateY(-.5vh);
+  box-shadow:
+    0 0 0 .25vh #b8baab,
+    0 .5vh .5vh #f4f7ee,
+    inset 0 0 .25vh #b39800,
+    inset 0 .25vh .25vh #ccad00;
+}

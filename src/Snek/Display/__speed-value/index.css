@@ -1,16 +1,7 @@
 .display__speed-value {
   margin: 0;
   font-style: normal;
-  line-height: 15px;
+  line-height: 5vh;
   font-family: "DS-Digital";
-  font-size: 25px;
-  margin-top: 15px;
-  margin-bottom: 4px;
-}
-@media all and (min-height: 400px) {
-  .display__speed-value {
-    font-size: 6.25vh;
-    margin-top: 3.75vh;
-    margin-bottom: 1vh;
-  }
+  font-size: 5vh;
 }

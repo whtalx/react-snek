@@ -1,18 +1,9 @@
 .display__legend {
 margin: 0 auto;
-font-family: impact;
-height: 4vh;
-width: 24vh;
-min-height: 16px;
-min-width: 96px;
+height: 3vh;
+width: 18vh;
 background-size: 100% 100%;
 background-image: url('./legend.svg');
-border-left: 5px solid #D9DBC5;
-border-right: 5px solid #D9DBC5;
-}
-@media all and (min-height: 400px) {
-  .display__legend {
-    border-left-width: 1.25vh;
-    border-right-width: 1.25vh;
-  }
+border-left: 1vh solid #D9DBC5;
+border-right: 1vh solid #D9DBC5;
 }

@@ -1,0 +1,9 @@
+.controls__start {
+  display: inline-block;
+  float: left;
+  width: 9vh;
+  height: 8vh;
+  text-align: center;
+  color: #041b17;
+  font: bold small-caps 2.5vh Tahoma, Geneva, sans-serif;
+}

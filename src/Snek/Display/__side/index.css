@@ -1,10 +1,8 @@
 .display__side {
   position: relative;
   float: right;
-  width: 10vh;
-  height: 55vh;
-  min-width: 40px;
-  min-height: 222px;
-  margin: 2% 3% 2% 0;
+  width: 11vh;
+  height: 40vh;
+  margin: 0;
   color: #313729;
 }
