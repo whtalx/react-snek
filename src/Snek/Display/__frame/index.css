@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  align-content: center;
   float: left;
   width: 20vh;
   height: 40vh;
-  outline: .5vh solid #313729;
   margin: 4% 0 4% 3%;
-  padding: 0 .5vh;
+  padding: .5vh;
+  outline: .5vh solid #313729;
 }

@@ -3,7 +3,7 @@ import './index.css'
 
 function ButtonRight () {
   return (
-    <div className='d-pad__button-right'></div>
+    <div className='d-pad__button-right button'></div>
   )
 }
 
