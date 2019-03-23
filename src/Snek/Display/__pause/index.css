@@ -7,6 +7,10 @@
   font-size: 1.25vh;
   line-height: 2vh;
   margin: 5vh auto 0;
-  color: #7E916C;
-  fill: #7E916C;
+  color: #7e916c;
+  fill: #7e916c;
+}
+.display__pause_on {
+  color: #313729;
+  fill: #313729;
 }

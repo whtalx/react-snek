@@ -1,5 +1,17 @@
 .display__pixel {
   width: 2vh;
   height: 2vh;
+}
+.display__pixel_off {
   fill: #7e916c;
+}
+.display__pixel_on {
+  fill: #313729;
+}
+.display__pixel_blink {
+  animation: blink .2s linear infinite;
+}
+@keyframes blink {
+  from {fill: #313729;}
+  to {fill: #7e916c;}
 }
