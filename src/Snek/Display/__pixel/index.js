@@ -3,13 +3,16 @@ import './index.css'
 //TODO: передать возможность setState родителю
 //честно, хз как. мне такое сложно
 class Pixel extends Component {
-  state = {
-      status: this.props.status,
-      x: this.props.x,
-      y: this.props.y
+  constructor (props) {
+    super(props)
+    this.state = {
+        status: props.status,
+        x: props.x,
+        y: props.y
+    }
   }
-  makeBlink() {
-    this.setState({status: 'blink'})
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.status !== this.props.status) this.setState({status: nextProps.status})
   }
   render () {
     return (
