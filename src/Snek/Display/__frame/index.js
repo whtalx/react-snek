@@ -2,17 +2,16 @@ import React, {Component} from 'react'
 import './index.css'
 import Pixel from '../__pixel'
 /* keypoint #2
-* компонент с массивам пикселей. пока смотрит в пропс один раз в componentDidMount,
-* а хотелось бы componentWillReceiveProps
+* здесь происходит что-то странное
+* конструктор генерит выключенные пиксели,
+* рендер лепит для каждого компонент Pixel.
+* а getDerivedStateFromProps находит в массиве нужный объект по x и y,
+* сравнивает status и меняет на новый, если отличаются
+* если возвращает null, новый рендер не происходит
 */
 class Frame extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      p : []
-    }
-  }
-  componentWillMount() {
     let i = 0
     let grid = []
     for (let y = 0; y < 20; y++) {
@@ -21,20 +20,30 @@ class Frame extends Component {
         i++
       }
     }
-    this.setState({p : grid})
+    this.state = {p : grid}
   }
-  componentDidMount() {
-    this.props.pixels.map((propsItem) => {
-      let index = this.state.p.findIndex(stateItem => {
+
+  static getDerivedStateFromProps(nextProps, prevState){
+    let newState = {}
+    nextProps.pixels.map((propsItem) => {
+      let index = prevState.p.findIndex(stateItem => {
         return stateItem.x === propsItem.x && stateItem.y === propsItem.y
       })
-      this.setState(state =>{
-        state.p[index].status = propsItem.status
-        return state
-      })
+      
+      if (prevState.p[index].status !== propsItem.status) {
+        prevState.p[index].status = propsItem.status
+        newState = prevState
+      }
       return null
     })
+
+    if (Object.getOwnPropertyNames(newState).length === 0) {
+      return null
+    } else {
+      return {newState}
+    }
   }
+
   render() {
     let list = this.state.p.map((item, index) => {
       return <Pixel key = {index} x = {item.x} y = {item.y} status = {item.status} />
