@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
 import './index.css'
 import Pixel from '../__pixel'
-//TODO: сделать метод с setState и экспортировать
 class Frame extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       p : []
     }
@@ -21,12 +20,19 @@ class Frame extends Component {
     this.setState({p : grid})
   }
   componentDidMount() {
-    //TODO: почему стейт меняется, но ребёнку не передаётся?
-    //в React Developer Tools стейт показывается "on", но на пикселе атрибуты "off"
-    this.setState(state => {state.p[15].status = 'on'})
+    this.props.pixels.map((propsItem) => {
+      let index = this.state.p.findIndex(stateItem => {
+        return stateItem.x === propsItem.x && stateItem.y === propsItem.y
+      })
+      this.setState(state =>{
+        state.p[index].status = propsItem.status
+        return state
+      })
+      return null
+    })
   }
   render() {
-    const list = this.state.p.map((item, index) => {
+    let list = this.state.p.map((item, index) => {
       return <Pixel key = {index} x = {item.x} y = {item.y} status = {item.status} />
     })
 

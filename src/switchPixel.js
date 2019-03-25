@@ -1,4 +1,3 @@
-//TODO: обращаться к методу в ./Display/__frame, а не вот это всё
 const switchPixel = (x, y, s) => {
 /*   if (x < 0 || x > 9 || y < 0 || y > 19 || (s !== 'on' && s !== 'off' && s !== 'blink')) return;
   let pixel = document.querySelector('.display__pixel[x="' + x + '"][y="' + y + '"]')
