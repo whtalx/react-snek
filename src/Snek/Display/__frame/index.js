@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 import './index.css'
 import Pixel from '../__pixel'
+/* keypoint #2
+* компонент с массивам пикселей. пока смотрит в пропс один раз в componentDidMount,
+* а хотелось бы componentWillReceiveProps
+*/
 class Frame extends Component {
   constructor (props) {
     super(props)

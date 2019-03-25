@@ -1,6 +1,8 @@
 import React/*, {Component}*/ from 'react'
 import './index.css'
-
+/* keypoint #3
+* ребёнок-пиксель. не знаю что здесь нужно: функция или класс
+*/
 /* class Pixel extends Component {
   constructor (props) {
     super(props)
