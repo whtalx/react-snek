@@ -1,14 +1,7 @@
 import React, {Component} from 'react'
 import './index.css'
 import Pixel from '../__pixel'
-/* keypoint #2
-* здесь происходит что-то странное
-* конструктор генерит выключенные пиксели,
-* рендер лепит для каждого компонент Pixel.
-* а getDerivedStateFromProps находит в массиве нужный объект по x и y,
-* сравнивает status и меняет на новый, если отличаются
-* если возвращает null, новый рендер не происходит
-*/
+
 class Frame extends Component {
   constructor (props) {
     super(props)

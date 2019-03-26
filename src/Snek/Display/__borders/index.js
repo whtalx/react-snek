@@ -2,10 +2,10 @@ import React from 'react'
 import './index.css'
 import Glass from '../__glass'
 
-function Borders() {
+function Borders(props) {
   return (
     <div className = 'display__borders'>
-      <Glass />
+      <Glass pixels = {props.pixels} />
     </div>
   )
 }

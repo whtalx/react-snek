@@ -1,21 +1,6 @@
 import React/*, {Component}*/ from 'react'
 import './index.css'
-/* keypoint #3
-* ребёнок-пиксель. не знаю что здесь нужно: функция или класс
-*/
-/* class Pixel extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-        status: props.status,
-        x: props.x,
-        y: props.y
-    }
-  } 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.status !== this.props.status) this.setState({status: nextProps.status})
-  }
-  render () { */
+
   function Pixel(props) {
     return (
       <div className = {'display__pixel display__pixel_' + props.status} x = {props.x} y = {props.y}>

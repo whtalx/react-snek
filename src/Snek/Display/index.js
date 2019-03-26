@@ -2,10 +2,10 @@ import React from 'react'
 import './index.css'
 import Edging from'./__edging'
 
-function Display () {
+function Display (props) {
   return (
     <div className = 'display'>
-      <Edging />
+      <Edging pixels = {props.pixels} />
     </div>
   )
 }
