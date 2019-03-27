@@ -4,7 +4,7 @@ import PauseButton from '../__pause-button'
 
 function Pause () {
   return (
-    <div className='controls__pause'>
+    <div className = 'controls__pause'>
       <PauseButton />
       pause
     </div>

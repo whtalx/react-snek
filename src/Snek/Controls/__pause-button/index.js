@@ -3,7 +3,7 @@ import './index.css'
 
 function PauseButton () {
   return (
-    <div className='controls__pause-button button'></div>
+    <div id = 'pause' className = 'controls__pause-button button'></div>
   )
 }
 

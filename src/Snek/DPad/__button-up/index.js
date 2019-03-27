@@ -3,7 +3,7 @@ import './index.css'
 
 function ButtonUp () {
   return (
-    <div className='d-pad__button-up button'></div>
+    <div id = 'up' className = 'd-pad__button-up button'></div>
   )
 }
 

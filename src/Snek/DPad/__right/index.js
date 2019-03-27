@@ -4,7 +4,7 @@ import ButtonRight from '../__button-right'
 
 function Right () {
   return (
-    <div className='d-pad__right'>
+    <div className = 'd-pad__right'>
       <ButtonRight />
     </div>
   )

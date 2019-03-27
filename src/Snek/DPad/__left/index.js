@@ -4,7 +4,7 @@ import ButtonLeft from '../__button-left'
 
 function Left () {
   return (
-    <div className='d-pad__left'>
+    <div className = 'd-pad__left'>
       <ButtonLeft />
     </div>
   )

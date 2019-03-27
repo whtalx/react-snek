@@ -6,7 +6,7 @@ import ButtonDown from '../__button-down'
 
 function Center () {
   return (
-    <div className='d-pad__center'>
+    <div className = 'd-pad__center'>
      <ButtonUp />
      <Arrows />
      <ButtonDown />

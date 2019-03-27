@@ -5,7 +5,7 @@ import Pause from './__pause'
 
 function Controls () {
   return (
-    <div className='controls'>
+    <div className = 'controls'>
       <Start />
       <Pause />
     </div>

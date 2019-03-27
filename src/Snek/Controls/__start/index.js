@@ -4,7 +4,7 @@ import StartButton from '../__start-button'
 
 function Start () {
   return (
-    <div className='controls__start'>
+    <div className = 'controls__start'>
       <StartButton />
       start
     </div>

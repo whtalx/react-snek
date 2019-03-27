@@ -3,7 +3,7 @@ import './index.css'
 
 function StartButton () {
   return (
-    <div className='controls__start-button button'></div>
+    <div id = 'start' className = 'controls__start-button button'></div>
   )
 }
 
