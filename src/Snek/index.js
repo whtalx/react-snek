@@ -6,8 +6,11 @@ import DPad from './DPad'
 import handleMouseDown from './handleMouseDown'
 import handleButtonUp from './handleButtonUp'
 import handleKeyDown from './handleKeyDown'
+import switchPixels from './switchPixels'
+import clrScr from './clrScr'
+import slitherJSON from './slither.json'
 
-class Snek extends Component {
+export default class Snek extends Component {
   constructor (props) {
     super(props)
     let i = 0
@@ -25,6 +28,19 @@ class Snek extends Component {
     this.handleMouseDown = handleMouseDown.bind(this)
     this.handleButtonUp = handleButtonUp.bind(this)
     this.handleKeyDown = handleKeyDown.bind(this)
+    this.switchPixels = switchPixels.bind(this)
+    this.slither = this.slither.bind(this)
+    this.clrScr = clrScr.bind(this)
+  }
+
+  slither() {
+    let frame1 = slitherJSON["1"]
+    let frame2 = slitherJSON["2"]
+    this.setState({pixels : frame1})
+    setTimeout(() => {
+      this.setState({pixels : frame2})
+      setTimeout(this.slither, 500)
+    }, 500)
   }
 
   componentDidMount() {
@@ -32,6 +48,8 @@ class Snek extends Component {
     document.addEventListener('mouseup', this.handleButtonUp)
     document.addEventListener('keydown', this.handleKeyDown)
     document.addEventListener('keyup', this.handleButtonUp)
+    this.slither()
+    //this.switchPixels([{x : 1, y : 9, status : 'on'}, {x : 2, y : 9, status : 'on'}, {x : 3, y : 9, status : 'blink'}])
   }
 
   componentWillUnmount() {
@@ -40,17 +58,8 @@ class Snek extends Component {
     document.removeEventListener('keydown', this.handleKeyDown)
     document.removeEventListener('keyup', this.handleButtonUp)
   }
-  /* componentDidMount() {
-    setTimeout(() => {
-      this.setState(state => {
-        state.pixels[15].status = 'on'
-        return state 
-      })
-    }, 5000)
-  } */
 
   render() {
-    console.log(this.state.button)
     return (
       <div className = 'snek'>
         <Display pixels = {this.state.pixels} />
@@ -60,5 +69,3 @@ class Snek extends Component {
     )
   }
 }
-
-export default Snek

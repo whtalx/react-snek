@@ -1,4 +1,4 @@
-function handleKeyDown(event) {
+export default function handleKeyDown(event) {
   switch (event.which) {
     case 39:// right
     case 68:// d
@@ -26,5 +26,3 @@ function handleKeyDown(event) {
       return null
   }
 }
-
-export default handleKeyDown
