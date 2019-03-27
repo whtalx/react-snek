@@ -2,10 +2,10 @@ import React from 'react'
 import './index.css'
 import ButtonLeft from '../__button-left'
 
-function Left () {
+function Left (props) {
   return (
     <div className = 'd-pad__left'>
-      <ButtonLeft />
+      <ButtonLeft button = {props.button} />
     </div>
   )
 }

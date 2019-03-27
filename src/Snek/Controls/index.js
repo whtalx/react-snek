@@ -3,11 +3,11 @@ import './index.css'
 import Start from './__start'
 import Pause from './__pause'
 
-function Controls () {
+function Controls (props) {
   return (
     <div className = 'controls'>
-      <Start />
-      <Pause />
+      <Start button = {props.button} />
+      <Pause button = {props.button} />
     </div>
   )
 }

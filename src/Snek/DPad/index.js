@@ -4,12 +4,12 @@ import Left from './__left'
 import Center from './__center'
 import Right from './__right'
 
-function DPad () {
+function DPad (props) {
   return (
     <div className='d-pad'>
-      <Left />
-      <Center />
-      <Right />
+      <Left button = {props.button} />
+      <Center button = {props.button} />
+      <Right button = {props.button} />
     </div>
   )
 }

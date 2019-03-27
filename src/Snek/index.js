@@ -53,9 +53,9 @@ class Snek extends Component {
     console.log(this.state.button)
     return (
       <div className = 'snek'>
-        <Display pixels = {this.state.pixels}/>
-        <DPad />
-        <Controls />
+        <Display pixels = {this.state.pixels} />
+        <DPad button = {this.state.button} />
+        <Controls button = {this.state.button} />
       </div>
     )
   }

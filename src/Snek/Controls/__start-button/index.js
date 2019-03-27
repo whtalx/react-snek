@@ -1,9 +1,9 @@
 import React from 'react'
 import './index.css'
 
-function StartButton () {
+function StartButton (props) {
   return (
-    <div id = 'start' className = 'controls__start-button button'></div>
+    <div id = 'start' className = {'controls__start-button button '+ (props.button === 'start'? 'button_pressed' : null)}></div>
   )
 }
 

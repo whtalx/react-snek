@@ -2,10 +2,10 @@ import React from 'react'
 import './index.css'
 import PauseButton from '../__pause-button'
 
-function Pause () {
+function Pause (props) {
   return (
     <div className = 'controls__pause'>
-      <PauseButton />
+      <PauseButton button = {props.button} />
       pause
     </div>
   )

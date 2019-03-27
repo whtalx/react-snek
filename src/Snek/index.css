@@ -15,7 +15,7 @@
     .5vh .5vh .75vh #9d9f8f,
     0 -.5vh 0 .25vh #aeaf9e;
 }
-.button:active {
+.button:active, .button_pressed {
   transform: translateY(-.5vh);
   box-shadow:
   inset -.25vh -.25vh .5vh 0 #d4b500,
