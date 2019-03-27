@@ -3,5 +3,4 @@ export default function clrScr() {
     state.pixels.forEach(item => {item.status = 'off'})
     return state
   })
-  console.log('clrscr')
 }

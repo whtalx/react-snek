@@ -3,7 +3,7 @@ margin: 0 auto;
 height: 3vh;
 width: 18vh;
 background-size: 100% 100%;
-background-image: url('./legend.svg');
+background-image: url('../../../svg/legend.svg');
 border-left: 1vh solid #D9DBC5;
 border-right: 1vh solid #D9DBC5;
 }
