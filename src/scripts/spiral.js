@@ -2,48 +2,79 @@ export default function spiral(x1 = 0, y1 = 0, x2 = 9, y2 = 19) {
   if (this.state.isAlive) return
   let x = x1
   let y = y1
+  let requestAnimationFrameId;
+  
   let toRight = () => {
     if (this.state.isAlive) return
+    
+    if (requestAnimationFrameId) {
+      cancelAnimationFrame(requestAnimationFrameId);
+    }
+
     this.setState(state => {
         state.pixels[y * 10 + x].status = 'on'
         return state
     })
     x++
     if (x < x2) {
-      requestAnimationFrame(toRight)
-    } else requestAnimationFrame(toBottom)
+      requestAnimationFrameId = requestAnimationFrame(toRight)
+    } else {
+      requestAnimationFrameId = requestAnimationFrame(toBottom)
+    }
   }
+
   let toBottom = () => {
     if (this.state.isAlive) return
+
+    if (requestAnimationFrameId) {
+      cancelAnimationFrame(requestAnimationFrameId);
+    }
+
     this.setState(state => {
         state.pixels[y * 10 + x].status = 'on'
         return state
     })
     y++
     if (y < y2) {
-      requestAnimationFrame(toBottom)
-    } else requestAnimationFrame(toLeft)
+      requestAnimationFrameId = requestAnimationFrame(toBottom)
+    } else {
+      requestAnimationFrameId = requestAnimationFrame(toLeft)
+    }
   }
+
   let toLeft = () => {
     if (this.state.isAlive) return
+
+    if (requestAnimationFrameId) {
+      cancelAnimationFrame(requestAnimationFrameId);
+    }
+
     this.setState(state => {
         state.pixels[y * 10 + x].status = 'on'
         return state
     })
     x--
     if (x > x1) {
-      requestAnimationFrame(toLeft)
-    } else requestAnimationFrame(toTop)
+      requestAnimationFrameId = requestAnimationFrame(toLeft)
+    } else {
+      requestAnimationFrameId = requestAnimationFrame(toTop)
+    }
   }
+
   let toTop = () => {
     if (this.state.isAlive) return
+
+    if (requestAnimationFrameId) {
+      cancelAnimationFrame(requestAnimationFrameId);
+    }
+
     this.setState(state =>{
         state.pixels[y * 10 + x].status = 'on'
         return state
     })
     y--
     if (y > y1) {
-      requestAnimationFrame(toTop)
+      requestAnimationFrameId = requestAnimationFrame(toTop)
     } else if (x1 < 4) {
       x1++
       y1++
@@ -54,5 +85,6 @@ export default function spiral(x1 = 0, y1 = 0, x2 = 9, y2 = 19) {
       this.slither()
     }
   }
-  requestAnimationFrame(toRight)
+
+  requestAnimationFrameId = requestAnimationFrame(toRight)
 }
