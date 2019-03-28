@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/rect-snek/precache-manifest.2f23e033f064903074821e5ec8a9f7d0.js"
+  "/rect-snek/precache-manifest.5886a37205afed58acba327cdaf4e3a0.js"
 );
 
 workbox.clientsClaim();
