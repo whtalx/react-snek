@@ -7,6 +7,7 @@ import handleMouseDown from '../scripts/handleMouseDown'
 import handleButtonUp from '../scripts/handleButtonUp'
 import handleKeyDown from '../scripts/handleKeyDown'
 import switchPixels from '../scripts/switchPixels'
+import spiral from '../scripts/spiral'
 import slither from '../scripts/slither'
 import clrScr from '../scripts/clrScr'
 
@@ -31,19 +32,18 @@ export default class Snek extends Component {
     this.handleButtonUp = handleButtonUp.bind(this)
     this.handleKeyDown = handleKeyDown.bind(this)
     this.switchPixels = switchPixels.bind(this)
+    this.spiral = spiral.bind(this)
     this.slither = slither.bind(this)
     this.clrScr = clrScr.bind(this)
-  }
-
- 
+  } 
 
   componentDidMount() {
     document.addEventListener('mousedown', this.handleMouseDown)
     document.addEventListener('mouseup', this.handleButtonUp)
     document.addEventListener('keydown', this.handleKeyDown)
     document.addEventListener('keyup', this.handleButtonUp)
-    this.slither()
-    setTimeout(()=>{this.setState({isAlive : true}); this.clrScr()}, 10000)
+    this.spiral(0, 0, 9, 19)
+    //setTimeout(()=>{this.setState({isAlive : true}); this.clrScr()}, 5000)
     //this.switchPixels(this.state.snake)
   }
 
@@ -54,6 +54,14 @@ export default class Snek extends Component {
     document.removeEventListener('keyup', this.handleButtonUp)
   }
 
+  componentDidUpdate() {
+    if (!this.state.isAlive && this.state.button === 'start') {
+      this.clrScr()
+      this.setState({isAlive : true})
+      this.switchPixels(this.state.snake)
+    }
+  }
+  
   render() {
     return (
       <div className = 'snek'>

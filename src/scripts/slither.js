@@ -5,6 +5,7 @@ export default function slither() {
   let frame2 = slitherJSON["2"]
   this.setState({pixels : frame1})
   setTimeout(() => {
+    if (this.state.isAlive) return
     this.setState({pixels : frame2})
   }, 500)
   setTimeout(this.slither,1000)
