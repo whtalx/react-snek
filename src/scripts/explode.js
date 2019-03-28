@@ -1,5 +1,9 @@
 export default function explode(pixel) {
   if (this.state.isAlive) return
+  this.spiral();
+  return;
+
+
   pixel.status = 'on'
   let small = [pixel]
   let medium = []
@@ -15,6 +19,7 @@ export default function explode(pixel) {
       }
     }
   }
+
   let makeLarge = s => {
     for (let x = -2; x < 3; x++) {
       if (Math.abs(x % 2) === 0) {
@@ -52,7 +57,9 @@ export default function explode(pixel) {
       this.switchPixels(large.concat(medium))
       if (counter < 3 ) {
         requestAnimationFrame(badaboom)
-      } else this.spiral()
+      } else {
+        this.spiral();
+      }
 
     }
 
