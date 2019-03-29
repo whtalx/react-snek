@@ -1,3 +1,6 @@
+import React from 'react'
+import Pixel from '../Snek/Display/__pixel'
+
 export default function switchPixels(pixels) {
   let newPixels = this.state.pixels
   pixels.forEach((item) =>{
@@ -10,7 +13,7 @@ export default function switchPixels(pixels) {
        item.status === 'off' ||
        item.status === 'blink')) {
           let index = item.x + item.y * 10
-          newPixels[index].status = item.status
+          newPixels[index] = <Pixel key = {index} status = {item.status} />
     }
   })
   this.setState({'pixels' : newPixels})

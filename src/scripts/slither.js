@@ -1,12 +1,17 @@
 import slitherJSON from '../data/slither'
+
 export default function slither() {
-  if (this.state.isAlive) return
+  if (this.state.isAlive) return;
+
   let frame1 = slitherJSON["1"]
   let frame2 = slitherJSON["2"]
-  this.setState({pixels : frame1})
+
+  this.switchPixels(frame1);
+
   setTimeout(() => {
-    if (this.state.isAlive) return
-    this.setState({pixels : frame2})
-  }, 500)
-  setTimeout(this.slither,1000)
+    if (this.state.isAlive) return;
+    this.switchPixels(frame2);
+  }, 400);
+
+  setTimeout(this.slither, 800);
 }
