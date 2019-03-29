@@ -43,6 +43,6 @@ export default function handleKeyDown(event) {
       }
       break;
     default:
-      return null;
+      return;
   }
 }

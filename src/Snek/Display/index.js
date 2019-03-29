@@ -13,7 +13,7 @@ function Display (props) {
               <div className = 'display__frame'>
                 {props.children}
               </div>
-              <Side />
+              <Side paused = {props.paused} />
             </div>
           </div>
       </fieldset>

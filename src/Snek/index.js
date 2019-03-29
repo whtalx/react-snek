@@ -25,6 +25,8 @@ export default class Snek extends Component {
     this.state = {
       pixels: [],
       button: null,
+      direction: 'right',
+      snake: [],
       isAlive: false,
       isPaused: false
     }
@@ -36,9 +38,6 @@ export default class Snek extends Component {
       }
       this.setState({pixels: grid})? this.setState({pixels: grid}) : this.state.pixels = grid;
     }
-
-    this.game = null;
-    this.snake = [{x: 1, y: 9, status : 'on'}, {x: 2, y: 9, status: 'on'}, {x: 3, y: 9, status: 'blink'}];
 
     this.removeEventListeners = removeEventListeners.bind(this);
     this.addEventListeners = addEventListeners.bind(this);
@@ -58,7 +57,7 @@ export default class Snek extends Component {
   componentDidMount() {
     this.clrScr();
     this.addEventListeners();
-    this.explode(this.snake[2]);
+    this.slither();
   }
 
   componentWillUnmount() {
@@ -68,7 +67,7 @@ export default class Snek extends Component {
   render() {
     return (
       <div className = 'snek'>
-        <Display>
+        <Display paused = {this.state.isPaused}>
           {this.state.pixels}
         </Display>
         <DPad button = {this.state.button} />

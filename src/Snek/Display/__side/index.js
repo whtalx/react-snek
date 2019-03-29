@@ -6,14 +6,14 @@ import Level from '../__level'
 import Speed from '../__speed'
 import Pause from '../__pause'
 
-function Side () {
+function Side (props) {
   return (
     <div className = 'display__side'>
       <Score />
       <HiScore />
       <Level />
       <Speed />
-      <Pause />
+      <Pause paused = {props.paused} />
     </div>
   )
 }
