@@ -1,5 +1,6 @@
 export default function handleMouseDown(event) {
-  if (event.target.id) {
-    this.setState({button: event.target.id})
+  console.log(event.target.id + ' down');
+  if (event.target.id === 'start' && !this.state.isAlive) {
+    this.start();
   }
 }

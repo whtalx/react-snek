@@ -3,7 +3,7 @@ import './index.css'
 
 function PauseButton (props) {
   return (
-    <div id = 'pause' className = {'controls__pause-button button '+ (props.button === 'pause'? 'button_pressed' : null)}></div>
+    <div id = 'pause' className = {'controls__pause-button button'+ (props.button === 'pause'? ' button_pressed' : '')}></div>
   )
 }
 
