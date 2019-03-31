@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "b3a5b614796203da7ba6",
-    "url": "/rect-snek/static/css/main.0d019c8f.chunk.css"
+    "revision": "201dae7d0d339df25028",
+    "url": "/rect-snek/static/css/main.bffb5e31.chunk.css"
   },
   {
-    "revision": "b3a5b614796203da7ba6",
-    "url": "/rect-snek/static/js/main.eed918eb.chunk.js"
+    "revision": "201dae7d0d339df25028",
+    "url": "/rect-snek/static/js/main.5c0c0189.chunk.js"
   },
   {
     "revision": "dcdf937c2b133e9b45c7",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/rect-snek/static/media/arrows.88ec1662.svg"
   },
   {
-    "revision": "54a2fe3f5c2a989215371514fb92013b",
+    "revision": "26eaba9aa030eba79079b37b05ea6c00",
     "url": "/rect-snek/index.html"
   }
 ];
