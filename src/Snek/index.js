@@ -17,26 +17,42 @@ import spiral from '../scripts/spiral'
 import start from '../scripts/start'
 import pause from '../scripts/pause'
 import resume from '../scripts/resume'
+import turboSpeed from '../scripts/turboSpeed'
+import newFood from '../scripts/newFood'
+import play from '../scripts/play'
+import gameOver from '../scripts/gameOver'
 
 export default class Snek extends Component {
-  constructor (props) {
-    super(props);
-    
+  constructor () {
+    super();
+
     this.state = {
       pixels: [],
+      food: [],
+      snake: [],
+      score: 0,
+      hiScore: 0,
+      level: 1,
+      speed: 1,
       button: null,
       direction: 'right',
-      snake: [],
+      nextDirection: null,
+      speedCoefficient: 50,
+      scoreCoefficient: 25,
+      subtrahend: 50,
       isAlive: false,
       isPaused: false
     }
+
+    this.gameTimeout = null;
+    this.turboTimeout = null;
 
     this.clrScr = () => {
       let grid = []
       for (let i = 0; i < 200; i++) {
         grid[i] = <Pixel key = {i} status = 'off' />
       }
-      this.setState({pixels: grid})? this.setState({pixels: grid}) : this.state.pixels = grid;
+      this.setState({pixels: grid});
     }
 
     this.removeEventListeners = removeEventListeners.bind(this);
@@ -52,6 +68,10 @@ export default class Snek extends Component {
     this.start = start.bind(this);
     this.pause = pause.bind(this);
     this.resume = resume.bind(this);
+    this.turboSpeed = turboSpeed.bind(this);
+    this.newFood = newFood.bind(this);
+    this.play = play.bind(this);
+    this.gameOver = gameOver.bind(this);
   }
 
   componentDidMount() {

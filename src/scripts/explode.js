@@ -1,7 +1,7 @@
 export default function explode(pixel) {
   if (this.state.isAlive) return;
 
-  let small = [pixel]
+  let small = pixel
   let medium = []
   let large = []
   let counter = 0
@@ -10,7 +10,7 @@ export default function explode(pixel) {
     for (let x = -1; x <= 1; x++) {
       for (let y = -1; y <= 1; y++) {
         if (x !== 0 || y !== 0 ) {
-          medium = medium.concat([{'x': (x + pixel.x), 'y': (y + pixel.y), 'status': s}])
+          medium = medium.concat([{'x': (x + pixel[0].x), 'y': (y + pixel[0].y), 'status': s}])
         }
       }
     }
@@ -21,7 +21,7 @@ export default function explode(pixel) {
       if (Math.abs(x % 2) === 0) {
         for (let y = -2; y < 3; y++) {
           if (Math.abs(y % 2) === 0) {
-            large = large.concat([{'x': (x + pixel.x), 'y': (y + pixel.y), 'status': s}]);
+            large = large.concat([{'x': (x + pixel[0].x), 'y': (y + pixel[0].y), 'status': s}]);
           }
         }
       }

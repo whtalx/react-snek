@@ -1,14 +1,20 @@
 export default function handleMouseDown(event) {
-  let isAlive = this.state.isAlive
-  let isPaused = this.state.isPaused
-  let direction = this.state.direction
-  let snakeHead = this.state.snake[this.state.snake.length - 1]
+  event.preventDefault();
+  let isAlive = this.state.isAlive;
+  let isPaused = this.state.isPaused;
+  let direction = this.state.direction;
+  let nextDirection = this.state.nextDirection;
+  let snakeHead = this.state.snake[this.state.snake.length - 1];
 
   switch (event.target.id) {
     case 'start':
-      if (!isAlive) {
-        this.start();
+      if (isAlive) {
+        this.setState({
+          level: 1,
+          speed: 1
+        });
       }
+      this.start();
       break;
 
     case 'pause':
@@ -24,8 +30,10 @@ export default function handleMouseDown(event) {
       if (isAlive &&
           !isPaused &&
           direction !== 'right' &&
+          nextDirection === null &&
           snakeHead.x !== 0 ) {
-        this.setState({direction: 'left'});
+        this.setState({nextDirection: 'left'});
+        this.turboTimeout = setTimeout(this.turboSpeed, 400);
       }
       break;
 
@@ -33,8 +41,10 @@ export default function handleMouseDown(event) {
       if (isAlive &&
           !isPaused &&
           direction !== 'left' &&
+          nextDirection === null &&
           snakeHead.x !== 9 ) {
-        this.setState({direction: 'right'});
+        this.setState({nextDirection: 'right'});
+        this.turboTimeout = setTimeout(this.turboSpeed, 400);
       }
       break;
 
@@ -42,8 +52,10 @@ export default function handleMouseDown(event) {
       if (isAlive &&
           !isPaused &&
           direction !== 'down' &&
+          nextDirection === null &&
           snakeHead.y !== 0 ) {
-        this.setState({direction: 'up'});
+        this.setState({nextDirection: 'up'});
+        this.turboTimeout = setTimeout(this.turboSpeed, 400);
       }
       break;
 
@@ -51,8 +63,10 @@ export default function handleMouseDown(event) {
     if (isAlive &&
         !isPaused &&
         direction !== 'up' &&
+        nextDirection === null &&
         snakeHead.y !== 19 ) {
-      this.setState({direction: 'down'});
+      this.setState({nextDirection: 'down'});
+      this.turboTimeout = setTimeout(this.turboSpeed, 400);
     }
     break;
 
