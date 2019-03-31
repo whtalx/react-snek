@@ -9,10 +9,10 @@ import Pause from '../__pause'
 function Side (props) {
   return (
     <div className = 'display__side'>
-      <Score />
-      <HiScore />
-      <Level />
-      <Speed />
+      <Score score = {props.score} />
+      <HiScore hiScore = {props.hiScore} />
+      <Level level = {props.level} />
+      <Speed speed = {props.speed} />
       <Pause paused = {props.paused} />
     </div>
   )

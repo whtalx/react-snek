@@ -1,3 +1,3 @@
 export default function turboSpeed() {
-  this.setState({subtrahend: 500});
+  this.setState({subtrahend: 325});
 }

@@ -8,12 +8,6 @@ export default function handleMouseDown(event) {
 
   switch (event.target.id) {
     case 'start':
-      if (isAlive) {
-        this.setState({
-          level: 1,
-          speed: 1
-        });
-      }
       this.start();
       break;
 

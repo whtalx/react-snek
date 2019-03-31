@@ -20,6 +20,7 @@ import resume from '../scripts/resume'
 import turboSpeed from '../scripts/turboSpeed'
 import newFood from '../scripts/newFood'
 import play from '../scripts/play'
+import levelUp from '../scripts/levelUp'
 import gameOver from '../scripts/gameOver'
 
 export default class Snek extends Component {
@@ -37,9 +38,9 @@ export default class Snek extends Component {
       button: null,
       direction: 'right',
       nextDirection: null,
-      speedCoefficient: 50,
+      speedCoefficient: 25,
       scoreCoefficient: 25,
-      subtrahend: 50,
+      subtrahend: 25,
       isAlive: false,
       isPaused: false
     }
@@ -71,6 +72,7 @@ export default class Snek extends Component {
     this.turboSpeed = turboSpeed.bind(this);
     this.newFood = newFood.bind(this);
     this.play = play.bind(this);
+    this.levelUp = levelUp.bind(this);
     this.gameOver = gameOver.bind(this);
   }
 
@@ -78,6 +80,12 @@ export default class Snek extends Component {
     this.clrScr();
     this.addEventListeners();
     this.slither();
+
+    if (!localStorage.getItem('hiscore')) {
+      localStorage.setItem('hiscore', this.state.hiScore);
+    } else if (parseInt(localStorage.getItem('hiscore')) > this.state.hiScore) {
+        this.setState({hiScore: parseInt(localStorage.getItem('hiscore'))});
+    }
   }
 
   componentWillUnmount() {
@@ -87,7 +95,13 @@ export default class Snek extends Component {
   render() {
     return (
       <div className = 'snek'>
-        <Display paused = {this.state.isPaused}>
+        <Display
+          paused = {this.state.isPaused}
+          score = {this.state.score}
+          hiScore = {this.state.hiScore}
+          level = {this.state.level}
+          speed = {this.state.speed}
+        >
           {this.state.pixels}
         </Display>
         <DPad button = {this.state.button} />

@@ -3,6 +3,8 @@ import slitherJSON from '../data/slither'
 export default function slither() {
   if (this.state.isAlive) return;
 
+  this.setState({speed: 1});
+
   let frame1 = slitherJSON["1"]
   let frame2 = slitherJSON["2"]
 

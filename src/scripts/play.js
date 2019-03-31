@@ -66,7 +66,7 @@ export default function play() {
   if (nextCoord.x === food[0].x && nextCoord.y === food[0].y) {
     this.newFood();
     snake.unshift(tail);
-    console.log('levelUp');
+    this.levelUp();
   }
 
   /* draw snake with new coordinates */

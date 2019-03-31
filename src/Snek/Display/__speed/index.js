@@ -2,10 +2,10 @@ import React from 'react'
 import './index.css'
 import SpeedValue from '../__speed-value'
 
-function Score () {
+function Score (props) {
   return (
     <div className = 'display__speed'>
-      <SpeedValue />
+      <SpeedValue speed = {props.speed} />
       SPEED
     </div>
   )

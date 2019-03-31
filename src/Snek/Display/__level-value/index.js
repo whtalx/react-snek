@@ -1,10 +1,10 @@
 import React from 'react'
 import './index.css'
 
-function LevelValue () {
+function LevelValue (props) {
   return (
     <p className = 'display__level-value'>
-      00
+      {("0" + props.level).slice(-2)}
     </p>
   )
 }

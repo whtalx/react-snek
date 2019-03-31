@@ -35,19 +35,19 @@ export default function explode(pixel) {
     let mediumBoom = () => {
       if (this.state.isAlive) return;
 
-      makeMedium('on');
+      makeMedium('blink');
       this.switchPixels(medium);
 
-      setTimeout(largeBoom, 80);
+      setTimeout(largeBoom, 60);
     }
 
     let largeBoom = () => {
       if (this.state.isAlive) return;
 
-      makeLarge('on');
+      makeLarge('blink');
       this.switchPixels(large);
 
-      setTimeout(smallBoom, 80);
+      setTimeout(smallBoom, 60);
     }
 
     let smallBoom = () => {
@@ -56,6 +56,7 @@ export default function explode(pixel) {
       makeMedium('off');
       makeLarge('off');
       this.switchPixels(large.concat(medium));
+      this.switchPixels(this.state.snake);
 
       if (counter < 3 ) {
         setTimeout(badaboom, 80);

@@ -1,4 +1,4 @@
 export default function resume() {
-  this.setState({isPaused: false});
-  this.gameTimeout = setTimeout(this.play, 600 - this.state.subtrahend);
+  if (this.state.isPaused) this.setState({isPaused: false});
+  this.gameTimeout = setTimeout(this.play, 400 - this.state.subtrahend);
 }
