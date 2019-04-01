@@ -22,6 +22,7 @@ import newFood from '../scripts/newFood'
 import play from '../scripts/play'
 import levelUp from '../scripts/levelUp'
 import gameOver from '../scripts/gameOver'
+import reverse from '../scripts/reverse'
 
 export default class Snek extends Component {
   constructor () {
@@ -38,9 +39,9 @@ export default class Snek extends Component {
       button: null,
       direction: 'right',
       nextDirection: null,
-      speedCoefficient: 25,
+      speedCoefficient: 30,
       scoreCoefficient: 25,
-      subtrahend: 25,
+      subtrahend: 30,
       isAlive: false,
       isPaused: false
     }
@@ -74,6 +75,7 @@ export default class Snek extends Component {
     this.play = play.bind(this);
     this.levelUp = levelUp.bind(this);
     this.gameOver = gameOver.bind(this);
+    this.reverse = reverse.bind(this);
   }
 
   componentDidMount() {
