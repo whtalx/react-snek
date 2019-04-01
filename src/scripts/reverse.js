@@ -1,5 +1,6 @@
 export default function reverse() {
   let snake = this.state.snake;
+
   let reverse = () => {
     this.setState(state => {
       state.snake.reverse();
@@ -7,21 +8,29 @@ export default function reverse() {
     });
   }
 
+  let turbo = () => {
+    if (this.turboTimeout === null) this.turboTimeout = setTimeout(this.turboSpeed, 400);
+  }
+
   if (snake[0].x !== snake[1].x) {
-    if (snake[0].x < snake[1].x) {
+    if (snake[0].x < snake[1].x && snake[0].x !== 0) {
       this.setState({nextDirection: 'left'});
       reverse();
-    } else if (snake[0].x > snake[1].x) {
+      turbo();
+    } else if (snake[0].x > snake[1].x && snake[0].x !== 9) {
       this.setState({nextDirection: 'right'});
       reverse();
+      turbo();
     }
-  } else if (snake[0].y !== snake[1].y) {
+  } else if (snake[0].y !== snake[1].y && snake[0].y !== 0) {
     if (snake[0].y < snake[1].y) {
       this.setState({nextDirection: 'up'});
       reverse();
-    } else if (snake[0].y > snake[1].y) {
+      turbo();
+    } else if (snake[0].y > snake[1].y && snake[0].y !== 19) {
       this.setState({nextDirection: 'down'});
       reverse();
+      turbo();
     }
   }
 }

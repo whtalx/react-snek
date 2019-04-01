@@ -1,15 +1,30 @@
-export default function start() {
+import obstacles from '../data/obstacles'
+
+export default function start(keepStats = false) {
   clearTimeout(this.gameTimeout);
   clearTimeout(this.turboTimeout);
   this.clrScr();
+  if (!keepStats) {
+    this.setState({
+      scores: 0,
+      level: 0,
+      speed: 0
+    });
+  }
   this.setState({
-    score: 0,
-    speed: 1,
     direction: 'right',
-    subtrahend: 25,
+    subtrahend: this.state.speedCoefficient,
     isAlive: true,
-    snake: [{x: 1, y: 9, status : 'on'}, {x: 2, y: 9, status: 'on'}, {x: 3, y: 9, status: 'blink'}]
+    snake: [{x: 1, y: 5, status : 'on'}, {x: 2, y: 5, status: 'on'}, {x: 3, y: 5, status: 'blink'}]
   });
+  
+  let obstacle = obstacles[this.state.level];
+  obstacle.forEach(item => {
+    item.status = 'on';
+  });
+  this.setState({obstacle: obstacle});
+
+  this.switchPixels(this.state.obstacle);
   this.switchPixels(this.state.snake);
   this.newFood();
   this.resume();

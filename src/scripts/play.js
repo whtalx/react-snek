@@ -1,16 +1,9 @@
 export default function play() {
   let food = this.state.food;
   let snake = this.state.snake;
+  let obstacle = this.state.obstacle;
   let nextDirection = this.state.nextDirection;
 
-  /* if food appeared iside snake -- make new food */
-  snake.forEach(item => {
-    if (item.x === food[0].x && item.y === food[0].y) {
-      this.newFood();
-    }
-  });
-
-    this.switchPixels(food);
 
   /* declaring snake parts */
   let tail = snake[0];
@@ -49,6 +42,13 @@ export default function play() {
       }
   });
 
+  /* bump an obstacle game over */
+  obstacle.forEach(item => {
+    if ( item.x === nextCoord.x && item.y === nextCoord.y) {
+      this.gameOver([item]);
+      }
+  });
+
   /* get off screen game over */
   if (nextCoord.x > 9 ||
       nextCoord.x < 0 ||
@@ -61,18 +61,18 @@ export default function play() {
   head.status = 'on';
   nextCoord.status = 'blink';
   snake.push(nextCoord);
+
+  /* draw snake with new coordinates */
+  this.setState({snake: snake});
+  this.switchPixels(snake);
   
   /*grow if eating food, make new food */
   if (nextCoord.x === food[0].x && nextCoord.y === food[0].y) {
     this.newFood();
     snake.unshift(tail);
     this.levelUp();
-  }
-
-  /* draw snake with new coordinates */
-  this.setState({snake: snake});
-  this.switchPixels(snake);
-
+  } else {
   /* repeat until death */
   if (this.state.isAlive) this.resume();
+  }
 }

@@ -1,19 +1,26 @@
 export default function handleMouseDown(event) {
   event.preventDefault();
+
   let isAlive = this.state.isAlive;
   let isPaused = this.state.isPaused;
   let direction = this.state.direction;
   let nextDirection = this.state.nextDirection;
   let snakeHead = this.state.snake[this.state.snake.length - 1];
-  let snakeTail = this.state.snake[0];
+  /* let level = this.state.level;
+  let speed = this.state.speed; */
+
   let move = () => {
     clearTimeout(this.gameTimeout);
     this.play();
   }
 
+  let turbo = () => {
+    if (this.turboTimeout === null) this.turboTimeout = setTimeout(this.turboSpeed, 400);
+  }
+
   switch (event.target.id) {
     case 'start':
-      this.start();
+      if (!isAlive) this.start();
       break;
 
     case 'pause':
@@ -29,56 +36,72 @@ export default function handleMouseDown(event) {
       if (isAlive && !isPaused && nextDirection === null) {
         if (direction !== 'right' && snakeHead.x !== 0) {
           this.setState({nextDirection: 'left'});
-          this.turboTimeout = setTimeout(this.turboSpeed, 400);
+          turbo();
           move();
-        } else if (direction === 'right' && snakeTail.x !== 0) {
+        } else if (direction === 'right') {
           this.reverse();
-          this.turboTimeout = setTimeout(this.turboSpeed, 400);
-          move();
+          //move();
         }
-      }
+      } /* else if (!isAlive && speed > 0) {
+        this.setState(state => {
+          state.speed--;
+          return state;
+        });
+      } */
       break;
 
     case 'right':
       if (isAlive && !isPaused && nextDirection === null) {
-        if (direction !== 'left' && snakeHead.x !== 9 ) {
+        if (direction !== 'left' && snakeHead.x !== 9) {
           this.setState({nextDirection: 'right'});
-          this.turboTimeout = setTimeout(this.turboSpeed, 400);
+          turbo();
           move();
-        } else if (direction === 'left' && snakeTail.x !== 9) {
+        } else if (direction === 'left') {
           this.reverse();
-          this.turboTimeout = setTimeout(this.turboSpeed, 400);
-          move();
+          //move();
         }
-      }
+      } /* else if (!isAlive && speed < 6) {
+        this.setState(state => {
+          state.speed++;
+          return state;
+        });
+      } */
       break;
 
     case 'up':
       if (isAlive && !isPaused && nextDirection === null) {
-        if (direction !== 'down' && snakeHead.y !== 0 ) {
+        if (direction !== 'down' && snakeHead.y !== 0) {
           this.setState({nextDirection: 'up'});
-          this.turboTimeout = setTimeout(this.turboSpeed, 400);
+          turbo();
           move();
-        } else if (direction === 'down' && snakeTail.y !== 0) {
+        } else if (direction === 'down') {
           this.reverse();
-          this.turboTimeout = setTimeout(this.turboSpeed, 400);
-          move();
+          //move();
         }
-      }
+      } /* else if (!isAlive && level < 6) {
+        this.setState(state => {
+          state.level++;
+          return state;
+        });
+      } */
       break;
 
     case 'down':
     if (isAlive && !isPaused && nextDirection === null) {
-      if (direction !== 'up' && snakeHead.y !== 19 ) {
+      if (direction !== 'up' && snakeHead.y !== 19) {
         this.setState({nextDirection: 'down'});
-        this.turboTimeout = setTimeout(this.turboSpeed, 400);
+        turbo();
         move();
-      } else if (direction === 'up' && snakeTail.y !== 19) {
+      } else if (direction === 'up') {
         this.reverse();
-        this.turboTimeout = setTimeout(this.turboSpeed, 400);
-        move();
+        //move();
       }
-    }
+    } /* else if (!isAlive && level > 0) {
+      this.setState(state => {
+        state.level--;
+        return state;
+      });
+    } */
     break;
 
     default:
