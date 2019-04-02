@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "110a69aa3e68acf84330",
-    "url": "/rect-snek/static/css/main.bffb5e31.chunk.css"
+    "revision": "5fc4865a071b13f047de",
+    "url": "/rect-snek/static/css/main.805ca0ae.chunk.css"
   },
   {
-    "revision": "110a69aa3e68acf84330",
-    "url": "/rect-snek/static/js/main.8f09a075.chunk.js"
+    "revision": "5fc4865a071b13f047de",
+    "url": "/rect-snek/static/js/main.2eaa8f36.chunk.js"
   },
   {
     "revision": "dcdf937c2b133e9b45c7",
     "url": "/rect-snek/static/js/runtime~main.5a9d2e81.js"
   },
   {
-    "revision": "4ee43adf06a7e931516a",
-    "url": "/rect-snek/static/js/2.eaf8f90b.chunk.js"
+    "revision": "b97527cc79834825114d",
+    "url": "/rect-snek/static/js/2.cc6ab1f6.chunk.js"
   },
   {
     "revision": "ce409a4dbe4918929313e5a3f24d3e35",
@@ -24,12 +24,12 @@ self.__precacheManifest = [
     "url": "/rect-snek/static/media/DS-Digital.37c8019a.eot"
   },
   {
-    "revision": "223f224650510797e0f06233d2a0f97b",
-    "url": "/rect-snek/static/media/DS-Digital.223f2246.ttf"
-  },
-  {
     "revision": "37c8019ad30f65d06d99a40169ae5e46",
     "url": "/rect-snek/static/media/DS-Digital-iefix.37c8019a.eot"
+  },
+  {
+    "revision": "223f224650510797e0f06233d2a0f97b",
+    "url": "/rect-snek/static/media/DS-Digital.223f2246.ttf"
   },
   {
     "revision": "cad634a7201a7672b9d9e739dc4dd5b6",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/rect-snek/static/media/arrows.88ec1662.svg"
   },
   {
-    "revision": "ea6a192a79c44bed00729c77c8c753cd",
+    "revision": "a3ddf3536e86aa60a4ebd876cda16068",
     "url": "/rect-snek/index.html"
   }
 ];
