@@ -3,14 +3,15 @@ import obstacles from '../data/obstacles'
 export default function start(keepStats = false) {
   clearTimeout(this.gameTimeout);
   clearTimeout(this.turboTimeout);
-  this.clrScr();
+
   if (!keepStats) {
     this.setState({
-      scores: 0,
+      score: 0,
       level: 0,
       speed: 0
     });
   }
+  
   this.setState({
     direction: 'right',
     subtrahend: this.state.speedCoefficient,
@@ -23,9 +24,8 @@ export default function start(keepStats = false) {
     item.status = 'on';
   });
   this.setState({obstacle: obstacle});
-
-  this.switchPixels(this.state.obstacle);
-  this.switchPixels(this.state.snake);
+  
   this.newFood();
-  this.resume();
+
+  this.wipe();
 }

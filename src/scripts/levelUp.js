@@ -25,6 +25,7 @@ export default function levelUp() {
     this.setState(state => {
       state.level++;
       state.speed = 0;
+      state.isAlive = false;
       return state;
     });
     this.start(true);

@@ -23,6 +23,7 @@ import play from '../scripts/play'
 import levelUp from '../scripts/levelUp'
 import gameOver from '../scripts/gameOver'
 import reverse from '../scripts/reverse'
+import wipe from '../scripts/wipe'
 
 export default class Snek extends Component {
   constructor () {
@@ -44,7 +45,8 @@ export default class Snek extends Component {
       scoreCoefficient: 25,
       subtrahend: 0,
       isAlive: false,
-      isPaused: false
+      isPaused: false,
+      isWaiting: false
     }
 
     this.gameTimeout = null;
@@ -77,6 +79,7 @@ export default class Snek extends Component {
     this.levelUp = levelUp.bind(this);
     this.gameOver = gameOver.bind(this);
     this.reverse = reverse.bind(this);
+    this.wipe = wipe.bind(this);
   }
 
   componentDidMount() {

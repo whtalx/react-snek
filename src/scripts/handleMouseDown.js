@@ -6,11 +6,13 @@ export default function handleMouseDown(event) {
   let direction = this.state.direction;
   let nextDirection = this.state.nextDirection;
   let snakeHead = this.state.snake[this.state.snake.length - 1];
+  let isWaiting = this.state.isWaiting;
   /* let level = this.state.level;
   let speed = this.state.speed; */
 
   let move = () => {
     clearTimeout(this.gameTimeout);
+    if (isWaiting) this.setState({isWaiting: false});
     this.play();
   }
 
@@ -38,7 +40,7 @@ export default function handleMouseDown(event) {
           this.setState({nextDirection: 'left'});
           turbo();
           move();
-        } else if (direction === 'right') {
+        } else if (!isWaiting && direction === 'right') {
           this.reverse();
           //move();
         }
@@ -56,7 +58,7 @@ export default function handleMouseDown(event) {
           this.setState({nextDirection: 'right'});
           turbo();
           move();
-        } else if (direction === 'left') {
+        } else if (!isWaiting && direction === 'left') {
           this.reverse();
           //move();
         }
@@ -74,7 +76,7 @@ export default function handleMouseDown(event) {
           this.setState({nextDirection: 'up'});
           turbo();
           move();
-        } else if (direction === 'down') {
+        } else if (!isWaiting && direction === 'down') {
           this.reverse();
           //move();
         }
@@ -92,7 +94,7 @@ export default function handleMouseDown(event) {
         this.setState({nextDirection: 'down'});
         turbo();
         move();
-      } else if (direction === 'up') {
+      } else if (!isWaiting && direction === 'up') {
         this.reverse();
         //move();
       }
