@@ -3,4 +3,4 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import Snek from './Snek'
 
-ReactDOM.render(<Snek />, document.querySelector('.root'))
+ReactDOM.render(<Snek />, document.querySelector('.root'));

@@ -1,15 +1,19 @@
 import React from 'react'
 import './index.css'
-import Start from './__start'
-import Pause from './__pause'
+import StartButton from './__start-button'
+import PauseButton from './__pause-button'
 
-function Controls (props) {
+export default function Controls (props) {
   return (
     <div className = 'controls'>
-      <Start button = {props.button} />
-      <Pause button = {props.button} />
+      <div className = 'controls__start'>
+        <StartButton button = {props.button} />
+        start
+      </div>
+      <div className = 'controls__pause'>
+        <PauseButton button = {props.button} />
+        pause
+      </div>
     </div>
-  )
+  );
 }
-
-export default Controls

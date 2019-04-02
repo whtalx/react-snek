@@ -8,6 +8,7 @@ export default function wipe() {
     line[i] = {x: 0, y: i, status: 'on'}
   }
 
+  /* fill screen with switched on pixels */
   let fill = () => {
     this.switchPixels(line);
     if (line[0].x < 9) {
@@ -20,6 +21,7 @@ export default function wipe() {
     }
   }
 
+  /* fill screen with pixels switched according to snake, food and obstacle pixels */
   let empty = () => {
     line.forEach(lineItem => {
       lineItem.status = undefined;
@@ -51,8 +53,13 @@ export default function wipe() {
       });
       requestAnimationFrame(empty);
     } else {
-      this.setState({isWaiting: true});
-      setTimeout(() => {this.setState({isAlive: true})}, 100)
+      /* waiting for handleMouseDown function move() after 100ms */
+      setTimeout(() => {
+        this.setState({
+          isAlive: true,
+          isWaiting: true
+        });
+      }, 100);
     }
   }
 

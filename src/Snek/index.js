@@ -21,7 +21,6 @@ import turboSpeed from '../scripts/turboSpeed'
 import newFood from '../scripts/newFood'
 import play from '../scripts/play'
 import levelUp from '../scripts/levelUp'
-import gameOver from '../scripts/gameOver'
 import reverse from '../scripts/reverse'
 import wipe from '../scripts/wipe'
 
@@ -29,8 +28,13 @@ export default class Snek extends Component {
   constructor () {
     super();
 
+    let grid = [];
+    for (let i = 0; i < 200; i++) {
+      grid[i] = <Pixel key = {i} status = 'off' />
+    }
+
     this.state = {
-      pixels: [],
+      pixels: grid,
       food: [],
       snake: [],
       obstacle: [],
@@ -52,14 +56,6 @@ export default class Snek extends Component {
     this.gameTimeout = null;
     this.turboTimeout = null;
 
-    this.clrScr = () => {
-      let grid = []
-      for (let i = 0; i < 200; i++) {
-        grid[i] = <Pixel key = {i} status = 'off' />
-      }
-      this.setState({pixels: grid});
-    }
-
     this.removeEventListeners = removeEventListeners.bind(this);
     this.addEventListeners = addEventListeners.bind(this);
     this.handleMouseDown = handleMouseDown.bind(this);
@@ -77,13 +73,11 @@ export default class Snek extends Component {
     this.newFood = newFood.bind(this);
     this.play = play.bind(this);
     this.levelUp = levelUp.bind(this);
-    this.gameOver = gameOver.bind(this);
     this.reverse = reverse.bind(this);
     this.wipe = wipe.bind(this);
   }
 
   componentDidMount() {
-    this.clrScr();
     this.addEventListeners();
     this.slither();
 

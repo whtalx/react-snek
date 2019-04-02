@@ -9,9 +9,14 @@ export default function reverse() {
   }
 
   let turbo = () => {
-    if (this.turboTimeout === null) this.turboTimeout = setTimeout(this.turboSpeed, 400);
+    if (this.turboTimeout === null) {
+      this.turboTimeout = setTimeout(this.turboSpeed, 400);
+    }
   }
 
+  /* new direction is direction which snake's tail point to
+   * calculated by coordinates of last and penultimate item
+   */
   if (snake[0].x !== snake[1].x) {
     if (snake[0].x < snake[1].x && snake[0].x !== 0) {
       this.setState({nextDirection: 'left'});

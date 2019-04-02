@@ -5,3 +5,19 @@
   width: 36vh;
   margin: 0 auto;
 }
+.controls__start,
+.controls__pause {
+  display: inline-block;
+  width: 9vh;
+  height: 8vh;
+  text-align: center;
+  color: #041b17;
+  font: bold small-caps 2.5vh Tahoma, Geneva, sans-serif;
+  
+}
+.controls__start {
+  float: left;
+}
+.controls__pause {
+  float: right;
+}

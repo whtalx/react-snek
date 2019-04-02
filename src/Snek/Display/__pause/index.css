@@ -14,3 +14,8 @@
   color: #313729;
   fill: #313729;
 }
+.display__pause-svg {
+  height: 5vh;
+  width: 5vh;
+  margin-top: 1vh;
+}

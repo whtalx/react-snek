@@ -5,6 +5,7 @@ export default function levelUp() {
   let hiScore = this.state.hiScore;
   let scoreCoefficient = this.state.scoreCoefficient;
 
+  /* increase speed every third food eaten */
   if (this.state.snake.length % 3 === 0) {
     this.setState(state => {
       state.speed++;
@@ -13,6 +14,7 @@ export default function levelUp() {
     });
   }
 
+  /* calculate new scores */
   score += scoreCoefficient * (level + 1) * (speed + 1);
   this.setState({score: score});
 
@@ -20,7 +22,8 @@ export default function levelUp() {
     this.setState({hiScore: score});
     localStorage.setItem("hiscore", hiScore);
   }
-  
+
+  /* increase level after sixth speed */
   if (this.state.speed > 6) {
     this.setState(state => {
       state.level++;
@@ -28,6 +31,7 @@ export default function levelUp() {
       state.isAlive = false;
       return state;
     });
+    /* start new level with scores saving */
     this.start(true);
   } else {
   /* repeat until death */

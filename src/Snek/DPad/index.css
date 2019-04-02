@@ -4,3 +4,19 @@
   width: 30vh;
   height: 30vh;
 }
+.d-pad__left,
+.d-pad__center,
+.d-pad__right {
+  margin: 0;
+  display: inline-block;
+  height: 100%;
+  width: 33%;
+}
+.d-pad__arrows {
+  position: relative;
+  margin: 0;
+  height: 34%;
+  width: 100%;
+  background: url('../../svg/arrows.svg') center no-repeat;
+  background-size: 90%;
+}

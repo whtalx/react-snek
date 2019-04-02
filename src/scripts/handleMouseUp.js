@@ -1,6 +1,8 @@
 export default function handleMouseUp(event) {
-  event.preventDefault();
+  /* prevent mouseup event if caused by touchend */
+  if (event.type === 'touchend') event.preventDefault();
   
+  /* turn off turbo and reset playing speed */
   clearTimeout(this.turboTimeout);
   this.turboTimeout = null;
 

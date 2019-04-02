@@ -49,3 +49,32 @@
   padding: .5vh;
   outline: .5vh solid #313729;
 }
+.display__side {
+  position: relative;
+  float: right;
+  width: 11vh;
+  color: #313729;
+}
+.display__score,
+.display__hi-score,
+.display__level,
+.display__speed {
+  text-align: center;
+  font-family: arial;
+  font-style: italic;
+  font-size: 1.25vh;
+  line-height: 2vh;
+}
+.display__score {
+  margin: 1vh auto;
+}
+.display__hi-score {
+  margin-bottom: 1vh;
+}
+.display__level {
+  margin-top: 2vh;
+  margin-bottom: 1.25vh;
+}
+.display__speed {
+  margin-top: 1vh;
+}

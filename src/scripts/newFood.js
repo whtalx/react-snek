@@ -21,6 +21,4 @@ export default function newFood() {
   this.setState({
     food: [{x: foodX, y: foodY, status : 'blink'}]
   });
-  
-  this.switchPixels(this.state.food);
 }

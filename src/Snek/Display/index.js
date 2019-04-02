@@ -1,8 +1,12 @@
 import React from 'react'
 import './index.css'
-import Side from './__side'
+import ScoreValue from './__score-value'
+import HiScoreValue from './__hi-score-value'
+import LevelValue from './__level-value'
+import SpeedValue from './__speed-value'
+import Pause from './__pause'
 
-function Display (props) {
+export default function Display (props) {
   return (
     <div className = 'display'>
       <fieldset className = 'display__edging'>
@@ -12,18 +16,28 @@ function Display (props) {
             <div className = 'display__frame'>
               {props.children}
             </div>
-            <Side
-              paused = {props.paused}
-              score = {props.score}
-              hiScore = {props.hiScore}
-              level = {props.level}
-              speed = {props.speed}
-            />
+            <div className = 'display__side'>
+              <div className = 'display__score'>
+                SCORE
+                <ScoreValue score = {props.score} />
+              </div>
+              <div className = 'display__hi-score'>
+                HI-SCORE
+                <HiScoreValue hiScore = {props.hiScore} />
+              </div>
+              <div className = 'display__level'>
+                LEVEL
+                <LevelValue level = {props.level} />
+              </div>
+              <div className = 'display__speed'>
+                <SpeedValue speed = {props.speed} />
+                SPEED
+              </div>
+              <Pause paused = {props.paused} />
+            </div>
           </div>
         </div>
       </fieldset>
     </div>
-  )
+  );
 }
-
-export default Display

@@ -1,5 +1,6 @@
 export default function handleMouseDown(event) {
-  event.preventDefault();
+  /* prevent mousedown event if caused by touchstart */
+  if (event.type === 'touchstart') event.preventDefault();
 
   let isAlive = this.state.isAlive;
   let isPaused = this.state.isPaused;
@@ -7,15 +8,21 @@ export default function handleMouseDown(event) {
   let nextDirection = this.state.nextDirection;
   let snakeHead = this.state.snake[this.state.snake.length - 1];
   let isWaiting = this.state.isWaiting;
+
+  /* change level and speed before game */
   /* let level = this.state.level;
   let speed = this.state.speed; */
 
+  /* make snake move to new direction instantly
+   * upd: better don't use on reverse
+   */
   let move = () => {
     clearTimeout(this.gameTimeout);
     if (isWaiting) this.setState({isWaiting: false});
     this.play();
   }
 
+  /* make snake move faster on button hold */
   let turbo = () => {
     if (this.turboTimeout === null) this.turboTimeout = setTimeout(this.turboSpeed, 400);
   }
