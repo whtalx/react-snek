@@ -1,14 +1,14 @@
 {
-  "main.css": "/rect-snek/static/css/main.ea89413a.chunk.css",
-  "main.js": "/rect-snek/static/js/main.0056a853.chunk.js",
-  "main.js.map": "/rect-snek/static/js/main.0056a853.chunk.js.map",
-  "runtime~main.js": "/rect-snek/static/js/runtime~main.5a9d2e81.js",
-  "runtime~main.js.map": "/rect-snek/static/js/runtime~main.5a9d2e81.js.map",
-  "static/js/2.1f5cbf0c.chunk.js": "/rect-snek/static/js/2.1f5cbf0c.chunk.js",
-  "static/js/2.1f5cbf0c.chunk.js.map": "/rect-snek/static/js/2.1f5cbf0c.chunk.js.map",
-  "index.html": "/rect-snek/index.html",
-  "precache-manifest.60e8e8c97db6a51817d0099a73b9be40.js": "/rect-snek/precache-manifest.60e8e8c97db6a51817d0099a73b9be40.js",
-  "service-worker.js": "/rect-snek/service-worker.js",
-  "static/css/main.ea89413a.chunk.css.map": "/rect-snek/static/css/main.ea89413a.chunk.css.map",
-  "static/media/index.css": "/rect-snek/static/media/legend.9a918d49.svg"
+  "main.css": "/react-snek/static/css/main.443c68c9.chunk.css",
+  "main.js": "/react-snek/static/js/main.0056a853.chunk.js",
+  "main.js.map": "/react-snek/static/js/main.0056a853.chunk.js.map",
+  "runtime~main.js": "/react-snek/static/js/runtime~main.aeda6471.js",
+  "runtime~main.js.map": "/react-snek/static/js/runtime~main.aeda6471.js.map",
+  "static/js/2.1f5cbf0c.chunk.js": "/react-snek/static/js/2.1f5cbf0c.chunk.js",
+  "static/js/2.1f5cbf0c.chunk.js.map": "/react-snek/static/js/2.1f5cbf0c.chunk.js.map",
+  "index.html": "/react-snek/index.html",
+  "precache-manifest.8a07e6c08899c961edba582f60785eff.js": "/react-snek/precache-manifest.8a07e6c08899c961edba582f60785eff.js",
+  "service-worker.js": "/react-snek/service-worker.js",
+  "static/css/main.443c68c9.chunk.css.map": "/react-snek/static/css/main.443c68c9.chunk.css.map",
+  "static/media/index.css": "/react-snek/static/media/legend.9a918d49.svg"
 }
