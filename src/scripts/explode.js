@@ -1,10 +1,8 @@
-export default function explode(pixel) {
-  if (this.state.isAlive) return;
-
-  let small = pixel
-  let medium = []
-  let large = []
-  let counter = 0
+export default function explode(pixel, gameRestart = true) {
+  let small = pixel;
+  let medium = [];
+  let large = [];
+  let counter = 0;
 
   let makeMedium = s => {
     for (let x = -1; x <= 1; x++) {
@@ -29,39 +27,41 @@ export default function explode(pixel) {
   }
 
   let badaboom = () => {
-    if (this.state.isAlive) return;
-    counter++
+    counter++;
 
     let mediumBoom = () => {
-      if (this.state.isAlive) return;
-
       makeMedium('blink');
       this.switchPixels(medium);
 
-      setTimeout(largeBoom, 60);
+      this.animationTimeout = setTimeout(largeBoom, 60);
     }
 
     let largeBoom = () => {
-      if (this.state.isAlive) return;
-
       makeLarge('blink');
       this.switchPixels(large);
 
-      setTimeout(smallBoom, 60);
+      this.animationTimeout = setTimeout(smallBoom, 60);
     }
 
     let smallBoom = () => {
-      if (this.state.isAlive) return;
-
       makeMedium('off');
       makeLarge('off');
       this.switchPixels(large.concat(medium));
       this.switchPixels(this.state.snake);
       this.switchPixels(this.state.obstacle);
       if (counter < 3 ) {
-        setTimeout(badaboom, 80);
+        this.animationTimeout = setTimeout(badaboom, 80);
       } else {
-        this.spiral();
+        if (gameRestart) {
+          this.setState({isPlayiyg: false});
+          this.spiral();
+        } else {
+          this.setState(state => {
+            state.speed = 0;
+            state.score = state.lastScore;
+          });
+          this.start(true);
+        }
       }
     }
 

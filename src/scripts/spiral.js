@@ -1,10 +1,10 @@
 export default function spiral(x1 = 0, y1 = 0, x2 = 9, y2 = 19) {
-  if (this.state.isAlive) return;
+  if (this.state.isPlayiyg) return;
   let x = x1;
   let y = y1;
 
   let toRight = () => {
-    if (this.state.isAlive) return;
+    if (this.state.isPlayiyg) return;
     this.switchPixels([{'x': x, 'y': y, status: 'on'}]);
     x++;
     if (x < x2) {
@@ -15,7 +15,7 @@ export default function spiral(x1 = 0, y1 = 0, x2 = 9, y2 = 19) {
   }
 
   let toBottom = () => {
-    if (this.state.isAlive) return;
+    if (this.state.isPlayiyg) return;
     this.switchPixels([{'x': x, 'y': y, status: 'on'}]);
     y++;
     if (y < y2) {
@@ -26,7 +26,7 @@ export default function spiral(x1 = 0, y1 = 0, x2 = 9, y2 = 19) {
   }
 
   let toLeft = () => {
-    if (this.state.isAlive) return;
+    if (this.state.isPlayiyg) return;
     this.switchPixels([{'x': x, 'y': y, status: 'on'}]);
     x--;
     if (x > x1) {
@@ -37,7 +37,7 @@ export default function spiral(x1 = 0, y1 = 0, x2 = 9, y2 = 19) {
   }
 
   let toTop = () => {
-    if (this.state.isAlive) return;
+    if (this.state.isPlayiyg) return;
     this.switchPixels([{'x': x, 'y': y, status: 'on'}]);
     y--;
     if (y > y1) {

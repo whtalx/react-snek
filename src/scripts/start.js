@@ -3,13 +3,15 @@ import obstacles from '../data/obstacles'
 export default function start(keepStats = false) {
   clearTimeout(this.gameTimeout);
   clearTimeout(this.turboTimeout);
-
+  clearTimeout(this.animationTimeout);
+  this.animationTimeout = this.turboTimeout = this.gameTimeout = null;
   /* reset game status if started not by level up */
   if (!keepStats) {
     this.setState({
       score: 0,
       level: 0,
-      speed: 0
+      speed: 0,
+      lives: 3
     });
   }
   
@@ -17,8 +19,8 @@ export default function start(keepStats = false) {
   this.setState({
     direction: 'right',
     subtrahend: this.state.speedCoefficient,
-    isAlive: true,
-    snake: [{x: 1, y: 5, status : 'on'}, {x: 2, y: 5, status: 'on'}, {x: 3, y: 5, status: 'blink'}]
+    snake: [{x: 1, y: 5, status : 'on'}, {x: 2, y: 5, status: 'on'}, {x: 3, y: 5, status: 'blink'}],
+    isPlayiyg: true
   });
 
   /* get obstacles for current level */

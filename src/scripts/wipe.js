@@ -53,13 +53,10 @@ export default function wipe() {
       });
       requestAnimationFrame(empty);
     } else {
-      /* waiting for handleMouseDown function move() after 100ms */
-      setTimeout(() => {
-        this.setState({
-          isAlive: true,
-          isWaiting: true
-        });
-      }, 100);
+      this.setState({
+        isAlive: true,
+        isWaiting: true
+      });
     }
   }
 

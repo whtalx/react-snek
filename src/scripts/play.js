@@ -7,7 +7,20 @@ export default function play() {
   let gameOver = pixel => {
     this.setState({isAlive: false});
     clearTimeout(this.gameTimeout);
-    this.explode(pixel);
+
+    this.setState(state => {
+      state.lives--
+    });
+
+    if (this.state.lives > 0) {
+
+      /* level restart */
+      this.explode(pixel, false);
+     } else {
+
+      /* game restart */
+       this.explode(pixel);
+     }
   }
 
   /* declaring snake parts */
@@ -78,6 +91,7 @@ export default function play() {
     snake.unshift(tail);
     this.levelUp();
   } else {
+    
   /* repeat until death */
   if (this.state.isAlive) this.resume();
   }

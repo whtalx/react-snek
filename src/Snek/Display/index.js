@@ -5,6 +5,8 @@ import HiScoreValue from './__hi-score-value'
 import LevelValue from './__level-value'
 import SpeedValue from './__speed-value'
 import Pause from './__pause'
+import Sound from './__sound'
+import LivesValue from './__lives-value';
 
 export default function Display (props) {
   return (
@@ -33,7 +35,11 @@ export default function Display (props) {
                 <SpeedValue speed = {props.speed} />
                 SPEED
               </div>
+              <div className = 'display__lives'>
+                <LivesValue lives = {props.lives} />
+              </div>
               <Pause paused = {props.paused} />
+              <Sound sound = {props.sound} />
             </div>
           </div>
         </div>

@@ -28,7 +28,9 @@ export default function levelUp() {
     if (this.state.level < 6) {
       this.setState(state => {
         state.level++;
+        state.lives++;
         state.speed = 0;
+        state.lastScore = state.score;
         state.isAlive = false;
         return state;
       });
@@ -47,6 +49,7 @@ export default function levelUp() {
       this.victory();
     }
   } else {
+    
   /* repeat until death */
   if (this.state.isAlive) this.resume();
   }
