@@ -1,14 +1,14 @@
 {
-  "main.css": "/rect-snek/static/css/main.805ca0ae.chunk.css",
-  "main.js": "/rect-snek/static/js/main.2eaa8f36.chunk.js",
-  "main.js.map": "/rect-snek/static/js/main.2eaa8f36.chunk.js.map",
+  "main.css": "/rect-snek/static/css/main.ea89413a.chunk.css",
+  "main.js": "/rect-snek/static/js/main.0056a853.chunk.js",
+  "main.js.map": "/rect-snek/static/js/main.0056a853.chunk.js.map",
   "runtime~main.js": "/rect-snek/static/js/runtime~main.5a9d2e81.js",
   "runtime~main.js.map": "/rect-snek/static/js/runtime~main.5a9d2e81.js.map",
-  "static/js/2.cc6ab1f6.chunk.js": "/rect-snek/static/js/2.cc6ab1f6.chunk.js",
-  "static/js/2.cc6ab1f6.chunk.js.map": "/rect-snek/static/js/2.cc6ab1f6.chunk.js.map",
+  "static/js/2.1f5cbf0c.chunk.js": "/rect-snek/static/js/2.1f5cbf0c.chunk.js",
+  "static/js/2.1f5cbf0c.chunk.js.map": "/rect-snek/static/js/2.1f5cbf0c.chunk.js.map",
   "index.html": "/rect-snek/index.html",
-  "precache-manifest.0d6a777490fffb31be69044e87cf5b40.js": "/rect-snek/precache-manifest.0d6a777490fffb31be69044e87cf5b40.js",
+  "precache-manifest.60e8e8c97db6a51817d0099a73b9be40.js": "/rect-snek/precache-manifest.60e8e8c97db6a51817d0099a73b9be40.js",
   "service-worker.js": "/rect-snek/service-worker.js",
-  "static/css/main.805ca0ae.chunk.css.map": "/rect-snek/static/css/main.805ca0ae.chunk.css.map",
+  "static/css/main.ea89413a.chunk.css.map": "/rect-snek/static/css/main.ea89413a.chunk.css.map",
   "static/media/index.css": "/rect-snek/static/media/legend.9a918d49.svg"
 }
