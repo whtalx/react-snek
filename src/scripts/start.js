@@ -29,6 +29,6 @@ export default function start(keepStats = false) {
   this.setState({obstacle: obstacle});
 
   /* make new food and start level change animation */
-  this.newFood();
+  this.newFood(false);
   this.wipe();
 }

@@ -74,7 +74,7 @@ export default function play() {
   /*grow if eating food, make new food */
   if (nextCoord.x === food[0].x && nextCoord.y === food[0].y) {
     this.newFood();
-    this.switchPixels(this.state.food);
+    setTimeout(() => {this.switchPixels(this.state.food);}, 10);
     snake.unshift(tail);
     this.levelUp();
   } else {

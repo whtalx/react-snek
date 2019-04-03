@@ -23,18 +23,13 @@ import play from '../scripts/play'
 import levelUp from '../scripts/levelUp'
 import reverse from '../scripts/reverse'
 import wipe from '../scripts/wipe'
+import victory from '../scripts/victory'
 
 export default class Snek extends Component {
   constructor () {
     super();
 
-    let grid = [];
-    for (let i = 0; i < 200; i++) {
-      grid[i] = <Pixel key = {i} status = 'off' />
-    }
-
     this.state = {
-      pixels: grid,
       food: [],
       snake: [],
       obstacle: [],
@@ -50,11 +45,20 @@ export default class Snek extends Component {
       subtrahend: 0,
       isAlive: false,
       isPaused: false,
-      isWaiting: false
+      isWaiting: false,
+      isCelebrating: false
     }
 
     this.gameTimeout = null;
     this.turboTimeout = null;
+
+    this.clrScr = () => {
+      let grid = [];
+      for (let i = 0; i < 200; i++) {
+        grid[i] = <Pixel key = {i} status = 'off' />
+      }
+      this.setState({pixels: grid});
+    }
 
     this.removeEventListeners = removeEventListeners.bind(this);
     this.addEventListeners = addEventListeners.bind(this);
@@ -75,10 +79,12 @@ export default class Snek extends Component {
     this.levelUp = levelUp.bind(this);
     this.reverse = reverse.bind(this);
     this.wipe = wipe.bind(this);
+    this.victory = victory.bind(this);
   }
 
   componentDidMount() {
     this.addEventListeners();
+    this.clrScr();
     this.slither();
 
     if (!localStorage.getItem('hiscore')) {

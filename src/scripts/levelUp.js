@@ -20,19 +20,32 @@ export default function levelUp() {
 
   if (score > hiScore) {
     this.setState({hiScore: score});
-    localStorage.setItem("hiscore", hiScore);
+    localStorage.setItem('hiscore', hiScore);
   }
 
   /* increase level after sixth speed */
   if (this.state.speed > 6) {
-    this.setState(state => {
-      state.level++;
-      state.speed = 0;
-      state.isAlive = false;
-      return state;
-    });
-    /* start new level with scores saving */
-    this.start(true);
+    if (this.state.level < 6) {
+      this.setState(state => {
+        state.level++;
+        state.speed = 0;
+        state.isAlive = false;
+        return state;
+      });
+
+      /* start new level with scores saving */
+      this.start(true);
+    } else {
+      
+      /* 'win the game' game over */
+      this.setState({
+        speed: 6,
+        isAlive: false,
+        isCelebrating: true
+      });
+      this.clrScr();
+      this.victory();
+    }
   } else {
   /* repeat until death */
   if (this.state.isAlive) this.resume();

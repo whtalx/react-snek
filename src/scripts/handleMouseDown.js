@@ -9,7 +9,7 @@ export default function handleMouseDown(event) {
   let snakeHead = this.state.snake[this.state.snake.length - 1];
   let isWaiting = this.state.isWaiting;
 
-  /* change level and speed before game */
+  /* uncomment to make able to change level and speed before game */
   /* let level = this.state.level;
   let speed = this.state.speed; */
 
@@ -29,7 +29,13 @@ export default function handleMouseDown(event) {
 
   switch (event.target.id) {
     case 'start':
-      if (!isAlive) this.start();
+      if (!isAlive && !this.state.isCelebrating) {
+        this.start();
+      } else if (this.state.isCelebrating) {
+        /* stop 'win the game' animation */
+        this.setState({isCelebrating: false});
+        this.spiral();
+      }
       break;
 
     case 'pause':
