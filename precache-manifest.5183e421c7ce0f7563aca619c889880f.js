@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "bfe0819b1b1b2950e759",
+    "revision": "82e6932459e342122068",
     "url": "/react-snek/static/css/main.443c68c9.chunk.css"
   },
   {
-    "revision": "bfe0819b1b1b2950e759",
-    "url": "/react-snek/static/js/main.0056a853.chunk.js"
+    "revision": "82e6932459e342122068",
+    "url": "/react-snek/static/js/main.2637c6b5.chunk.js"
   },
   {
     "revision": "e037d10deb72bb61cc55",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/react-snek/static/media/arrows.88ec1662.svg"
   },
   {
-    "revision": "15148dbf7b479b0617506de2eca83738",
+    "revision": "e23c3fa2f190ab797f22f795bc4e138e",
     "url": "/react-snek/index.html"
   }
 ];
