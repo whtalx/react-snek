@@ -84,6 +84,9 @@ export default function play() {
   this.setState({snake: snake});
   this.switchPixels(snake);
 
+  /* play turbo sound if in turbo mode */
+  if (this.state.subtrahend === 325) this.playSound('turbo');
+
   /*grow if eating food, make new food */
   if (nextCoord.x === food[0].x && nextCoord.y === food[0].y) {
     this.newFood();

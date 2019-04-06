@@ -24,6 +24,7 @@ import levelUp from '../scripts/levelUp'
 import reverse from '../scripts/reverse'
 import wipe from '../scripts/wipe'
 import victory from '../scripts/victory'
+import playSound from '../scripts/playSound'
 
 export default class Snek extends Component {
   constructor () {
@@ -53,9 +54,9 @@ export default class Snek extends Component {
       isCelebrating: false
     }
 
-    this.animationTimeout = null;
+    /* this.animationTimeout = null;
     this.gameTimeout = null;
-    this.turboTimeout = null;
+    this.turboTimeout = null; */
 
     this.clrScr = () => {
       let grid = [];
@@ -64,6 +65,7 @@ export default class Snek extends Component {
       }
       this.setState({pixels: grid});
     }
+
 
     this.removeEventListeners = removeEventListeners.bind(this);
     this.addEventListeners = addEventListeners.bind(this);
@@ -85,9 +87,11 @@ export default class Snek extends Component {
     this.reverse = reverse.bind(this);
     this.wipe = wipe.bind(this);
     this.victory = victory.bind(this);
+    this.playSound = playSound.bind(this);
   }
 
   componentDidMount() {
+
     this.addEventListeners();
     this.clrScr();
     this.slither();

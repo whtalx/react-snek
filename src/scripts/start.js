@@ -13,6 +13,7 @@ export default function start(keepStats = false) {
       speed: 0,
       lives: 3
     });
+    this.playSound('start');
   }
   
   /* reset game status to level start */

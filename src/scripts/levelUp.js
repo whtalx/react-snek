@@ -36,6 +36,7 @@ export default function levelUp() {
       });
 
       /* start new level with scores saving */
+      this.playSound('levelUp');
       this.start(true);
     } else {
       

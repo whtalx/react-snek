@@ -60,6 +60,7 @@ export default function explode(pixel, gameRestart = true) {
             state.speed = 0;
             state.score = state.lastScore;
           });
+          this.playSound('levelRestart');
           this.start(true);
         }
       }

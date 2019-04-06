@@ -1,3 +1,4 @@
+
 export default function handleMouseDown(event) {
   /* prevent mousedown event if caused by touchstart */
   if (event.type === 'touchstart') event.preventDefault();
@@ -53,8 +54,10 @@ export default function handleMouseDown(event) {
           this.setState({nextDirection: 'left'});
           turbo();
           move();
+          this.playSound('move');
         } else if (!isWaiting && direction === 'right') {
           this.reverse();
+          this.playSound('move');
           //move();
         }
       } /* else if (!isAlive && speed > 0) {
@@ -71,8 +74,10 @@ export default function handleMouseDown(event) {
           this.setState({nextDirection: 'right'});
           turbo();
           move();
+          this.playSound('move');
         } else if (!isWaiting && direction === 'left') {
           this.reverse();
+          this.playSound('move');
           //move();
         }
       } /* else if (!isAlive && speed < 6) {
@@ -89,8 +94,10 @@ export default function handleMouseDown(event) {
           this.setState({nextDirection: 'up'});
           turbo();
           move();
+          this.playSound('move');
         } else if (!isWaiting && direction === 'down') {
           this.reverse();
+          this.playSound('move');
           //move();
         }
       } /* else if (!isAlive && level < 6) {
@@ -107,8 +114,10 @@ export default function handleMouseDown(event) {
         this.setState({nextDirection: 'down'});
         turbo();
         move();
+        this.playSound('move');
       } else if (!isWaiting && direction === 'up') {
         this.reverse();
+        this.playSound('move');
         //move();
       }
     } /* else if (!isAlive && level > 0) {

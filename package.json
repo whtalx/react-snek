@@ -1,7 +1,7 @@
 {
   "name": "rect-snek",
   "version": "0.0.0",
-  "homepage": "http://whtalx.github.io/rect-snek",
+  "homepage": "http://whtalx.github.io/react-snek",
   "private": true,
   "dependencies": {
     "@babel/core": "7.2.2",
