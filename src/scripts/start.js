@@ -5,6 +5,7 @@ export default function start(keepStats = false) {
   clearTimeout(this.turboTimeout);
   clearTimeout(this.animationTimeout);
   this.animationTimeout = this.turboTimeout = this.gameTimeout = null;
+  
   /* reset game status if started not by level up */
   if (!keepStats) {
     this.setState({

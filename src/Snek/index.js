@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import './index.css'
 import Display from './Display'
-import Pixel from './Display/__pixel'
 import Controls from './Controls'
 import DPad from './DPad'
+import clrScr from '../scripts/clrScr'
 import removeEventListeners from '../scripts/removeEventListeners'
 import addEventListeners from '../scripts/addEventListeners'
 import handleMouseDown from '../scripts/handleMouseDown'
@@ -47,26 +47,14 @@ export default class Snek extends Component {
       scoreCoefficient: 25,
       subtrahend: 0,
       isAlive: false,
-      isMuted: true,
+      isMuted: false,
       isPaused: false,
       isPlayiyg: false,
       isWaiting: false,
       isCelebrating: false
     }
 
-    /* this.animationTimeout = null;
-    this.gameTimeout = null;
-    this.turboTimeout = null; */
-
-    this.clrScr = () => {
-      let grid = [];
-      for (let i = 0; i < 200; i++) {
-        grid[i] = <Pixel key = {i} status = 'off' />
-      }
-      this.setState({pixels: grid});
-    }
-
-
+    this.clrScr = clrScr.bind(this);
     this.removeEventListeners = removeEventListeners.bind(this);
     this.addEventListeners = addEventListeners.bind(this);
     this.handleMouseDown = handleMouseDown.bind(this);
