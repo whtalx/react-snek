@@ -55,6 +55,7 @@ export default function explode(pixel, gameRestart = true) {
         if (gameRestart) {
           this.setState({isPlayiyg: false});
           this.spiral();
+          this.playSound('gameOver');
         } else {
           this.setState(state => {
             state.speed = 0;

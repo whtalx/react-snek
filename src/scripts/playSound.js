@@ -43,14 +43,18 @@ export default function playSound(sound) {
 
   switch (sound) {
     case 'start':
-      oscillator1.frequency.setValueAtTime(658, now);
-      oscillator1.frequency.setValueAtTime(831, now + .18);
-      oscillator1.frequency.setValueAtTime(980, now + .36);
-      oscillator1.frequency.setValueAtTime(831, now + .54);
-      oscillator1.frequency.setValueAtTime(980, now + .72);
-      oscillator1.frequency.setValueAtTime(1337, now + .9);
+      oscillator1.frequency.setValueAtTime(329.63, now);
+      oscillator1.frequency.setValueAtTime(349.23, now + .4);
+      oscillator1.frequency.setValueAtTime(392, now + .5);
+      oscillator1.frequency.setValueAtTime(440, now + .8);
+      oscillator1.frequency.setValueAtTime(493.88, now + 1.1);
+      oscillator1.frequency.setValueAtTime(523.25, now + 1.5);
+      oscillator1.frequency.setValueAtTime(622.25, now + 1.6);
+      oscillator1.frequency.setValueAtTime(523.25, now + 1.9);
+      oscillator1.frequency.setValueAtTime(493.88, now + 2.2);
+
       oscillator1.start(now);
-      oscillator1.stop(now + 1.4);
+      oscillator1.stop(now + 2.5);
       break;
     case 'pause':
       oscillator1.frequency.setValueAtTime(880, now);
@@ -112,6 +116,26 @@ export default function playSound(sound) {
       oscillator1.frequency.exponentialRampToValueAtTime(1000, now + .6);
       oscillator1.start(now);
       oscillator1.stop(now + .6);
+      break;
+    case 'gameOver':
+      gain.gain.setValueAtTime(.001, now);
+      oscillator1.frequency.setValueAtTime(261.63, now);
+      gain.gain.exponentialRampToValueAtTime(.25, now + .4);
+      oscillator1.frequency.exponentialRampToValueAtTime(311.13, now + .45);
+      gain.gain.linearRampToValueAtTime(.001, now + .45);
+      oscillator1.frequency.setValueAtTime(233.08, now + .5);
+      gain.gain.exponentialRampToValueAtTime(.25, now + .9);
+      oscillator1.frequency.exponentialRampToValueAtTime(277.18, now + .95);
+      gain.gain.linearRampToValueAtTime(.001, now + .95);
+      oscillator1.frequency.setValueAtTime(207.65, now + 1);
+      gain.gain.exponentialRampToValueAtTime(.25, now + 1.4);
+      oscillator1.frequency.exponentialRampToValueAtTime(246.94, now + 1.45);
+      gain.gain.linearRampToValueAtTime(.001, now + 1.45);
+      oscillator1.frequency.setValueAtTime(174.61, now + 1.5);
+      gain.gain.exponentialRampToValueAtTime(.25, now + 2.2);
+      oscillator1.frequency.exponentialRampToValueAtTime(207.65, now + 2.25);
+      oscillator1.start(now);
+      oscillator1.stop(now + 2.3);
       break;
     default:
       oscillator1.disconnect(gain);
