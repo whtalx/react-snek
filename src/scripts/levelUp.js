@@ -50,6 +50,8 @@ export default function levelUp() {
       this.victory();
     }
   } else {
+    this.playSound('eat');
+    this.newFood();
     
   /* repeat until death */
   if (this.state.isAlive) this.resume();
