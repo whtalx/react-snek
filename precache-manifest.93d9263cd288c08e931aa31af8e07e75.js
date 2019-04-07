@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "e932c3e4904117b55c53",
+    "revision": "59fe00c44c28d05439c9",
     "url": "/react-snek/static/css/main.443c68c9.chunk.css"
   },
   {
-    "revision": "e932c3e4904117b55c53",
-    "url": "/react-snek/static/js/main.9fe955a1.chunk.js"
+    "revision": "59fe00c44c28d05439c9",
+    "url": "/react-snek/static/js/main.9a233c75.chunk.js"
   },
   {
     "revision": "e037d10deb72bb61cc55",
@@ -28,12 +28,12 @@ self.__precacheManifest = [
     "url": "/react-snek/static/media/DS-Digital-iefix.37c8019a.eot"
   },
   {
-    "revision": "cad634a7201a7672b9d9e739dc4dd5b6",
-    "url": "/react-snek/static/media/DS-Digital.cad634a7.svg"
-  },
-  {
     "revision": "223f224650510797e0f06233d2a0f97b",
     "url": "/react-snek/static/media/DS-Digital.223f2246.ttf"
+  },
+  {
+    "revision": "cad634a7201a7672b9d9e739dc4dd5b6",
+    "url": "/react-snek/static/media/DS-Digital.cad634a7.svg"
   },
   {
     "revision": "9a918d49406f5d3a79467ec16a5f355e",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/react-snek/static/media/arrows.88ec1662.svg"
   },
   {
-    "revision": "bd2a63203cbc7fab3c2e22851c825105",
+    "revision": "926e2fa338242ec9344d9023c225b57c",
     "url": "/react-snek/index.html"
   }
 ];
