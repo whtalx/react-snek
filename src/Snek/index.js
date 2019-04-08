@@ -107,8 +107,8 @@ export default class Snek extends Component {
         >
           {this.state.pixels}
         </Display>
-        <DPad button = {this.state.button} />
         <Controls button = {this.state.button} />
+        <DPad button = {this.state.button} />
       </div>
     )
   }

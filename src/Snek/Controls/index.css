@@ -1,23 +1,27 @@
 .controls {
   position: relative;
-  top: -30vh;
-  height: 0;
+  top: 1vh;
+  height: 7.5vh;
   width: 36vh;
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .controls__start,
-.controls__pause {
-  display: inline-block;
-  width: 9vh;
-  height: 8vh;
+.controls__pause,
+.controls__sound {
+  width: 7vh;
+  height: 5vh;
   text-align: center;
   color: #041b17;
   font: bold small-caps 2.5vh Tahoma, Geneva, sans-serif;
-  
 }
-.controls__start {
-  float: left;
-}
-.controls__pause {
-  float: right;
+.controls__start-button,
+.controls__pause-button,
+.controls__sound-button {
+  height: 2.5vh;
+  width: 2.5vh;
+  margin: 0 auto;
+  border-radius: 50%;
 }

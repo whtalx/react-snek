@@ -1,6 +1,6 @@
 .display {
   width: 100%;
-  height: 55vh;
+  height: 50vh;
 }
 .display__legend {
   margin: 0 auto;
@@ -22,13 +22,11 @@
   width: 33vh;
   height: 43.5vh;
   background-color: #909D83;
-  border-width: 2.5vh;
   border-radius: .5vh;
-  border-style: solid;
-  border-top-color: #d6d8c3;
-  border-left-color: #bdbfae;
-  border-bottom-color: #caccb7;
-  border-right-color: #e3e5ce;
+  border-top: 1vh solid #d6d8c3;
+  border-bottom: 1vh solid #caccb7;
+  border-left: 2.5vh solid #bdbfae;
+  border-right: 2.5vh solid #e3e5ce;
 }
 .display__glass {
   width: 100%;

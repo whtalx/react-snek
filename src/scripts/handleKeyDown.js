@@ -42,6 +42,12 @@ export default function handleKeyDown(event) {
         document.querySelector('#pause').dispatchEvent(mouseDown);
       }
       break;
+    case 77://m
+      if (this.state.button !== 'sound') {
+        this.setState({button: 'sound'});
+        document.querySelector('#sound').dispatchEvent(mouseDown);
+      }
+      break;
     default:
       return;
   }

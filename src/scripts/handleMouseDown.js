@@ -9,6 +9,7 @@ export default function handleMouseDown(event) {
   let nextDirection = this.state.nextDirection;
   let snakeHead = this.state.snake[this.state.snake.length - 1];
   let isWaiting = this.state.isWaiting;
+  let isMuted = this.state.isMuted;
 
   /* uncomment to make able to change level and speed before game */
   /* let level = this.state.level;
@@ -48,6 +49,16 @@ export default function handleMouseDown(event) {
         this.pause();
       } else if (isPaused) {
         this.resume();
+      }
+      break;
+
+    case 'sound':
+      if (!isMuted) {
+        this.setState({isMuted: true});
+        this.playSound();
+      } else if (isMuted) {
+        this.setState({isMuted: false});
+        this.playSound('resume');
       }
       break;
 

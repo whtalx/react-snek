@@ -4,6 +4,7 @@ export default function removeEventListeners() {
 
   document.querySelector('#start').removeEventListener('mousedown', this.handleMouseDown);
   document.querySelector('#pause').removeEventListener('mousedown', this.handleMouseDown);
+  document.querySelector('#sound').removeEventListener('mousedown', this.handleMouseDown);
 
   document.querySelector('#right').removeEventListener('mousedown', this.handleMouseDown);
   document.querySelector('#right').removeEventListener('mouseup', this.handleMouseUp);

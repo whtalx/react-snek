@@ -4,6 +4,7 @@ export default function addEventListeners() {
 
   document.querySelector('#start').addEventListener('mousedown', this.handleMouseDown);
   document.querySelector('#pause').addEventListener('mousedown', this.handleMouseDown);
+  document.querySelector('#sound').addEventListener('mousedown', this.handleMouseDown);
 
   document.querySelector('#right').addEventListener('mousedown', this.handleMouseDown);
   document.querySelector('#right').addEventListener('mouseup', this.handleMouseUp);
