@@ -79,11 +79,9 @@ export default class Snek extends Component {
   }
 
   componentDidMount() {
-
     this.addEventListeners();
     this.clrScr();
     this.slither();
-
     if (!localStorage.getItem('hiscore')) {
       localStorage.setItem('hiscore', this.state.hiScore);
     } else if (parseInt(localStorage.getItem('hiscore')) > this.state.hiScore) {

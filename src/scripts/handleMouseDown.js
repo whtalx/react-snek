@@ -34,7 +34,10 @@ export default function handleMouseDown(event) {
         this.start();
       } else if (this.state.isCelebrating) {
         /* stop 'win the game' animation */
-        this.setState({isCelebrating: false});
+        this.setState({
+          isPlayiyg: false,
+          isCelebrating: false
+        });
         this.spiral();
       }
       break;

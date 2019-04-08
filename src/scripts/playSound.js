@@ -1,48 +1,48 @@
 const context = new (window.AudioContext || window.webkitAudioContext)();
+
 const gain = context.createGain();
 gain.connect(context.destination);
 gain.gain.value = .25;
 
+const oscillator1Real = new Float32Array(Array.from({length: 32}, (_, n) => (n === 0 ? 0 : 4 / (n * Math.PI) * Math.sin(Math.PI * n * 0.27))));
+const oscillator1Imag = new Float32Array(Array.from({length: 32}, () => 0));
+const oscillator1Wave = context.createPeriodicWave(oscillator1Real, oscillator1Imag);
+
+const oscillator2Real = new Float32Array(Array.from({length: 48}, () => Math.random() * 2 - 1));
+const oscillator2Imag = new Float32Array(Array.from({length: 48}, () => 0));
+const oscillator2Wave = context.createPeriodicWave(oscillator2Real, oscillator2Imag);
+
+const bufferSize = context.sampleRate;
+const buffer = context.createBuffer(1, bufferSize, bufferSize);
+const output = buffer.getChannelData(0);
+for (let i = 0; i < bufferSize; i++) {
+  output[i] = Math.random() * 2 - 1;
+}
+
+const makeNoise = () => {
+  oscillator2 = context.createOscillator();
+  oscillator2.setPeriodicWave(oscillator2Wave);
+  oscillator2.connect(gain);
+  noise = context.createBufferSource();
+  noise.buffer = buffer;
+  noise.connect(gain);
+}
+
+let oscillator2 = null;
+let noise = null;
+
 export default function playSound(sound) {
-  if (this.state.isMuted) return;
+  if (this.state.isMuted) return;  
 
-  const real = new Float32Array(Array.from({length: 64}, (_, n) => (n === 0 ? 0 : 4 / (n * Math.PI) * Math.sin(Math.PI * n * 0.27))));
-  const imag = new Float32Array(Array.from({length: 64}, () => 0));
-  const wave = context.createPeriodicWave(real, imag);
   const oscillator1 = context.createOscillator();
-
-  oscillator1.setPeriodicWave(wave);
+  oscillator1.setPeriodicWave(oscillator1Wave);
   oscillator1.connect(gain);
-
-  let oscillator2 = null;
-  let noise = null;
-
-  const makeNoise = () => {
-    let bufferSize = context.sampleRate;
-    let buffer = context.createBuffer(1, bufferSize, bufferSize);
-    let output = buffer.getChannelData(0);
-
-    for (let i = 0; i < bufferSize; i++) {
-      output[i] = Math.random() * 2 - 1;
-    }
-
-    noise = context.createBufferSource();
-    noise.buffer = buffer;
-    noise.connect(gain);
-
-    const real = new Float32Array(Array.from({length: 48}, () => Math.random() * 2 - 1));
-    const imag = new Float32Array(Array.from({length: 48}, () => 0));
-    const wave = context.createPeriodicWave(real, imag);
-
-    oscillator2 = context.createOscillator();
-    oscillator2.setPeriodicWave(wave);
-    oscillator2.connect(gain);
-  }
 
   let now = context.currentTime;
 
   switch (sound) {
     case 'start':
+      gain.gain.setValueAtTime(.25, now);
       oscillator1.frequency.setValueAtTime(329.63, now);
       oscillator1.frequency.setValueAtTime(349.23, now + .4);
       oscillator1.frequency.setValueAtTime(392, now + .5);
@@ -52,7 +52,6 @@ export default function playSound(sound) {
       oscillator1.frequency.setValueAtTime(622.25, now + 1.6);
       oscillator1.frequency.setValueAtTime(523.25, now + 1.9);
       oscillator1.frequency.setValueAtTime(493.88, now + 2.2);
-
       oscillator1.start(now);
       oscillator1.stop(now + 2.5);
       break;
@@ -90,18 +89,14 @@ export default function playSound(sound) {
       break;
     case 'explosion':
       makeNoise();
-      oscillator1.frequency.setValueAtTime(120, now);
-      oscillator1.frequency.exponentialRampToValueAtTime(60, now + .75);
-      oscillator1.start(now);
-      oscillator1.stop(now + .75);
-
-      oscillator2.frequency.setValueAtTime(240, now);
-      oscillator2.frequency.exponentialRampToValueAtTime(60, now + .75);
+      oscillator2.frequency.setValueAtTime(220, now);
+      oscillator2.frequency.exponentialRampToValueAtTime(440, now + .2);
+      oscillator2.frequency.exponentialRampToValueAtTime(55, now + .7);
       oscillator2.start(now);
       oscillator2.stop(now + .75);
-      
-      noise.playbackRate.setValueAtTime(.25, now);
-      noise.playbackRate.exponentialRampToValueAtTime(.05, now + .75);
+      noise.playbackRate.setValueAtTime(.2, now);
+      noise.playbackRate.exponentialRampToValueAtTime(.8, now + .2);
+      noise.playbackRate.exponentialRampToValueAtTime(.01, now + .7);
       noise.start(now);
       noise.stop(now + .75);
       break;
@@ -136,6 +131,58 @@ export default function playSound(sound) {
       oscillator1.frequency.exponentialRampToValueAtTime(207.65, now + 2.25);
       oscillator1.start(now);
       oscillator1.stop(now + 2.3);
+      break;
+    case 'victory':
+      now += 0.5;
+      oscillator1.frequency.setValueAtTime(466.16, now);
+      oscillator1.frequency.setValueAtTime(587.33, now + .25);
+      oscillator1.frequency.setValueAtTime(698.46, now + .5);
+      oscillator1.frequency.setValueAtTime(783.99, now + .75);
+      gain.gain.setValueAtTime(.001, now + 1.15);
+      gain.gain.setValueAtTime(.25, now + 1.25);
+      oscillator1.frequency.setValueAtTime(523.25, now + 1.25);
+      gain.gain.setValueAtTime(.001, now + 1.5);
+      gain.gain.setValueAtTime(.25, now + 1.55);
+      gain.gain.setValueAtTime(.001, now + 1.64);
+      gain.gain.setValueAtTime(.25, now + 1.65);
+      gain.gain.setValueAtTime(.001, now + 1.74);
+      gain.gain.setValueAtTime(.25, now + 1.75);
+      gain.gain.setValueAtTime(.001, now + 2.05);
+      gain.gain.setValueAtTime(.25, now + 2.25);
+      oscillator1.frequency.setValueAtTime(523.25, now + 2.25);
+      oscillator1.frequency.setValueAtTime(622.25, now + 2.5);
+      oscillator1.frequency.setValueAtTime(783.99, now + 2.75);
+      oscillator1.frequency.setValueAtTime(932.33, now + 3);
+      gain.gain.setValueAtTime(.001, now + 3.4);
+      gain.gain.setValueAtTime(.25, now + 3.5);
+      oscillator1.frequency.setValueAtTime(622.25, now + 3.5);
+      gain.gain.setValueAtTime(.001, now + 3.75);
+      gain.gain.setValueAtTime(.25, now + 3.8);
+      gain.gain.setValueAtTime(.001, now + 3.89);
+      gain.gain.setValueAtTime(.25, now + 3.9);
+      gain.gain.setValueAtTime(.001, now + 3.99);
+      gain.gain.setValueAtTime(.25, now + 4);
+      gain.gain.setValueAtTime(.001, now + 4.19);
+      gain.gain.setValueAtTime(.25, now + 4.5);
+      oscillator1.frequency.setValueAtTime(523.25, now + 4.5);
+      oscillator1.frequency.setValueAtTime(622.25, now + 4.75);
+      oscillator1.frequency.setValueAtTime(739.99, now + 5);
+      oscillator1.frequency.setValueAtTime(932.33, now + 5.25);
+      gain.gain.setValueAtTime(.001, now + 5.65);
+      gain.gain.setValueAtTime(.25, now + 5.75);
+      oscillator1.frequency.setValueAtTime(698.46, now + 5.75);
+      gain.gain.setValueAtTime(.001, now + 6);
+      gain.gain.setValueAtTime(.25, now + 6.05);
+      oscillator1.frequency.setValueAtTime(587.33, now + 6.05);
+      gain.gain.setValueAtTime(.001, now + 6.3);
+      gain.gain.setValueAtTime(.25, now + 6.35);
+      oscillator1.frequency.setValueAtTime(622.25, now + 6.35);
+      gain.gain.setValueAtTime(.001, now + 6.6);
+      gain.gain.setValueAtTime(.25, now + 6.65);
+      oscillator1.frequency.setValueAtTime(698.46, now + 6.65);
+      gain.gain.setValueAtTime(.001, now + 8);
+      oscillator1.start(now);
+      oscillator1.stop(now + 8);
       break;
     default:
       oscillator1.disconnect(gain);
