@@ -1,10 +1,11 @@
-@font-face {font-family: "DS-Digital";
-	src: url("./fonts/DS-Digital.eot");
+@font-face {
+  font-family: "DS-Digital";
+  src: url("./fonts/DS-Digital.eot");
   src:
     url("./fonts/DS-Digital-iefix.eot") format("embedded-opentype"),
     url("./fonts/DS-Digital.woff2") format("woff2"),
-		url("./fonts/DS-Digital.ttf") format("truetype"),
-		url("./fonts/DS-Digital.svg") format("svg");
+    url("./fonts/DS-Digital.ttf") format("truetype"),
+    url("./fonts/DS-Digital.svg") format("svg");
 }
 body {
   margin: 0;
@@ -16,7 +17,7 @@ body {
 .root {
   width: 100%;
   height: 100%;
-  margin:0;
+  margin: 0;
   line-height: 0;
   padding-top: .5vh;
 }

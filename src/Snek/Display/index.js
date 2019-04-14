@@ -1,12 +1,12 @@
 import React from 'react'
 import './index.css'
-import ScoreValue from './__score-value'
-import HiScoreValue from './__hi-score-value'
-import LevelValue from './__level-value'
-import SpeedValue from './__speed-value'
-import Pause from './__pause'
-import Sound from './__sound'
-import LivesValue from './__lives-value';
+import ScoreValue from './ScoreValue'
+import HiScoreValue from './HiScoreValue'
+import LevelValue from './LevelValue'
+import SpeedValue from './SpeedValue'
+import Pause from './Pause'
+import Sound from './Sound'
+import LivesValue from './LivesValue';
 
 export default function Display (props) {
   return (

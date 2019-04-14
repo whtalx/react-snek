@@ -42,13 +42,11 @@
   align-content: center;
   float: left;
   width: 20vh;
-  height: 40vh;
   margin: 4% 0 4% 3%;
   padding: .5vh;
   outline: .5vh solid #313729;
 }
 .display__side {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -60,7 +58,9 @@
 .display__hi-score,
 .display__level,
 .display__speed,
-.display__lives {
+.display__lives,
+.display__pause,
+.display__sound {
   text-align: center;
   font-family: arial;
   font-style: italic;
@@ -68,6 +68,24 @@
   line-height: 2vh;
   width: 100%;
   margin: 1vh auto 0;
+}
+.display__score-value,
+.display__hi-score-value,
+.display__level-value,
+.display__speed-value {
+  margin: 0;
+  font-style: normal;
+  font-family: "DS-Digital";
+}
+.display__score-value,
+.display__hi-score-value {
+  font-size: 2.5vh;
+  line-height: 2.5vh;
+}
+.display__level-value,
+.display__speed-value {
+  line-height: 5vh;
+  font-size: 5vh;
 }
 .display__score {
   margin-top: 1.5vh;
@@ -77,11 +95,7 @@
 }
 .display__pause,
 .display__sound {
-  position: relative;
   width: 40%;
-  text-align: center;
-  font-family: arial;
-  font-style: italic;
   font-size: 1vh;
   line-height: 1vh;
   margin: 1vh 0 0;

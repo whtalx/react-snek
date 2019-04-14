@@ -8,16 +8,24 @@
 .d-pad__left,
 .d-pad__center,
 .d-pad__right {
-  margin: 0;
   display: inline-block;
   height: 100%;
   width: 33%;
 }
 .d-pad__arrows {
   position: relative;
-  margin: 0;
   height: 34%;
   width: 100%;
   background: url('../../svg/arrows.svg') center no-repeat;
   background-size: 90%;
+}
+
+.d-pad__button-up,
+.d-pad__button-right,
+.d-pad__button-left,
+.d-pad__button-down {
+  position: relative;
+  height: 33%;
+  width: 99%;
+  border-radius: 50%;
 }

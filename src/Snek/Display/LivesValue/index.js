@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import './index.css'
-import Pixel from '../__pixel'
+import Pixel from '../Pixel'
 
 export default class LivesValue extends PureComponent {
   render() {

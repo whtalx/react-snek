@@ -1,9 +1,9 @@
 import React from 'react'
 import './index.css'
-import ButtonLeft from './__button-left'
-import ButtonUp from './__button-up'
-import ButtonDown from './__button-down'
-import ButtonRight from './__button-right'
+import ButtonLeft from './ButtonLeft'
+import ButtonUp from './ButtonUp'
+import ButtonDown from './ButtonDown'
+import ButtonRight from './ButtonRight'
 
 export default function DPad (props) {
   return (

@@ -1,8 +1,8 @@
 import React from 'react'
 import './index.css'
-import StartButton from './__start-button'
-import PauseButton from './__pause-button'
-import SoundButton from './__sound-button'
+import StartButton from './StartButton'
+import PauseButton from './PauseButton'
+import SoundButton from './SoundButton'
 
 export default function Controls (props) {
   return (

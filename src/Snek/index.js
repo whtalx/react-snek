@@ -25,6 +25,7 @@ import reverse from '../scripts/reverse'
 import wipe from '../scripts/wipe'
 import victory from '../scripts/victory'
 import playSound from '../scripts/playSound'
+import setLocalStorage from '../scripts/setLocalStorage'
 
 export default class Snek extends Component {
   constructor () {
@@ -76,17 +77,14 @@ export default class Snek extends Component {
     this.wipe = wipe.bind(this);
     this.victory = victory.bind(this);
     this.playSound = playSound.bind(this);
+    this.setLocalStorage = setLocalStorage.bind(this);
   }
 
   componentDidMount() {
     this.addEventListeners();
     this.clrScr();
     this.slither();
-    if (!localStorage.getItem('hiscore')) {
-      localStorage.setItem('hiscore', this.state.hiScore);
-    } else if (parseInt(localStorage.getItem('hiscore')) > this.state.hiScore) {
-        this.setState({hiScore: parseInt(localStorage.getItem('hiscore'))});
-    }
+    this.setLocalStorage();
   }
 
   componentWillUnmount() {

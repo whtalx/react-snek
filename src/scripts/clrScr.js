@@ -1,5 +1,5 @@
 import React from 'react'
-import Pixel from '../Snek/Display/__pixel'
+import Pixel from '../Snek/Display/Pixel'
 
 /* fill screen with pixels switched off */
 export default function clrScr() {

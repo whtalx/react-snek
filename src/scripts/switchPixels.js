@@ -1,5 +1,5 @@
 import React from 'react'
-import Pixel from '../Snek/Display/__pixel'
+import Pixel from '../Snek/Display/Pixel'
 
 export default function switchPixels(pixels) {
   /* switch passed pixels with valid values */
