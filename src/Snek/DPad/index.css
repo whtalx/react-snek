@@ -24,7 +24,6 @@
 .d-pad__button-right,
 .d-pad__button-left,
 .d-pad__button-down {
-  position: relative;
   height: 33%;
   width: 99%;
   border-radius: 50%;

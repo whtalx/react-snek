@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './index.css'
+import './index.scss'
 import Display from './Display'
 import Controls from './Controls'
 import DPad from './DPad'

@@ -7,7 +7,7 @@ Created by FontForge 20120731 at Sun Oct  7 06:14:28 2018
 Font Typeface: DS-Digital. Created by Dusit Supasawat , DS-Font 1998. All Rights Reserved
 </metadata>
 <defs>
-<font id="DS-Digital-BoldItalic" horiz-adv-x="560">
+<font id="DS-Digital" horiz-adv-x="560">
   <font-face font-family="DS-Digital" font-weight="700" font-style="italic" font-stretch="normal" units-per-em="1100" panose-1="0 0 0 0 0 0 0 0 0 0" ascent="880" descent="-220" x-height="700" cap-height="700" bbox="-12 -187 1075 900" underline-thickness="70" underline-position="-85" slope="-5" unicode-range="U+0020-2030"/>
 <missing-glyph horiz-adv-x="550" d="M34 0v900h482v-900h-482zM482 34v832h-414v-832h414z"/>
     <glyph glyph-name=".notdef" horiz-adv-x="550" d="M34 0v900h482v-900h-482zM482 34v832h-414v-832h414z"/>

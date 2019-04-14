@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css'
+import './index.scss'
 import ScoreValue from './ScoreValue'
 import HiScoreValue from './HiScoreValue'
 import LevelValue from './LevelValue'
