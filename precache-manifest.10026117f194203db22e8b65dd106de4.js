@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "051b30c87f6008771567",
-    "url": "/react-snek/static/css/main.9fcd48ef.chunk.css"
+    "revision": "51640b64d202319d1d42",
+    "url": "/react-snek/static/css/main.cb24c875.chunk.css"
   },
   {
-    "revision": "051b30c87f6008771567",
-    "url": "/react-snek/static/js/main.15bc5748.chunk.js"
+    "revision": "51640b64d202319d1d42",
+    "url": "/react-snek/static/js/main.d1a527a3.chunk.js"
   },
   {
     "revision": "e037d10deb72bb61cc55",
     "url": "/react-snek/static/js/runtime~main.aeda6471.js"
   },
   {
-    "revision": "4ee43adf06a7e931516a",
-    "url": "/react-snek/static/js/2.eaf8f90b.chunk.js"
+    "revision": "73ae0dea9640bd7e0ab5",
+    "url": "/react-snek/static/js/2.dc8ed97e.chunk.js"
   },
   {
     "revision": "ce409a4dbe4918929313e5a3f24d3e35",
@@ -28,12 +28,12 @@ self.__precacheManifest = [
     "url": "/react-snek/static/media/DS-Digital.37c8019a.eot"
   },
   {
-    "revision": "5b57f90889f55ea8034dff16423bc835",
-    "url": "/react-snek/static/media/DS-Digital.5b57f908.svg"
-  },
-  {
     "revision": "223f224650510797e0f06233d2a0f97b",
     "url": "/react-snek/static/media/DS-Digital.223f2246.ttf"
+  },
+  {
+    "revision": "5b57f90889f55ea8034dff16423bc835",
+    "url": "/react-snek/static/media/DS-Digital.5b57f908.svg"
   },
   {
     "revision": "9a918d49406f5d3a79467ec16a5f355e",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/react-snek/static/media/arrows.88ec1662.svg"
   },
   {
-    "revision": "512468f875a1f0f94a6027cb0e55d567",
+    "revision": "4a67ed532e3d1317be5a04220b61c7b8",
     "url": "/react-snek/index.html"
   }
 ];

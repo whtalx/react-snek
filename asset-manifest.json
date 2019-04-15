@@ -1,15 +1,15 @@
 {
-  "main.css": "/react-snek/static/css/main.9fcd48ef.chunk.css",
-  "main.js": "/react-snek/static/js/main.15bc5748.chunk.js",
-  "main.js.map": "/react-snek/static/js/main.15bc5748.chunk.js.map",
+  "main.css": "/react-snek/static/css/main.cb24c875.chunk.css",
+  "main.js": "/react-snek/static/js/main.d1a527a3.chunk.js",
+  "main.js.map": "/react-snek/static/js/main.d1a527a3.chunk.js.map",
   "runtime~main.js": "/react-snek/static/js/runtime~main.aeda6471.js",
   "runtime~main.js.map": "/react-snek/static/js/runtime~main.aeda6471.js.map",
-  "static/js/2.eaf8f90b.chunk.js": "/react-snek/static/js/2.eaf8f90b.chunk.js",
-  "static/js/2.eaf8f90b.chunk.js.map": "/react-snek/static/js/2.eaf8f90b.chunk.js.map",
+  "static/js/2.dc8ed97e.chunk.js": "/react-snek/static/js/2.dc8ed97e.chunk.js",
+  "static/js/2.dc8ed97e.chunk.js.map": "/react-snek/static/js/2.dc8ed97e.chunk.js.map",
   "index.html": "/react-snek/index.html",
-  "precache-manifest.b67cf75e9b1721ede1be14f74d1ec5ef.js": "/react-snek/precache-manifest.b67cf75e9b1721ede1be14f74d1ec5ef.js",
+  "precache-manifest.10026117f194203db22e8b65dd106de4.js": "/react-snek/precache-manifest.10026117f194203db22e8b65dd106de4.js",
   "service-worker.js": "/react-snek/service-worker.js",
-  "static/css/main.9fcd48ef.chunk.css.map": "/react-snek/static/css/main.9fcd48ef.chunk.css.map",
+  "static/css/main.cb24c875.chunk.css.map": "/react-snek/static/css/main.cb24c875.chunk.css.map",
   "static/media/index.scss": "/react-snek/static/media/legend.9a918d49.svg",
   "static/media/index.css": "/react-snek/static/media/arrows.88ec1662.svg"
 }
