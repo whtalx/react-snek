@@ -15,22 +15,23 @@ $body: desaturate(#d9dbc5, 15%);
   box-shadow:
     .5vh .75vh 1vh darken($body, 30%),
     0 0 0 .25vh darken($body, 10%);
-}
-.button:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  transform: translateY(.5vh);
-  transition: transform .1s ease-out;
-  background-color: $button;
-  background-image: linear-gradient(to left top, $button 0%, lighten($button, 30%) 100%);
-  box-shadow:
-    inset -.25vh -.25vh .25vh 0 darken($button, 10%),
-    inset .5vh 0 2vh 0 lighten($button, 35%);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: translateY(.5vh);
+    transition: transform .1s ease-out;
+    background-color: $button;
+    background-image: linear-gradient(to left top, $button 0%, lighten($button, 30%) 100%);
+    box-shadow:
+      inset -.25vh -.25vh .25vh 0 darken($button, 10%),
+      inset .5vh 0 2vh 0 lighten($button, 35%);
+  }
 }
 .button:active, .button_pressed {
   background-color: $button;
@@ -41,9 +42,10 @@ $body: desaturate(#d9dbc5, 15%);
     inset -.25vh -.25vh 1vh 0 lighten(desaturate($button, 30%), 5%),
     inset 0 0 .5vh .25vh lighten(desaturate($button, 60%), 10%),
     inset .5vh .5vh 2vh 0 lighten($button, 35%);
-}
-.button:active:after, .button_pressed:after {
-  transform: translateY(0);
-  box-shadow: none;
-  background: transparent;
+
+  &:after {
+    transform: translateY(0);
+    box-shadow: none;
+    background: transparent;
+  }
 }

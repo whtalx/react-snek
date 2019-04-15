@@ -61,7 +61,7 @@ $off: darken($display, 5%);
   fill: $on;
 }
 .display__pixel_blink {
-  animation: blink .2s linear infinite;
+  animation: blink .24s linear infinite;
 }
 @keyframes blink {
   from {fill: $on;}
