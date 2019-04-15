@@ -95,12 +95,12 @@ export default class Snek extends Component {
     return (
       <div className = 'snek'>
         <Display
-          paused = {this.state.isPaused}
           score = {this.state.score}
           hiScore = {this.state.hiScore}
           level = {this.state.level}
           speed = {this.state.speed}
           lives = {this.state.lives}
+          paused = {this.state.isPaused}
           sound = {!this.state.isMuted}
         >
           {this.state.pixels}

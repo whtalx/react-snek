@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Sound (props) {
+export default function Sound(props) {
   return (
     <div className = {'display__sound' + (props.sound? ' display__sound_on' : '')}>
       SOUND

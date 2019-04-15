@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-export default function Pixel (props) {
+export default function Pixel(props) {
   return (
     <div className = {'display__pixel display__pixel_' + props.status}>
       <svg viewBox = '0 0 11 11'>

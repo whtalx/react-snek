@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Pause (props) {
+export default function Pause(props) {
   return (
     <div className = {'display__pause' + (props.paused? ' display__pause_on' : '')}>
       PAUSE

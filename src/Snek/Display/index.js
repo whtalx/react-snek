@@ -8,7 +8,7 @@ import Pause from './Pause'
 import Sound from './Sound'
 import LivesValue from './LivesValue';
 
-export default function Display (props) {
+export default function Display(props) {
   return (
     <div className = 'display'>
       <fieldset className = 'display__edging'>

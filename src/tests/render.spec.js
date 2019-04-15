@@ -11,8 +11,31 @@ import DPad from '../Snek/DPad'
 configure({ adapter: new Adapter() });
 
 describe('Rendering:', function() {
+  /* Display */
   it('display', function() {
-    const display = shallow(<Display sound = {true} paused = {true}><a /></Display>);
+    /* test values */
+    let score = 1;
+    let hiScore = 2;
+    let level = 3;
+    let speed = 4;
+    let lives = 5;
+    let paused = true;
+    let sound = true;
+    let children = <p />;
+
+    const display = shallow(
+      <Display
+        score = { score }
+        hiScore = { hiScore }
+        level = { level }
+        speed = { speed }
+        lives = { lives }
+        paused = { paused }
+        sound = { sound }
+      >
+        {children}
+      </Display>);
+
     expect(display).to.include.prop('className', 'display');
     
     expect(display.childAt(0)).to.include.prop('className', 'display__edging');
@@ -29,51 +52,113 @@ describe('Rendering:', function() {
     expect(display.find('.display__glass').childAt(0))
       .to.include.prop('className', 'display__frame');
 
-    expect(display.find('.display__frame').containsMatchingElement(<a />)).to.be.true;
+    expect(display.find('.display__frame').containsMatchingElement(children))
+      .to.be.true;
 
     expect(display.find('.display__glass').childAt(1))
       .to.include.prop('className', 'display__side');
 
+      /* display__score */
     expect(display.find('.display__side').childAt(0))
       .to.include.prop('className', 'display__score');
+
+    expect(display.find('ScoreValue'))
+      .to.include.prop('score', score);
+
     expect(display.find('ScoreValue').dive())
       .to.include.prop('className', 'display__score-value');
 
+    expect(display.find('ScoreValue').dive().text())
+      .to.equal(('000000' + score).slice(-6));
+
+      /* display__hi-score */
     expect(display.find('.display__side').childAt(1))
       .to.include.prop('className', 'display__hi-score');
+
+    expect(display.find('HiScoreValue'))
+      .to.include.prop('hiScore', hiScore);
+
     expect(display.find('HiScoreValue').dive())
       .to.include.prop('className', 'display__hi-score-value');
 
+    expect(display.find('HiScoreValue').dive().text())
+      .to.equal(('000000' + hiScore).slice(-6));
+
+      /* display__level */
     expect(display.find('.display__side').childAt(2))
       .to.include.prop('className', 'display__level');
+
+    expect(display.find('LevelValue'))
+      .to.include.prop('level', level);
+
     expect(display.find('LevelValue').dive())
       .to.include.prop('className', 'display__level-value');
 
+    expect(display.find('LevelValue').dive().text())
+      .to.equal(('00' + level).slice(-2));
+
+      /* display__speed */
     expect(display.find('.display__side').childAt(3))
       .to.include.prop('className', 'display__speed');
+
+    expect(display.find('SpeedValue'))
+      .to.include.prop('speed', speed);
+
     expect(display.find('SpeedValue').dive())
       .to.include.prop('className', 'display__speed-value');
 
+    expect(display.find('SpeedValue').dive().text())
+      .to.equal(('00' + speed).slice(-2));
+
+    /* display__lives */
     expect(display.find('.display__side').childAt(4))
       .to.include.prop('className', 'display__lives');
+
+      expect(display.find('LivesValue'))
+        .to.include.prop('lives', lives);
+
     expect(display.find('LivesValue').dive())
       .to.include.prop('className', 'display__lives-value');
-    expect(display.find('LivesValue').dive().children()).to.have.lengthOf(9);
 
-    expect(display.find('Pause').dive())
-      .to.include.prop('className', 'display__pause display__pause_on');
+    expect(display.find('LivesValue').dive().children())
+      .to.have.lengthOf(9);
 
-    expect(display.find('Sound').dive())
-      .to.include.prop('className', 'display__sound display__sound_on');
+    if (lives > 0 && lives <= 9) {
+      expect(display.find('LivesValue').dive().childAt(lives - 1))
+        .to.include.prop('status', 'on');
+    }
+
+    /* display__pause */
+    if (paused) {
+      expect(display.find('Pause').dive())
+        .to.include.prop('className', 'display__pause display__pause_on');
+    } else if (!paused) {
+      expect(display.find('Pause').dive())
+        .to.include.prop('className', 'display__pause');
+    }
+
+    /* display__sound */
+    if (sound) {
+      expect(display.find('Sound').dive())
+        .to.include.prop('className', 'display__sound display__sound_on');
+    } else if (!sound) {
+      expect(display.find('Sound').dive())
+        .to.include.prop('className', 'display__sound');
+    }
   });
+  /******************/
 
+  /* Pixels */
   it('pixels', function() {
     let pixel = shallow(<Pixel status = 'off' />);
     expect(pixel).to.include.prop('className', 'display__pixel display__pixel_off');
+    
     pixel = shallow(<Pixel status = 'on' />);
     expect(pixel).to.include.prop('className', 'display__pixel display__pixel_on');
   });
+  /******************/
 
+  /* Control buttons */
   it('control buttons', function() {
     let controls = shallow(<Controls button = 'start' />);
     expect(controls).to.include.prop('className', 'controls');
@@ -93,7 +178,9 @@ describe('Rendering:', function() {
     expect(controls.find('SoundButton').dive())
       .to.include.prop('className', 'controls__sound-button button button_pressed');
   });
+  /******************/
 
+  /* Direction buttons */
   it('direction buttons', function() {
     let dpad = shallow(<DPad button = 'left' />);
     expect(dpad).to.include.prop('className', 'd-pad');
