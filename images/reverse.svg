@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 77 77" width="4.8125em" height="4.8125em">
+	<defs>
+    <style>
+      #bg { fill-rule: evenodd; fill: #909d83; }
+      #pixel-on { fill-rule: evenodd; fill: #373d30; }
+      #pixel-off { fill-rule: evenodd; fill: #839275; }
+      #pixel-blink { fill-rule: evenodd; }
+    </style>
+    <g>
+      <path id="pixel-on" d ="M1,1h9v9H1V1ZM2,2H9V9H2V2ZM3,3H8V8H3V3Z" />
+      <path id="pixel-off" d ="M1,1h9v9H1V1ZM2,2H9V9H2V2ZM3,3H8V8H3V3Z" />
+      <path id="pixel-blink" d ="M1,1h9v9H1V1ZM2,2H9V9H2V2ZM3,3H8V8H3V3Z">
+        <animate
+          attributeName="fill"
+          values="#373d30; #839275; #373d30"
+          dur="0.24s"
+          repeatCount="indefinite"
+        />
+      </path>
+    </g>
+  </defs>
+  <rect id="bg" x="0" y="0" width="77" height="77" />
+  <use xlink:href="#pixel-off" x="0" y="0"/>
+  <use xlink:href="#pixel-off" x="11" y="0"/>
+  <use xlink:href="#pixel-off" x="22" y="0"/>
+  <use xlink:href="#pixel-off" x="33" y="0"/>
+  <use xlink:href="#pixel-off" x="44" y="0"/>
+  <use xlink:href="#pixel-off" x="55" y="0"/>
+  <use xlink:href="#pixel-off" x="66" y="0"/>
+  <use xlink:href="#pixel-off" x="0" y="11"/>
+  <use xlink:href="#pixel-off" x="11" y="11"/>
+  <use xlink:href="#pixel-on" x="22" y="11"/>
+  <use xlink:href="#pixel-off" x="33" y="11"/>
+  <use xlink:href="#pixel-off" x="44" y="11"/>
+  <use xlink:href="#pixel-off" x="55" y="11"/>
+  <use xlink:href="#pixel-off" x="66" y="11"/>
+  <use xlink:href="#pixel-off" x="0" y="22"/>
+  <use xlink:href="#pixel-off" x="11" y="22"/>
+  <use xlink:href="#pixel-on" x="22" y="22"/>
+  <use xlink:href="#pixel-off" x="33" y="22"/>
+  <use xlink:href="#pixel-off" x="44" y="22"/>
+  <use xlink:href="#pixel-off" x="55" y="22"/>
+  <use xlink:href="#pixel-off" x="66" y="22"/>
+  <use xlink:href="#pixel-off" x="0" y="33"/>
+  <use xlink:href="#pixel-off" x="11" y="33"/>
+  <use xlink:href="#pixel-on" x="22" y="33"/>
+  <use xlink:href="#pixel-off" x="33" y="33"/>
+  <use xlink:href="#pixel-off" x="44" y="33"/>
+  <use xlink:href="#pixel-off" x="55" y="33"/>
+  <use xlink:href="#pixel-off" x="66" y="33"/>
+  <use xlink:href="#pixel-off" x="0" y="44"/>
+  <use xlink:href="#pixel-off" x="11" y="44"/>
+  <use xlink:href="#pixel-on" x="22" y="44"/>
+  <use xlink:href="#pixel-off" x="33" y="44"/>
+  <use xlink:href="#pixel-off" x="44" y="44"/>
+  <use xlink:href="#pixel-off" x="55" y="44"/>
+  <use xlink:href="#pixel-off" x="66" y="44"/>
+  <use xlink:href="#pixel-off" x="0" y="55"/>
+  <use xlink:href="#pixel-off" x="11" y="55"/>
+  <use xlink:href="#pixel-on" x="22" y="55"/>
+  <use xlink:href="#pixel-on" x="33" y="55"/>
+  <use xlink:href="#pixel-blink" x="44" y="55"/>
+  <use xlink:href="#pixel-off" x="55" y="55"/>
+  <use xlink:href="#pixel-off" x="66" y="55"/>
+  <use xlink:href="#pixel-off" x="0" y="66"/>
+  <use xlink:href="#pixel-off" x="11" y="66"/>
+  <use xlink:href="#pixel-off" x="22" y="66"/>
+  <use xlink:href="#pixel-off" x="33" y="66"/>
+  <use xlink:href="#pixel-off" x="44" y="66"/>
+  <use xlink:href="#pixel-off" x="55" y="66"/>
+  <use xlink:href="#pixel-off" x="66" y="66"/>
+</svg>
