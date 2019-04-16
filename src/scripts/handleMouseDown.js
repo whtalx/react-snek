@@ -11,10 +11,6 @@ export default function handleMouseDown(event) {
   let isWaiting = this.state.isWaiting;
   let isMuted = this.state.isMuted;
 
-  /* uncomment to make able to change level and speed before game */
-  /* let level = this.state.level;
-  let speed = this.state.speed; */
-
   /* make snake move to new direction instantly
    * upd: better don't use on reverse
    */
@@ -74,12 +70,7 @@ export default function handleMouseDown(event) {
           this.playSound('move');
           //move();
         }
-      } /* else if (!isAlive && speed > 0) {
-        this.setState(state => {
-          state.speed--;
-          return state;
-        });
-      } */
+      }
       break;
 
     case 'right':
@@ -94,12 +85,7 @@ export default function handleMouseDown(event) {
           this.playSound('move');
           //move();
         }
-      } /* else if (!isAlive && speed < 6) {
-        this.setState(state => {
-          state.speed++;
-          return state;
-        });
-      } */
+      }
       break;
 
     case 'up':
@@ -114,12 +100,7 @@ export default function handleMouseDown(event) {
           this.playSound('move');
           //move();
         }
-      } /* else if (!isAlive && level < 6) {
-        this.setState(state => {
-          state.level++;
-          return state;
-        });
-      } */
+      }
       break;
 
     case 'down':
@@ -134,12 +115,7 @@ export default function handleMouseDown(event) {
         this.playSound('move');
         //move();
       }
-    } /* else if (!isAlive && level > 0) {
-      this.setState(state => {
-        state.level--;
-        return state;
-      });
-    } */
+    }
     break;
 
     default:

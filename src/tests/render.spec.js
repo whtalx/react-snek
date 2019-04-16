@@ -10,9 +10,9 @@ import DPad from '../Snek/DPad'
 
 configure({ adapter: new Adapter() });
 
-describe('Rendering:', function() {
+describe('Rendering:', () => {
   /* Display */
-  it('display', function() {
+  it('display', () => {
     /* test values */
     let score = 1;
     let hiScore = 2;
@@ -36,6 +36,7 @@ describe('Rendering:', function() {
         {children}
       </Display>);
 
+    /* Display static divs classes check*/
     expect(display).to.include.prop('className', 'display');
     
     expect(display.childAt(0)).to.include.prop('className', 'display__edging');
@@ -51,14 +52,16 @@ describe('Rendering:', function() {
 
     expect(display.find('.display__glass').childAt(0))
       .to.include.prop('className', 'display__frame');
-
-    expect(display.find('.display__frame').containsMatchingElement(children))
+    
+    /* check for passing {props.children} into dosplay__frame div */
+    expect(display.find('.display__frame').containsMatchingElement(children),
+    'Display component doesn\'t pass {props.children} into <div className = \'display__frame\'>')
       .to.be.true;
 
     expect(display.find('.display__glass').childAt(1))
       .to.include.prop('className', 'display__side');
 
-      /* display__score */
+    /* check display__score for render and value passing */
     expect(display.find('.display__side').childAt(0))
       .to.include.prop('className', 'display__score');
 
@@ -71,7 +74,7 @@ describe('Rendering:', function() {
     expect(display.find('ScoreValue').dive().text())
       .to.equal(('000000' + score).slice(-6));
 
-      /* display__hi-score */
+      /* check display__hi-score for render and value passing */
     expect(display.find('.display__side').childAt(1))
       .to.include.prop('className', 'display__hi-score');
 
@@ -84,7 +87,7 @@ describe('Rendering:', function() {
     expect(display.find('HiScoreValue').dive().text())
       .to.equal(('000000' + hiScore).slice(-6));
 
-      /* display__level */
+    /* check display__level for render and value passing */
     expect(display.find('.display__side').childAt(2))
       .to.include.prop('className', 'display__level');
 
@@ -97,7 +100,7 @@ describe('Rendering:', function() {
     expect(display.find('LevelValue').dive().text())
       .to.equal(('00' + level).slice(-2));
 
-      /* display__speed */
+    /* check display__speed for render and value passing */
     expect(display.find('.display__side').childAt(3))
       .to.include.prop('className', 'display__speed');
 
@@ -110,12 +113,13 @@ describe('Rendering:', function() {
     expect(display.find('SpeedValue').dive().text())
       .to.equal(('00' + speed).slice(-2));
 
-    /* display__lives */
+    /* check display__lives for render and 
+     * value-based amount of 'switched on' pixels rendering */
     expect(display.find('.display__side').childAt(4))
       .to.include.prop('className', 'display__lives');
 
-      expect(display.find('LivesValue'))
-        .to.include.prop('lives', lives);
+    expect(display.find('LivesValue'))
+      .to.include.prop('lives', lives);
 
     expect(display.find('LivesValue').dive())
       .to.include.prop('className', 'display__lives-value');
@@ -128,7 +132,7 @@ describe('Rendering:', function() {
         .to.include.prop('status', 'on');
     }
 
-    /* display__pause */
+    /* check display__pause for {props.paused}-based render */
     if (paused) {
       expect(display.find('Pause').dive())
         .to.include.prop('className', 'display__pause display__pause_on');
@@ -137,7 +141,7 @@ describe('Rendering:', function() {
         .to.include.prop('className', 'display__pause');
     }
 
-    /* display__sound */
+    /* check display__sound for {props.sound}-based render */
     if (sound) {
       expect(display.find('Sound').dive())
         .to.include.prop('className', 'display__sound display__sound_on');
@@ -149,24 +153,28 @@ describe('Rendering:', function() {
   /******************/
 
   /* Pixels */
-  it('pixels', function() {
+  it('pixels', () => {
+    /* check Pixel component for status depended render */
     let pixel = shallow(<Pixel status = 'off' />);
     expect(pixel).to.include.prop('className', 'display__pixel display__pixel_off');
-    
+
     pixel = shallow(<Pixel status = 'on' />);
     expect(pixel).to.include.prop('className', 'display__pixel display__pixel_on');
   });
   /******************/
 
   /* Control buttons */
-  it('control buttons', function() {
+  it('control buttons', () => {
     let controls = shallow(<Controls button = 'start' />);
+
+    /* Control buttons static divs classes check */
     expect(controls).to.include.prop('className', 'controls');
 
     expect(controls.childAt(0)).to.include.prop('className', 'controls__start');
     expect(controls.childAt(1)).to.include.prop('className', 'controls__pause');
     expect(controls.childAt(2)).to.include.prop('className', 'controls__sound');
     
+    /* buttons press on props passing check */
     expect(controls.find('StartButton').dive())
       .to.include.prop('className', 'controls__start-button button button_pressed');
     controls = shallow(<Controls button = 'pause' />);
@@ -181,17 +189,21 @@ describe('Rendering:', function() {
   /******************/
 
   /* Direction buttons */
-  it('direction buttons', function() {
+  it('direction buttons', () => {
     let dpad = shallow(<DPad button = 'left' />);
+
+    /* Direction buttons static divs classes check */
     expect(dpad).to.include.prop('className', 'd-pad');
 
     expect(dpad.childAt(0)).to.include.prop('className', 'd-pad__left');
     expect(dpad.childAt(1)).to.include.prop('className', 'd-pad__center');
     expect(dpad.childAt(2)).to.include.prop('className', 'd-pad__right');
 
+    /* crossed arrows svg render check */
     expect(dpad.find('.d-pad__center').childAt(1))
       .to.include.prop('className', 'd-pad__arrows');
 
+    /* buttons press on props passing check */
     expect(dpad.find('ButtonLeft').dive())
       .to.include.prop('className', 'd-pad__button-left button button_pressed');
 
