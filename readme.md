@@ -56,6 +56,7 @@ On picture below current direction is «right» and if you turn left, snake will
 * [Chai](https://www.chaijs.com/) – BDD / TDD assertion library.
 * [Enzyme](https://airbnb.io/enzyme/) – Testing utility for React.
 * [SASS](https://sass-lang.com/) – CSS extension language.
+* [Web Audio API](https://www.w3.org/TR/webaudio/) – High-level Web API for processing and synthesizing audio.
 
 ## Acknowledgments
 
