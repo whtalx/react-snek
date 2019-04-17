@@ -35,11 +35,18 @@ Key bindings:
 ### Gameplay
 
 Every level starts with snake length of three. Head of snake and food are marked blinking.
+
 Changing direction cause snake move instantly to new direction.
+
 Moving along screen border, game prevent you for turn out of screen.
+
 Get off screen or bump an obstacle cause death.
+
 Death decreasing lives amount while above zero, then game over.
-Snake can reverse if you turn to opposite direction. Reversed direction is direction which snake tail pointing. As shown on picture below, if current direction is «right» and you turn to left, snake will move up.
+
+Snake can reverse if you turn to opposite direction. Reversed direction is direction which snake tail pointing. 
+
+On picture below current direction is «right» and if you turn left, snake will move up.
 <div align="center"><img src="./images/reverse.png" /></div>
 
 ## Built With
