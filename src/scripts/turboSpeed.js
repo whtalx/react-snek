@@ -1,3 +1,8 @@
 export default function turboSpeed() {
-  this.setState({subtrahend: 325});
+  /* make snake move faster on button hold */
+  if (this.turboTimeout === null) {
+    this.turboTimeout = setTimeout(() => {
+      this.setState({ subtrahend: 325 });
+    }, 400);
+  }
 }

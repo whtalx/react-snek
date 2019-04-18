@@ -11,7 +11,7 @@ configure({ adapter: new Adapter() });
 
 describe('Functions:', () => {
   /* test values */
-  let pixelsToSwitch = [{x: 5, y: 5, status: 'blink'}, {x: 2, y: 17, status: 'on'}];
+  let pixelsToSwitch = [{ x: 5, y: 5, status: 'blink' }, { x: 2, y: 17, status: 'on' }];
 
   /* test component */
   class App extends Component {
@@ -20,7 +20,6 @@ describe('Functions:', () => {
       this.clrScr = clrScr.bind(this);
       this.switchPixels = switchPixels.bind(this);
       this.turboSpeed = turboSpeed.bind(this);
-      this.playSound = () => { return; }
       this.state = { pixels: [] }
     }
     render() {
@@ -46,13 +45,6 @@ describe('Functions:', () => {
       expect(app.state().pixels[(item.x + item.y * 10)].props.status)
         .to.equal(item.status);
     });
-  });
-
-  /* turboSpeed */
-  it('set turbo speed', () => {
-    /* check for seting subtrahend of speed calculating formula to 325 */
-    app.instance().turboSpeed();
-    expect(app.state().subtrahend).to.equal(325);
   });
 
   chai.use(chaiEnzyme());

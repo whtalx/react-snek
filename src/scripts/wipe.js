@@ -1,20 +1,15 @@
 export default function wipe() {
-  let obstacle = this.state.obstacle;
-  let snake = this.state.snake;
-  let food = this.state.food;
+  let food = this.state.food[0];
   let line = [];
-
   for (let i = 0; i < 20; i++) {
-    line[i] = {x: 0, y: i, status: 'on'}
+    line[i] = { x: 0, y: i, status: 'on' }
   }
 
   /* fill screen with switched on pixels */
   let fill = () => {
-    this.switchPixels(line);
+    this.switchPixels(line);    
     if (line[0].x < 9) {
-      line.forEach(item => {
-        item.x++;
-      });
+      line.forEach(item => item.x += 1);
       requestAnimationFrame(fill);
     } else {
       requestAnimationFrame(empty);
@@ -23,39 +18,37 @@ export default function wipe() {
 
   /* fill screen with pixels switched according to snake, food and obstacle pixels */
   let empty = () => {
-    line.forEach(lineItem => {
+    line.forEach((lineItem) => {
       lineItem.status = undefined;
 
-      obstacle.forEach(obstacleItem => {
+      this.state.obstacle.forEach((obstacleItem) => {
         if (obstacleItem.x === lineItem.x && obstacleItem.y === lineItem.y) {
           lineItem.status = obstacleItem.status;
         }
       });
 
-      snake.forEach(snakeItem => {
+      this.state.snake.forEach((snakeItem) => {
         if (snakeItem.x === lineItem.x && snakeItem.y === lineItem.y) {
           lineItem.status = snakeItem.status;
         }
       });
 
-      if (food[0].x === lineItem.x && food[0].y === lineItem.y) {
-        lineItem.status = food[0].status;
+      if (food.x === lineItem.x && food.y === lineItem.y) {
+        lineItem.status = food.status;
       }
 
-      if (lineItem.status === undefined) lineItem.status = 'off';
+      if (lineItem.status === undefined) { lineItem.status = 'off'; }
     });
 
     this.switchPixels(line);
 
     if (line[0].x > 0) {
-      line.forEach(item => {
-        item.x--;
-      });
+      line.forEach(item => item.x -= 1);
       requestAnimationFrame(empty);
     } else {
       this.setState({
         isAlive: true,
-        isWaiting: true
+        isWaiting: true,
       });
     }
   }

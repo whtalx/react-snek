@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-export default function ButtonUp (props) {
+export default function ButtonUp(props) {
   return (
-    <div id = 'up' className = {'d-pad__button-up button'+ (props.button === 'up'? ' button_pressed' : '')}></div>
+    <div
+      id="up"
+      className={`d-pad__button-up button${props.button === 'up'? ' button_pressed' : ''}`}
+    />
   );
 }

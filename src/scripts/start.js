@@ -1,4 +1,4 @@
-import obstacles from '../data/obstacles'
+import obstacles from '../data/obstacles';
 
 export default function start(keepStats = false) {
   clearTimeout(this.gameTimeout);
@@ -12,7 +12,7 @@ export default function start(keepStats = false) {
       score: 0,
       level: 0,
       speed: 0,
-      lives: 3
+      lives: 3,
     });
     this.playSound('start');
   }
@@ -21,16 +21,14 @@ export default function start(keepStats = false) {
   this.setState({
     direction: 'right',
     subtrahend: this.state.speedCoefficient,
-    snake: [{x: 1, y: 5, status : 'on'}, {x: 2, y: 5, status: 'on'}, {x: 3, y: 5, status: 'blink'}],
-    isPlayiyg: true
+    snake: [{ x: 1, y: 5, status : 'on' }, { x: 2, y: 5, status: 'on' }, { x: 3, y: 5, status: 'blink' }],
+    isPlayiyg: true,
   });
 
   /* get obstacles for current level */
   let obstacle = obstacles[this.state.level];
-  obstacle.forEach(item => {
-    item.status = 'on';
-  });
-  this.setState({obstacle: obstacle});
+  obstacle.forEach(item => item.status = 'on');
+  this.setState({ obstacle: obstacle });
 
   /* make new food and start level change animation */
   this.newFood(false);

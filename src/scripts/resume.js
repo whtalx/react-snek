@@ -1,6 +1,6 @@
 export default function resume() {
   if (this.state.isPaused) {
-    this.setState({isPaused: false});
+    this.setState({ isPaused: false });
     this.playSound('resume');
   }
   if (!this.state.isWaiting) {

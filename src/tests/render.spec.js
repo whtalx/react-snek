@@ -14,27 +14,27 @@ describe('Rendering:', () => {
   /* Display */
   it('display', () => {
     /* test values */
-    let score = 1;
-    let hiScore = 2;
-    let level = 3;
-    let speed = 4;
-    let lives = 5;
-    let paused = true;
-    let sound = true;
-    let children = <p />;
+    const score = 1;
+    const hiScore = 2;
+    const level = 3;
+    const speed = 4;
+    const lives = 5;
+    const paused = true;
+    const sound = true;
+    const children = <p />;
 
     const display = shallow(
       <Display
-        score = { score }
-        hiScore = { hiScore }
-        level = { level }
-        speed = { speed }
-        lives = { lives }
-        paused = { paused }
-        sound = { sound }
-      >
-        {children}
-      </Display>);
+        score={ score }
+        hiScore={ hiScore }
+        level={ level }
+        speed={ speed }
+        lives={ lives }
+        paused={ paused }
+        sound={ sound }
+        children={ children }
+      />
+    );
 
     /* Display static divs classes check*/
     expect(display).to.include.prop('className', 'display');
@@ -155,17 +155,17 @@ describe('Rendering:', () => {
   /* Pixels */
   it('pixels', () => {
     /* check Pixel component for status depended render */
-    let pixel = shallow(<Pixel status = 'off' />);
+    let pixel = shallow(<Pixel status="off" />);
     expect(pixel).to.include.prop('className', 'display__pixel display__pixel_off');
 
-    pixel = shallow(<Pixel status = 'on' />);
+    pixel = shallow(<Pixel status="on" />);
     expect(pixel).to.include.prop('className', 'display__pixel display__pixel_on');
   });
   /******************/
 
   /* Control buttons */
   it('control buttons', () => {
-    let controls = shallow(<Controls button = 'start' />);
+    let controls = shallow(<Controls button="start" />);
 
     /* Control buttons static divs classes check */
     expect(controls).to.include.prop('className', 'controls');
@@ -177,11 +177,11 @@ describe('Rendering:', () => {
     /* buttons press on props passing check */
     expect(controls.find('StartButton').dive())
       .to.include.prop('className', 'controls__start-button button button_pressed');
-    controls = shallow(<Controls button = 'pause' />);
+    controls = shallow(<Controls button="pause" />);
 
     expect(controls.find('PauseButton').dive())
       .to.include.prop('className', 'controls__pause-button button button_pressed');
-    controls = shallow(<Controls button = 'sound' />);
+    controls = shallow(<Controls button="sound" />);
 
     expect(controls.find('SoundButton').dive())
       .to.include.prop('className', 'controls__sound-button button button_pressed');
@@ -190,7 +190,7 @@ describe('Rendering:', () => {
 
   /* Direction buttons */
   it('direction buttons', () => {
-    let dpad = shallow(<DPad button = 'left' />);
+    let dpad = shallow(<DPad button="left" />);
 
     /* Direction buttons static divs classes check */
     expect(dpad).to.include.prop('className', 'd-pad');
@@ -207,15 +207,15 @@ describe('Rendering:', () => {
     expect(dpad.find('ButtonLeft').dive())
       .to.include.prop('className', 'd-pad__button-left button button_pressed');
 
-    dpad = shallow(<DPad button = 'up' />);
+    dpad = shallow(<DPad button="up" />);
     expect(dpad.find('ButtonUp').dive())
       .to.include.prop('className', 'd-pad__button-up button button_pressed');
 
-    dpad = shallow(<DPad button = 'right' />);
+    dpad = shallow(<DPad button="right" />);
     expect(dpad.find('ButtonRight').dive())
       .to.include.prop('className', 'd-pad__button-right button button_pressed');
 
-    dpad = shallow(<DPad button = 'down' />);
+    dpad = shallow(<DPad button="down" />);
     expect(dpad.find('ButtonDown').dive())
       .to.include.prop('className', 'd-pad__button-down button button_pressed');
   });

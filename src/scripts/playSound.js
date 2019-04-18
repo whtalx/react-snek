@@ -1,7 +1,9 @@
 /* create context and gain once */
 const context = new (window.AudioContext || window.webkitAudioContext)();
 const gain = context.createGain();
-gain.connect(context.destination);
+const master = context.createGain();
+gain.connect(master);
+master.connect(context.destination);
 
 /* create custom waveforms for oscollators, buffer for noise */
 const oscillator1Real = new Float32Array(Array.from({length: 32}, (_, n) => (n === 0 ? 0 : 4 / (n * Math.PI) * Math.sin(Math.PI * n * 0.27))));
@@ -36,9 +38,9 @@ export default function playSound(sound) {
 
   /* muting without sound stop */
   if (this.state.isMuted) {
-    gain.gain.setValueAtTime(0, now);
+    master.gain.setValueAtTime(0, now);
   } else {
-    gain.gain.setValueAtTime(.25, now);
+    master.gain.setValueAtTime(1, now);
   }
 
   const oscillator1 = context.createOscillator();
@@ -47,7 +49,7 @@ export default function playSound(sound) {
 
   switch (sound) {
     case 'start':
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now);
+      gain.gain.setValueAtTime(.25, now);
       oscillator1.frequency.setValueAtTime(329.63, now);
       oscillator1.frequency.setValueAtTime(349.23, now + .4);
       oscillator1.frequency.setValueAtTime(392, now + .5);
@@ -127,21 +129,21 @@ export default function playSound(sound) {
       break;
 
     case 'gameOver':
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now);
+      gain.gain.setValueAtTime(.001, now);
       oscillator1.frequency.setValueAtTime(261.63, now);
-      if (!this.state.isMuted) gain.gain.exponentialRampToValueAtTime(.25, now + .4);
+      gain.gain.exponentialRampToValueAtTime(.25, now + .4);
       oscillator1.frequency.exponentialRampToValueAtTime(311.13, now + .45);
-      if (!this.state.isMuted) gain.gain.linearRampToValueAtTime(.001, now + .45);
+      gain.gain.linearRampToValueAtTime(.001, now + .45);
       oscillator1.frequency.setValueAtTime(233.08, now + .5);
-      if (!this.state.isMuted) gain.gain.exponentialRampToValueAtTime(.25, now + .9);
+      gain.gain.exponentialRampToValueAtTime(.25, now + .9);
       oscillator1.frequency.exponentialRampToValueAtTime(277.18, now + .95);
-      if (!this.state.isMuted) gain.gain.linearRampToValueAtTime(.001, now + .95);
+      gain.gain.linearRampToValueAtTime(.001, now + .95);
       oscillator1.frequency.setValueAtTime(207.65, now + 1);
-      if (!this.state.isMuted) gain.gain.exponentialRampToValueAtTime(.25, now + 1.4);
+      gain.gain.exponentialRampToValueAtTime(.25, now + 1.4);
       oscillator1.frequency.exponentialRampToValueAtTime(246.94, now + 1.45);
-      if (!this.state.isMuted) gain.gain.linearRampToValueAtTime(.001, now + 1.45);
+      gain.gain.linearRampToValueAtTime(.001, now + 1.45);
       oscillator1.frequency.setValueAtTime(174.61, now + 1.5);
-      if (!this.state.isMuted) gain.gain.exponentialRampToValueAtTime(.25, now + 2.2);
+      gain.gain.exponentialRampToValueAtTime(.25, now + 2.2);
       oscillator1.frequency.exponentialRampToValueAtTime(207.65, now + 2.25);
       oscillator1.start(now);
       oscillator1.stop(now + 2.3);
@@ -153,49 +155,50 @@ export default function playSound(sound) {
       oscillator1.frequency.setValueAtTime(587.33, now + .25);
       oscillator1.frequency.setValueAtTime(698.46, now + .5);
       oscillator1.frequency.setValueAtTime(783.99, now + .75);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 1.15);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 1.25);
+      gain.gain.setValueAtTime(.001, now + 1.15);
+      gain.gain.setValueAtTime(.25, now + 1.25);
       oscillator1.frequency.setValueAtTime(523.25, now + 1.25);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 1.5);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 1.55);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 1.64);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 1.65);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 1.74);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 1.75);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 2.05);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 2.25);
+      gain.gain.setValueAtTime(.001, now + 1.5);
+      gain.gain.setValueAtTime(.25, now + 1.55);
+      gain.gain.setValueAtTime(.001, now + 1.64);
+      gain.gain.setValueAtTime(.25, now + 1.65);
+      gain.gain.setValueAtTime(.001, now + 1.74);
+      gain.gain.setValueAtTime(.25, now + 1.75);
+      gain.gain.setValueAtTime(.001, now + 2.05);
+      gain.gain.setValueAtTime(.25, now + 2.25);
       oscillator1.frequency.setValueAtTime(523.25, now + 2.25);
       oscillator1.frequency.setValueAtTime(622.25, now + 2.5);
       oscillator1.frequency.setValueAtTime(783.99, now + 2.75);
       oscillator1.frequency.setValueAtTime(932.33, now + 3);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 3.4);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 3.5);
+      gain.gain.setValueAtTime(.001, now + 3.4);
+      gain.gain.setValueAtTime(.25, now + 3.5);
       oscillator1.frequency.setValueAtTime(622.25, now + 3.5);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 3.75);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 3.8);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 3.89);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 3.9);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 3.99);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 4);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 4.19);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 4.5);
+      gain.gain.setValueAtTime(.001, now + 3.75);
+      gain.gain.setValueAtTime(.25, now + 3.8);
+      gain.gain.setValueAtTime(.001, now + 3.89);
+      gain.gain.setValueAtTime(.25, now + 3.9);
+      gain.gain.setValueAtTime(.001, now + 3.99);
+      gain.gain.setValueAtTime(.25, now + 4);
+      gain.gain.setValueAtTime(.001, now + 4.19);
+      gain.gain.setValueAtTime(.25, now + 4.5);
       oscillator1.frequency.setValueAtTime(523.25, now + 4.5);
       oscillator1.frequency.setValueAtTime(622.25, now + 4.75);
       oscillator1.frequency.setValueAtTime(739.99, now + 5);
       oscillator1.frequency.setValueAtTime(932.33, now + 5.25);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 5.65);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 5.75);
+      gain.gain.setValueAtTime(.001, now + 5.65);
+      gain.gain.setValueAtTime(.25, now + 5.75);
       oscillator1.frequency.setValueAtTime(698.46, now + 5.75);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 6);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 6.05);
+      gain.gain.setValueAtTime(.001, now + 6);
+      gain.gain.setValueAtTime(.25, now + 6.05);
       oscillator1.frequency.setValueAtTime(587.33, now + 6.05);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 6.3);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 6.35);
+      gain.gain.setValueAtTime(.001, now + 6.3);
+      gain.gain.setValueAtTime(.25, now + 6.35);
       oscillator1.frequency.setValueAtTime(622.25, now + 6.35);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 6.6);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.25, now + 6.65);
+      gain.gain.setValueAtTime(.001, now + 6.6);
+      gain.gain.setValueAtTime(.25, now + 6.65);
       oscillator1.frequency.setValueAtTime(698.46, now + 6.65);
-      if (!this.state.isMuted) gain.gain.setValueAtTime(.001, now + 8);
+      gain.gain.setValueAtTime(.001, now + 8);
+      gain.gain.setValueAtTime(.25, now + 8.01);
       oscillator1.start(now);
       oscillator1.stop(now + 8);
       break;

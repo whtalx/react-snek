@@ -1,53 +1,57 @@
 export default function handleKeyDown(event) {
-  let mouseDown = new Event('mousedown');
-  
+  const mouseDown = new Event('mousedown');
+  const press = (button) => {
+    if (this.state.button !== button) {
+      this.setState({ button: button });
+      document.querySelector(`#${button}`).dispatchEvent(mouseDown);
+    }
+  }
+
   switch (event.which) {
     case 39:// right
+      press('right');
+      break;
+
     case 68:// d
-      if (this.state.button !== 'right') {
-        this.setState({button: 'right'});
-        document.querySelector('#right').dispatchEvent(mouseDown);
-      }
+      press('right');
       break;
+
     case 37:// left
+      press('left');
+      break;
+
     case 65:// a
-      if (this.state.button !== 'left') {
-        this.setState({button: 'left'});
-        document.querySelector('#left').dispatchEvent(mouseDown);
-      }
+      press('left');
       break;
+
     case 38:// up
+      press('up');
+      break;
+
     case 87:// w
-      if (this.state.button !== 'up') {
-        this.setState({button: 'up'});
-        document.querySelector('#up').dispatchEvent(mouseDown);
-      }
+      press('up');
       break;
+
     case 40:// down
+      press('down');
+      break;
+
     case 83:// s
-      if (this.state.button !== 'down') {
-        this.setState({button: 'down'});
-        document.querySelector('#down').dispatchEvent(mouseDown);
-      }
+      press('down');
       break;
+
     case 13://enter
-      if (this.state.button !== 'start') {
-        this.setState({button: 'start'});
-        document.querySelector('#start').dispatchEvent(mouseDown);
-      }
+      press('start');
       break;
+
     case 32://spacebar
-      if (this.state.button !== 'pause') {
-        this.setState({button: 'pause'});
-        document.querySelector('#pause').dispatchEvent(mouseDown);
-      }
+      press('pause');
       break;
+
     case 77://m
-      if (this.state.button !== 'sound') {
-        this.setState({button: 'sound'});
-        document.querySelector('#sound').dispatchEvent(mouseDown);
-      }
+      press('sound');
       break;
+
     default:
       return;
   }

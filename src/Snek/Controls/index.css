@@ -8,6 +8,7 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
 .controls__start,
 .controls__pause,
 .controls__sound {
@@ -17,6 +18,7 @@
   color: #041b17;
   font: bold small-caps 2.5vh Tahoma, Geneva, sans-serif;
 }
+
 .controls__start-button,
 .controls__pause-button,
 .controls__sound-button {

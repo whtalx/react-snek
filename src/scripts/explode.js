@@ -1,49 +1,45 @@
 export default function explode(pixel, gameRestart = true) {
-  let small = pixel;
   let medium = [];
   let large = [];
   let counter = 0;
 
-  let makeMedium = s => {
+  const makeMedium = (status) => {
     for (let x = -1; x <= 1; x++) {
       for (let y = -1; y <= 1; y++) {
         if (x !== 0 || y !== 0 ) {
-          medium = medium.concat([{'x': (x + pixel[0].x), 'y': (y + pixel[0].y), 'status': s}])
+          medium = medium.concat([{ 'x': (x + pixel[0].x), 'y': (y + pixel[0].y), 'status': status }])
         }
       }
     }
   }
 
-  let makeLarge = s => {
-    for (let x = -2; x < 3; x++) {
+  const makeLarge = (status) => {
+    for (let x = -2; x <= 2; x++) {
       if (Math.abs(x % 2) === 0) {
-        for (let y = -2; y < 3; y++) {
+        for (let y = -2; y <= 2; y++) {
           if (Math.abs(y % 2) === 0) {
-            large = large.concat([{'x': (x + pixel[0].x), 'y': (y + pixel[0].y), 'status': s}]);
+            large = large.concat([{ 'x': (x + pixel[0].x), 'y': (y + pixel[0].y), 'status': status }]);
           }
         }
       }
     }
   }
 
-  let badaboom = () => {
+  const badaboom = () => {
     counter++;
-
-    let mediumBoom = () => {
+    const mediumBoom = () => {
       makeMedium('blink');
       this.switchPixels(medium);
-
       this.animationTimeout = setTimeout(largeBoom, 60);
     }
 
-    let largeBoom = () => {
+    const largeBoom = () => {
       makeLarge('blink');
       this.switchPixels(large);
-
       this.animationTimeout = setTimeout(smallBoom, 60);
     }
 
-    let smallBoom = () => {
+    const smallBoom = () => {
       makeMedium('off');
       makeLarge('off');
       this.switchPixels(large.concat(medium));
@@ -53,13 +49,14 @@ export default function explode(pixel, gameRestart = true) {
         this.animationTimeout = setTimeout(badaboom, 80);
       } else {
         if (gameRestart) {
-          this.setState({isPlayiyg: false});
+          this.setState({ isPlayiyg: false });
           this.spiral();
           this.playSound('gameOver');
         } else {
-          this.setState(state => {
+          this.setState((state) => {
             state.speed = 0;
             state.score = state.lastScore;
+            return state;
           });
           this.playSound('levelRestart');
           this.start(true);
@@ -69,7 +66,8 @@ export default function explode(pixel, gameRestart = true) {
 
     mediumBoom();
   }
+
   this.playSound('explosion');
-  this.switchPixels(small);
+  this.switchPixels(pixel);
   badaboom();
 }

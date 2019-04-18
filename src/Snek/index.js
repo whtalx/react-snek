@@ -1,34 +1,12 @@
-import React, {Component} from 'react'
-import './index.scss'
-import Display from './Display'
-import Controls from './Controls'
-import DPad from './DPad'
-import clrScr from '../scripts/clrScr'
-import removeEventListeners from '../scripts/removeEventListeners'
-import addEventListeners from '../scripts/addEventListeners'
-import handleMouseDown from '../scripts/handleMouseDown'
-import handleMouseUp from '../scripts/handleMouseUp'
-import handleKeyDown from '../scripts/handleKeyDown'
-import handleKeyUp from '../scripts/handleKeyUp'
-import switchPixels from '../scripts/switchPixels'
-import slither from '../scripts/slither'
-import explode from '../scripts/explode'
-import spiral from '../scripts/spiral'
-import start from '../scripts/start'
-import pause from '../scripts/pause'
-import resume from '../scripts/resume'
-import turboSpeed from '../scripts/turboSpeed'
-import newFood from '../scripts/newFood'
-import play from '../scripts/play'
-import levelUp from '../scripts/levelUp'
-import reverse from '../scripts/reverse'
-import wipe from '../scripts/wipe'
-import victory from '../scripts/victory'
-import playSound from '../scripts/playSound'
-import setLocalStorage from '../scripts/setLocalStorage'
+import React, { Component } from 'react';
+import './index.scss';
+import methods from '../scripts/methods';
+import Display from './Display';
+import Controls from './Controls';
+import DPad from './DPad';
 
 export default class Snek extends Component {
-  constructor () {
+  constructor() {
     super();
 
     this.state = {
@@ -52,39 +30,18 @@ export default class Snek extends Component {
       isPaused: false,
       isPlayiyg: false,
       isWaiting: false,
-      isCelebrating: false
+      isCelebrating: false,
     }
 
-    this.clrScr = clrScr.bind(this);
-    this.removeEventListeners = removeEventListeners.bind(this);
-    this.addEventListeners = addEventListeners.bind(this);
-    this.handleMouseDown = handleMouseDown.bind(this);
-    this.handleMouseUp = handleMouseUp.bind(this);
-    this.handleKeyDown = handleKeyDown.bind(this);
-    this.handleKeyUp = handleKeyUp.bind(this);
-    this.switchPixels = switchPixels.bind(this);
-    this.slither = slither.bind(this);
-    this.explode = explode.bind(this);
-    this.spiral = spiral.bind(this);
-    this.start = start.bind(this);
-    this.pause = pause.bind(this);
-    this.resume = resume.bind(this);
-    this.turboSpeed = turboSpeed.bind(this);
-    this.newFood = newFood.bind(this);
-    this.play = play.bind(this);
-    this.levelUp = levelUp.bind(this);
-    this.reverse = reverse.bind(this);
-    this.wipe = wipe.bind(this);
-    this.victory = victory.bind(this);
-    this.playSound = playSound.bind(this);
-    this.setLocalStorage = setLocalStorage.bind(this);
+    this.methods = methods.bind(this);
+    this.methods();
   }
 
   componentDidMount() {
     this.addEventListeners();
+    this.initLocalStorage();
     this.clrScr();
     this.slither();
-    this.setLocalStorage();
   }
 
   componentWillUnmount() {
@@ -93,21 +50,20 @@ export default class Snek extends Component {
 
   render() {
     return (
-      <div className = 'snek'>
+      <div className="snek">
         <Display
-          score = {this.state.score}
-          hiScore = {this.state.hiScore}
-          level = {this.state.level}
-          speed = {this.state.speed}
-          lives = {this.state.lives}
-          paused = {this.state.isPaused}
-          sound = {!this.state.isMuted}
-        >
-          {this.state.pixels}
-        </Display>
-        <Controls button = {this.state.button} />
-        <DPad button = {this.state.button} />
+          score={this.state.score}
+          hiScore={this.state.hiScore}
+          level={this.state.level}
+          speed={this.state.speed}
+          lives={this.state.lives}
+          paused={this.state.isPaused}
+          sound={!this.state.isMuted}
+          children={this.state.pixels}
+        />
+        <Controls button={this.state.button} />
+        <DPad button={this.state.button} />
       </div>
-    )
+    );
   }
 }

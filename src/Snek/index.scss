@@ -7,11 +7,15 @@ $body: desaturate(#d9dbc5, 15%);
   height: 85vh;
   transform-style: preserve-3d;
 }
+
 .button {
   cursor: pointer;
   position: relative;
   background-color: desaturate($button, 20%);
-  background-image: linear-gradient(to right, lighten($button, 30%) 30%, lighten(desaturate($button, 30%), 5%) 100%);
+  background-image: linear-gradient(
+    to right,
+    lighten($button, 30%) 30%,
+    lighten(desaturate($button, 30%), 5%) 100%);
   box-shadow:
     .5vh .75vh 1vh darken($body, 30%),
     0 0 0 .25vh darken($body, 10%);
@@ -27,15 +31,23 @@ $body: desaturate(#d9dbc5, 15%);
     transform: translateY(.5vh);
     transition: transform .1s ease-out;
     background-color: $button;
-    background-image: linear-gradient(to left top, $button 0%, lighten($button, 30%) 100%);
+    background-image: linear-gradient(
+      to left top,
+      $button 0%,
+      lighten($button, 30%) 100%);
     box-shadow:
       inset -.25vh -.25vh .25vh 0 darken($button, 10%),
       inset .5vh 0 2vh 0 lighten($button, 35%);
   }
 }
-.button:active, .button_pressed {
+
+.button:active,
+.button_pressed {
   background-color: $button;
-  background-image: linear-gradient(to left top, $button 0%, lighten($button, 30%) 100%);
+  background-image: linear-gradient(
+    to left top,
+    $button 0%,
+    lighten($button, 30%) 100%);
   box-shadow:
     .5vh .5vh .25vh 0 transparentize(lighten($body, 7%), .5),
     0 0 0 .25vh darken($body, 10%),

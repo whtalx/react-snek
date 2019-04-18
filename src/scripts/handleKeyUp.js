@@ -1,30 +1,55 @@
 export default function handleKeyUp(event) {
-  this.setState({button: null});
-  let mouseUp = new Event('mouseup');
+  this.setState({ button: null });
+  const mouseUp = new Event('mouseup');
+  const release = (button) => {
+    document.querySelector(`#${button}`).dispatchEvent(mouseUp);
+  }
 
   switch (event.which) {
     case 39:// right
+      release('right');
+      break;
+
     case 68:// d
-      document.querySelector('#right').dispatchEvent(mouseUp);
+      release('right');
       break;
+
     case 37:// left
+      release('left');
+      break;
+
     case 65:// a
-      document.querySelector('#left').dispatchEvent(mouseUp);
+      release('left');
       break;
+
     case 38:// up
+      release('up');
+      break;
+
     case 87:// w
-      document.querySelector('#up').dispatchEvent(mouseUp);
+      release('up');
       break;
+
     case 40:// down
+      release('down');
+      break;
+
     case 83:// s
-      document.querySelector('#down').dispatchEvent(mouseUp);
+      release('down');
       break;
+
     case 13://enter
-      document.querySelector('#start').dispatchEvent(mouseUp);
+      release('start');
       break;
+
     case 32://spacebar
-      document.querySelector('#pause').dispatchEvent(mouseUp);
+      release('pause');
       break;
+
+    case 77://m
+      release('sound');
+      break;
+
     default:
       return null;
   }
