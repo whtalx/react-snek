@@ -1,6 +1,6 @@
 export default function handleKeyUp(event) {
   this.setState({ button: null });
-  const mouseUp = new Event('mouseup');
+  const mouseUp = new Event('mouseup', { bubbles: true });
   const release = (button) => {
     document.querySelector(`#${button}`).dispatchEvent(mouseUp);
   }
