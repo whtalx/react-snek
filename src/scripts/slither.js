@@ -1,7 +1,7 @@
 import slitherJSON from '../data/slither';
 
 export default function slither() {
-  if (this.state.isPlayiyg) { return; }
+  if (this.state.condition.isPlayiyg) { return; }
 
   const frame1 = slitherJSON["1"];
   const frame2 = slitherJSON["2"];
@@ -9,7 +9,7 @@ export default function slither() {
   this.switchPixels(frame1);
 
   this.animationTimeout = setTimeout(() => {
-    if (this.state.isPlayiyg) { return; }
+    if (this.state.condition.isPlayiyg) { return; }
     this.switchPixels(frame2);
   }, 400);
 

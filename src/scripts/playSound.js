@@ -37,7 +37,7 @@ export default function playSound(sound) {
   let now = context.currentTime;
 
   /* muting without sound stop */
-  if (this.state.isMuted) {
+  if (this.state.condition.isMuted) {
     master.gain.setValueAtTime(0, now);
   } else {
     master.gain.setValueAtTime(1, now);

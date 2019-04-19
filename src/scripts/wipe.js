@@ -1,5 +1,5 @@
 export default function wipe() {
-  let food = this.state.food[0];
+  let food = this.state.area.food[0];
   let line = [];
   for (let i = 0; i < 20; i++) {
     line[i] = { x: 0, y: i, status: 'on' }
@@ -21,13 +21,13 @@ export default function wipe() {
     line.forEach((lineItem) => {
       lineItem.status = undefined;
 
-      this.state.obstacle.forEach((obstacleItem) => {
+      this.state.area.obstacle.forEach((obstacleItem) => {
         if (obstacleItem.x === lineItem.x && obstacleItem.y === lineItem.y) {
           lineItem.status = obstacleItem.status;
         }
       });
 
-      this.state.snake.forEach((snakeItem) => {
+      this.state.area.snake.forEach((snakeItem) => {
         if (snakeItem.x === lineItem.x && snakeItem.y === lineItem.y) {
           lineItem.status = snakeItem.status;
         }
@@ -46,9 +46,9 @@ export default function wipe() {
       line.forEach(item => item.x -= 1);
       requestAnimationFrame(empty);
     } else {
-      this.setState({
-        isAlive: true,
-        isWaiting: true,
+      this.setState((state) => {
+        state.condition.isAlive = true;
+        state.condition.isWaiting = true;
       });
     }
   }

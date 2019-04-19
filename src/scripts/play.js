@@ -1,17 +1,17 @@
 export default function play() {
-  let food = this.state.food[0];
-  let snake = this.state.snake;
-  let obstacle = this.state.obstacle;
-  let nextDirection = this.state.nextDirection;
+  let food = this.state.area.food[0];
+  let snake = this.state.area.snake;
+  let obstacle = this.state.area.obstacle;
+  let nextDirection = this.state.condition.nextDirection;
 
   let gameOver = (pixel) => {
     clearTimeout(this.gameTimeout);
-    this.setState({ isAlive: false });
     this.setState((state) => {
-      state.lives -= 1;
+      state.data.lives -= 1;
+      state.condition.isAlive = false;
       return state;
     });
-    this.state.lives > 0? this.explode(pixel, false) : this.explode(pixel);
+    this.state.data.lives > 0? this.explode(pixel, false) : this.explode(pixel);
   }
 
   /* declaring snake parts */
@@ -21,13 +21,14 @@ export default function play() {
 
   /* get moving direction and let it possible to set new direction */
   if (nextDirection !== null) {
-    this.setState({
-      direction: nextDirection,
-      nextDirection: null,
+    this.setState((state) => {
+      state.condition.direction = nextDirection;
+      state.condition.nextDirection = null;
+      return state;
     });
   }
 
-  let direction = this.state.direction;
+  let direction = this.state.condition.direction;
 
   switch (direction) {
     case 'right':
@@ -85,11 +86,15 @@ export default function play() {
   snake.push(nextCoord);
 
   /* draw snake with new coordinates */
-  this.setState({ snake: snake });
-  this.switchPixels(snake);
+  this.setState((state) => {
+    state.area.snake = snake;
+    return state;
+  });
+
+  this.switchPixels(this.state.area.snake);
 
   /* play turbo sound if in turbo mode */
-  if (this.state.subtrahend === 325) { this.playSound('turbo'); }
+  if (this.state.data.subtrahend === 325) { this.playSound('turbo'); }
 
   /*grow if eating food */
   if (nextCoord.x === food.x && nextCoord.y === food.y) {
@@ -97,6 +102,6 @@ export default function play() {
     this.levelUp();
   } else {
   /* repeat until death */
-  if (this.state.isAlive) { this.resume(); }
+  if (this.state.condition.isAlive) { this.resume(); }
   }
 }

@@ -1,5 +1,8 @@
 export default function pause() {
   clearTimeout(this.gameTimeout);
-  this.setState({ isPaused: true });
   this.playSound('pause');
+  this.setState((state) => {
+    state.condition.isPaused = true;
+    return state;
+  });
 }

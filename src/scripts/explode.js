@@ -43,19 +43,22 @@ export default function explode(pixel, gameRestart = true) {
       makeMedium('off');
       makeLarge('off');
       this.switchPixels(large.concat(medium));
-      this.switchPixels(this.state.obstacle);
-      this.switchPixels(this.state.snake);
+      this.switchPixels(this.state.area.obstacle);
+      this.switchPixels(this.state.area.snake);
       if (counter < 3 ) {
         this.animationTimeout = setTimeout(badaboom, 80);
       } else {
         if (gameRestart) {
-          this.setState({ isPlayiyg: false });
+          this.setState((state) => {
+            state.condition.isPlayiyg = false;
+            return state;
+          });
           this.spiral();
           this.playSound('gameOver');
         } else {
           this.setState((state) => {
-            state.speed = 0;
-            state.score = state.lastScore;
+            state.data.speed = 0;
+            state.data.score = state.data.lastScore;
             return state;
           });
           this.playSound('levelRestart');

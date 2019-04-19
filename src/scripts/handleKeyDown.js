@@ -1,8 +1,11 @@
 export default function handleKeyDown(event) {
   const mouseDown = new Event('mousedown', { bubbles: true });
   const press = (button) => {
-    if (this.state.button !== button) {
-      this.setState({ button: button });
+    if (this.state.condition.button !== button) {
+      this.setState((state) => {
+        state.condition.button = button;
+        return state;
+      });
       document.querySelector(`#${button}`).dispatchEvent(mouseDown);
     }
   }

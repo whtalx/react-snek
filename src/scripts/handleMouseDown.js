@@ -2,109 +2,118 @@ export default function handleMouseDown(event) {
   /* prevent mousedown event if touchstart */
   if (event.type === 'touchstart') { event.preventDefault(); }
 
-  const isAlive = this.state.isAlive;
-  const isPaused = this.state.isPaused;
-  const isCelebrating = this.state.isCelebrating;
-  const direction = this.state.direction;
-  const nextDirection = this.state.nextDirection;
-  const snakeHead = this.state.snake[this.state.snake.length - 1];
-  const isWaiting = this.state.isWaiting;
-  const isMuted = this.state.isMuted;
-
+  const isAlive = this.state.condition.isAlive;
+  const isPaused = this.state.condition.isPaused;
+  const isWaiting = this.state.condition.isWaiting;
+  const nextDirection = this.state.condition.nextDirection;
   const move = () => {
     /* make snake move to new direction instantly
      * upd: better don't use on reverse
      */
     clearTimeout(this.gameTimeout);
-    if (isWaiting) this.setState({ isWaiting: false });
+    if (isWaiting) {
+      this.setState((state) => {
+        state.condition.isWaiting = false;
+        return state;
+      });
+    }
     this.play();
   }
 
+  const turn = (whereTo) => {
+    if (!isAlive || isPaused || nextDirection !== null) { return; }
+    let opposite;
+    let isAlongBorder;
+    const direction = this.state.condition.direction;
+    const snakeHead = this.state.area.snake[this.state.area.snake.length - 1];
+
+    switch (whereTo) {
+      case 'left':
+        opposite = 'right';
+        isAlongBorder = snakeHead.x === 0;
+        break;
+      case 'right':
+        opposite = 'left';
+        isAlongBorder = snakeHead.x === 9;
+        break;
+      case 'up':
+        opposite = 'down';
+        isAlongBorder = snakeHead.y === 0;
+        break;
+      case 'down':
+        opposite = 'up';
+        isAlongBorder = snakeHead.y === 19;
+        break;
+      default:
+        return;
+    }
+    
+    this.playSound('move');
+    
+    if (direction !== opposite && !isAlongBorder) {
+      this.setState((state) => {
+        state.condition.nextDirection = whereTo;
+      });
+      this.turboSpeed();
+      move();
+    } else if (!isWaiting && direction === opposite) {
+      this.reverse();
+    }
+  }
+
   switch (event.target.id) {
-    case 'start':
-      if (!isAlive && !isCelebrating) {
-        this.start();
-      } else if (isCelebrating) {
+    case 'left':
+      turn('left');
+      break;
+
+    case 'right':
+      turn('right');
+      break;
+
+    case 'up':
+      turn('up');
+      break;
+
+    case 'down':
+      turn('down');
+      break;
+
+    case 'start': {
+      const isCelebrating = this.state.condition.isCelebrating;
+      if (!isAlive && !isCelebrating) { this.start(); }
+      if (isCelebrating) {
         /* stop 'win the game' animation */
-        this.setState({
-          isPlayiyg: false,
-          isCelebrating: false,
+        this.setState((state) => {
+          state.condition.isPlayiyg = false;
+          state.condition.isCelebrating = false;
+          return state;
         });
         this.spiral();
       }
       break;
+    }
 
     case 'pause':
-      if (isAlive) {
-        isPaused? this.resume() : this.pause();
-      }
+      if (isAlive) { isPaused? this.resume() : this.pause(); }
       break;
 
-    case 'sound':
+    case 'sound': {
+      const isMuted = this.state.condition.isMuted;
       if (!isMuted) {
-        this.setState({ isMuted: true });
+        this.setState((state) => {
+          state.condition.isMuted = true;
+          return state;
+        });
         this.playSound();
       } else if (isMuted) {
-        this.setState({ isMuted: false });
+        this.setState((state) => {
+          state.condition.isMuted = false;
+          return state;
+        });
         this.playSound('resume');
       }
       break;
-
-    case 'left':
-      if (isAlive && !isPaused && nextDirection === null) {
-        if (direction !== 'right' && snakeHead.x !== 0) {
-          this.setState({ nextDirection: 'left' });
-          this.turboSpeed();
-          move();
-        } else if (!isWaiting && direction === 'right') {
-          this.reverse();
-        }
-
-        this.playSound('move');
-      }
-      break;
-
-    case 'right':
-      if (isAlive && !isPaused && nextDirection === null) {
-        if (direction !== 'left' && snakeHead.x !== 9) {
-          this.setState({ nextDirection: 'right' });
-          this.turboSpeed();
-          move();
-        } else if (!isWaiting && direction === 'left') {
-          this.reverse();
-        }
-
-        this.playSound('move');
-      }
-      break;
-
-    case 'up':
-      if (isAlive && !isPaused && nextDirection === null) {
-        if (direction !== 'down' && snakeHead.y !== 0) {
-          this.setState({ nextDirection: 'up' });
-          this.turboSpeed();
-          move();
-        } else if (!isWaiting && direction === 'down') {
-          this.reverse();
-        }
-
-        this.playSound('move');
-      }
-      break;
-
-    case 'down':
-    if (isAlive && !isPaused && nextDirection === null) {
-      if (direction !== 'up' && snakeHead.y !== 19) {
-        this.setState({ nextDirection: 'down' });
-        this.turboSpeed();
-        move();
-      } else if (!isWaiting && direction === 'up') {
-        this.reverse();
-      }
-
-      this.playSound('move');
     }
-    break;
 
     default:
       return;

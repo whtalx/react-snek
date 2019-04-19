@@ -7,5 +7,9 @@ export default function clrScr() {
   for (let i = 0; i < 200; i++) {
     grid[i] = <Pixel key={`pixel${i}`} status="off" />
   }
-  this.setState({ pixels: grid });
+
+  this.setState((state) => {
+    state.area.field = grid;
+    return state;
+  });
 }

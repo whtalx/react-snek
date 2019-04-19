@@ -8,29 +8,41 @@ import DPad from './DPad';
 export default class Snek extends Component {
   constructor() {
     super();
-
-    this.state = {
+    const area = {
+      field: [],
       food: [],
-      snake: [],
       obstacle: [],
-      score: 0,
-      hiScore: 0,
-      lastScore: 0,
-      level: 0,
-      speed: 0,
-      lives: 0,
+      snake: [],
+    }
+
+    const condition = {
       button: null,
       direction: 'right',
       nextDirection: null,
-      speedCoefficient: 25,
-      scoreCoefficient: 25,
-      subtrahend: 0,
       isAlive: false,
       isMuted: false,
       isPaused: false,
       isPlayiyg: false,
       isWaiting: false,
       isCelebrating: false,
+    }
+
+    const data = {
+      score: 0,
+      hiScore: 0,
+      lastScore: 0,
+      level: 0,
+      speed: 0,
+      lives: 0,
+      speedCoefficient: 25,
+      scoreCoefficient: 25,
+      subtrahend: 0,
+    }
+
+    this.state = {
+      area,
+      condition,
+      data,
     }
 
     this.methods = methods.bind(this);
@@ -52,17 +64,17 @@ export default class Snek extends Component {
     return (
       <div className="snek">
         <Display
-          score={this.state.score}
-          hiScore={this.state.hiScore}
-          level={this.state.level}
-          speed={this.state.speed}
-          lives={this.state.lives}
-          paused={this.state.isPaused}
-          sound={!this.state.isMuted}
-          children={this.state.pixels}
+          score={this.state.data.score}
+          hiScore={this.state.data.hiScore}
+          level={this.state.data.level}
+          speed={this.state.data.speed}
+          lives={this.state.data.lives}
+          paused={this.state.condition.isPaused}
+          sound={!this.state.condition.isMuted}
+          children={this.state.area.field}
         />
-        <Controls button={this.state.button} />
-        <DPad button={this.state.button} />
+        <Controls button={this.state.condition.button} />
+        <DPad button={this.state.condition.button} />
       </div>
     );
   }

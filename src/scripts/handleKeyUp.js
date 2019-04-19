@@ -1,9 +1,13 @@
 export default function handleKeyUp(event) {
-  this.setState({ button: null });
   const mouseUp = new Event('mouseup', { bubbles: true });
   const release = (button) => {
     document.querySelector(`#${button}`).dispatchEvent(mouseUp);
   }
+  
+  this.setState((state) => {
+    state.condition.button = null;
+    return state;
+  });
 
   switch (event.which) {
     case 39:// right

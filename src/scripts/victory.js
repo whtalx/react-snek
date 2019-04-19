@@ -1,5 +1,5 @@
 export default function victory() {
-  if (!this.state.isCelebrating) { return; }
+  if (!this.state.condition.isCelebrating) { return; }
   
   let text = [{x:10,y:16},{x:10,y:17},{x:11,y:18},{x:11,y:19},{x:12,y:16},{x:12,y:17},{x:14,y:16},{x:14,y:17},{x:14,y:18},{x:14,y:19},{x:15,y:16},{x:15,y:19},{x:16,y:16},{x:16,y:17},{x:16,y:18},{x:16,y:19},{x:18,y:16},{x:18,y:17},{x:18,y:18},{x:18,y:19},{x:19,y:19},{x:20,y:16},{x:20,y:17},{x:20,y:18},{x:20,y:19},{x:23,y:16},{x:23,y:17},{x:23,y:18},{x:24,y:19},{x:25,y:17},{x:25,y:18},{x:26,y:19},{x:27,y:16},{x:27,y:17},{x:27,y:18},{x:29,y:16},{x:29,y:17},{x:29,y:18},{x:29,y:19},{x:30,y:16},{x:30,y:19},{x:31,y:16},{x:31,y:17},{x:31,y:18},{x:31,y:19},{x:33,y:16},{x:33,y:17},{x:33,y:18},{x:33,y:19},{x:34,y:17},{x:35,y:18},{x:36,y:16},{x:36,y:17},{x:36,y:18},{x:36,y:19},{x:38,y:16},{x:38,y:17},{x:38,y:19}];
   let frame = 0;
@@ -134,7 +134,7 @@ export default function victory() {
   }
 
   const tick = () => {
-    if (!this.state.isCelebrating) { return; };
+    if (!this.state.condition.isCelebrating) { return; };
 
     if (renderableText.length > 0) {
       renderableText.forEach(item => item.status = 'off');

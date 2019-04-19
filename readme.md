@@ -27,26 +27,22 @@ Key bindings:
 * <kbd>Enter</kbd> — start
 * <kbd>Space</kbd> — pause
 * <kbd> M </kbd> — sound
-* <kbd> W </kbd> or <kbd> ▲ </kbd> — up
-* <kbd> S </kbd> or <kbd> ▼ </kbd> — down
-* <kbd> A </kbd> or <kbd> ◀ </kbd> — left
-* <kbd> D </kbd> or <kbd> ▶ </kbd> — right
+* <kbd> W </kbd> or <kbd> &#9650; </kbd> — up
+* <kbd> S </kbd> or <kbd> &#9660; </kbd> — down
+* <kbd> A </kbd> or <kbd> &#9668; </kbd> — left
+* <kbd> D </kbd> or <kbd> &#9658; </kbd> — right
 
 ### Gameplay
 
 Every level starts with snake length of three. Head of snake and food are marked blinking.
 
-Changing direction cause snake move instantly to new direction.
+Changing direction cause snake move instantly to new direction. While moving along screen border, game prevent you for turn out of screen.
 
-Moving along screen border, game prevent you for turn out of screen.
+Move out of the screen or bump an obstacle cause death.
 
-Get off screen or bump an obstacle cause death.
+Death decreases lives amount while above zero, otherwise it ends the game.
 
-Death decreasing lives amount while above zero, then game over.
-
-Snake can reverse if you turn to opposite direction. Reversed direction is direction which snake tail pointing. 
-
-On picture below current direction is «right» and if you turn left, snake will move up.
+Snake can reverse if you turn to opposite direction. Reversed direction is direction which snake tail pointing on. On picture below current direction is «right» and if you turn left, snake will move up.
 <div align="center"><img src="./images/reverse.png" /></div>
 
 ## Built With
