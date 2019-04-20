@@ -136,6 +136,14 @@ $off: darken($display, 5%);
   margin-bottom: 1.5vh;
 }
 
+.display__lives-value {
+  display: flex;
+  flex-wrap: wrap;
+  width: 6vh;
+  height: 6vh;
+  margin: 0 auto;
+}
+
 .display__pause,
 .display__sound {
   width: 40%;

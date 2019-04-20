@@ -47,9 +47,8 @@ Snake can reverse if you turn to opposite direction. Reversed direction is direc
 
 ## Built With
 
-* [ReactJS](https://reactjs.org/) – A JavaScript library for building user interfaces.
-* [Mocha](https://mochajs.org/) – Simple, flexible JavaScript test framework.
-* [Chai](https://www.chaijs.com/) – BDD / TDD assertion library.
+* [React](https://reactjs.org/) – A JavaScript library for building user interfaces.
+* [Jest](https://jestjs.io/) – JavaScript testing framework.
 * [Enzyme](https://airbnb.io/enzyme/) – Testing utility for React.
 * [SASS](https://sass-lang.com/) – CSS extension language.
 * [Web Audio API](https://www.w3.org/TR/webaudio/) – High-level Web API for processing and synthesizing audio.

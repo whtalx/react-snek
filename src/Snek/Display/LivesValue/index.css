@@ -1,7 +1,0 @@
-.display__lives-value {
-  display: flex;
-  flex-wrap: wrap;
-  width: 6vh;
-  height: 6vh;
-  margin: 0 auto;
-}

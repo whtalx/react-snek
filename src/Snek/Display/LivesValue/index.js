@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 import Pixel from '../Pixel';
 
 export default function LivesValue(props) {
