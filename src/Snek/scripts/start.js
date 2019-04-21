@@ -1,4 +1,4 @@
-import obstacles from '../data/obstacles';
+import obstacles from '../../data/obstacles';
 
 export default function start(keepStats = false) {
   clearTimeout(this.gameTimeout);

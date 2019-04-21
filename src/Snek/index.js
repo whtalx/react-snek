@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './index.scss';
-import methods from '../scripts/methods';
+import methods from './scripts/methods';
 import Display from './Display';
 import Controls from './Controls';
 import DPad from './DPad';

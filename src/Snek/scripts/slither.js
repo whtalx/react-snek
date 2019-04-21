@@ -1,4 +1,4 @@
-import slitherJSON from '../data/slither';
+import slitherJSON from '../../data/slither';
 
 export default function slither() {
   if (this.state.condition.isPlayiyg) { return; }
