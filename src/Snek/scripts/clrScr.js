@@ -3,9 +3,9 @@ import Pixel from '../Display/Pixel';
 
 export default function clrScr() {
   /* fill screen with pixels switched off */
-  let grid = [];
+  const grid = [];
   for (let i = 0; i < 200; i++) {
-    grid[i] = <Pixel key={`pixel${i}`} status="off" />;
+    grid.push(<Pixel key={`pixel${i}`} status="off" />);
   }
 
   this.setState((state) => {

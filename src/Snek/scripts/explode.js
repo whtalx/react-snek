@@ -49,10 +49,6 @@ export default function explode(pixel, gameRestart = true) {
         this.animationTimeout = setTimeout(badaboom, 80);
       } else {
         if (gameRestart) {
-          this.setState((state) => {
-            state.condition.isPlayiyg = false;
-            return state;
-          });
           this.spiral();
           this.playSound('gameOver');
         } else {

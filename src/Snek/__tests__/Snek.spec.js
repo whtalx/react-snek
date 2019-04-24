@@ -62,7 +62,7 @@ describe('States:', () => {
       isAlive: false,
       isMuted: false,
       isPaused: false,
-      isPlayiyg: false,
+      isPlaying: false,
       isWaiting: false,
       isCelebrating: false,
     });

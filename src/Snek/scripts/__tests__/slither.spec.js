@@ -29,3 +29,10 @@ test('draw frame 1', () => {
 test('draw frame 2', () => {
   expect(testObj.switchPixels).toHaveBeenCalledWith('frame2');
 });
+
+test('return on isPlaying state', () => {
+  const testObj2 = new TestObj();
+  testObj2.state.condition.isPlaying = true;
+  testObj2.slither();
+  expect(testObj2.switchPixels).not.toHaveBeenCalled();
+});

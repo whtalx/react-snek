@@ -22,7 +22,7 @@ export default class Snek extends Component {
       isAlive: false,
       isMuted: false,
       isPaused: false,
-      isPlayiyg: false,
+      isPlaying: false,
       isWaiting: false,
       isCelebrating: false,
     }

@@ -13,6 +13,7 @@ export default function start(keepStats = false) {
       state.data.level = 0;
       state.data.speed = 0;
       state.data.lives = 3;
+      state.condition.isPlaying = true;
       return state;
     });
     this.playSound('start');
@@ -31,7 +32,6 @@ export default function start(keepStats = false) {
       { x: 3, y: 5, status: 'blink' }
     ];
     state.condition.direction = 'right';
-    state.condition.isPlayiyg = true;
     state.data.subtrahend = state.data.speedCoefficient;
     return state;
   });

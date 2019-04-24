@@ -79,12 +79,13 @@ export default function handleMouseDown(event) {
       break;
 
     case 'start': {
+      const isPlaying = this.state.condition.isPlaying;
       const isCelebrating = this.state.condition.isCelebrating;
-      if (!isAlive && !isCelebrating) { this.start(); }
+      if (!isPlaying && !isCelebrating) { this.start(); }
       if (isCelebrating) {
         /* stop 'win the game' animation */
         this.setState((state) => {
-          state.condition.isPlayiyg = false;
+          state.condition.isPlaying = false;
           state.condition.isCelebrating = false;
           return state;
         });

@@ -1,54 +1,69 @@
 export default function wipe() {
-  let food = this.state.area.food[0];
-  let line = [];
-  for (let i = 0; i < 20; i++) {
-    line[i] = { x: 0, y: i, status: 'on' }
+  const line = [];
+
+  for (let i = 0; i < 10; i++) {
+    line.push({ x: i, y: 19, status: 'on' });
   }
 
-  /* fill screen with switched on pixels */
-  let fill = () => {
-    this.switchPixels(line);    
-    if (line[0].x < 9) {
-      line.forEach(item => item.x += 1);
+  /**
+   * change current line pixels status according to
+   * food, snake and obtacles pixels
+   */
+  const getObjectsPixels = () => {
+    line.forEach((lineItem) => {
+      lineItem.status = 'off';
+
+      this.state.area.obstacle.forEach((obstacleItem) => {
+        if (
+          obstacleItem.x === lineItem.x
+          && obstacleItem.y === lineItem.y
+        ) {
+          lineItem.status = obstacleItem.status;
+        }
+      });
+
+      this.state.area.snake.forEach((snakeItem) => {
+        if (
+          snakeItem.x === lineItem.x
+          && snakeItem.y === lineItem.y
+        ) {
+          lineItem.status = snakeItem.status;
+        }
+      });
+
+      if (
+        this.state.area.food[0].x === lineItem.x
+        && this.state.area.food[0].y === lineItem.y
+      ) {
+        lineItem.status = this.state.area.food[0].status;
+      }
+    });
+  }
+
+  /* wipe up with switched on pixels */
+  const fill = () => {
+    this.switchPixels(line);
+    if (line[0].y > 0) {
+      line.forEach(item => item.y -= 1);
       requestAnimationFrame(fill);
     } else {
       requestAnimationFrame(empty);
     }
   }
 
-  /* fill screen with pixels switched according to snake, food and obstacle pixels */
-  let empty = () => {
-    line.forEach((lineItem) => {
-      lineItem.status = undefined;
-
-      this.state.area.obstacle.forEach((obstacleItem) => {
-        if (obstacleItem.x === lineItem.x && obstacleItem.y === lineItem.y) {
-          lineItem.status = obstacleItem.status;
-        }
-      });
-
-      this.state.area.snake.forEach((snakeItem) => {
-        if (snakeItem.x === lineItem.x && snakeItem.y === lineItem.y) {
-          lineItem.status = snakeItem.status;
-        }
-      });
-
-      if (food.x === lineItem.x && food.y === lineItem.y) {
-        lineItem.status = food.status;
-      }
-
-      if (lineItem.status === undefined) { lineItem.status = 'off'; }
-    });
-
+  /* wipe down with snake, food and obstacle pixels switched on */
+  const empty = () => {
+    getObjectsPixels();
     this.switchPixels(line);
 
-    if (line[0].x > 0) {
-      line.forEach(item => item.x -= 1);
+    if (line[0].y < 19) {
+      line.forEach(item => item.y += 1);
       requestAnimationFrame(empty);
     } else {
       this.setState((state) => {
         state.condition.isAlive = true;
         state.condition.isWaiting = true;
+        return state;
       });
     }
   }
