@@ -1,58 +1,79 @@
 export default function handleKeyDown(event) {
-  const mouseDown = new Event('mousedown', { bubbles: true });
+  const pressed = this.state.condition.button;
   const press = (button) => {
-    if (this.state.condition.button !== button) {
-      this.setState((state) => {
-        state.condition.button = button;
-        return state;
-      });
-      document.querySelector(`#${button}`).dispatchEvent(mouseDown);
-    }
+    const mouseDown = new window.Event('mousedown', { bubbles: true });
+    this.setState((state) => {
+      state.condition.button = button;
+      return state;
+    });
+    document.getElementById(button).dispatchEvent(mouseDown);
   }
 
   switch (event.which) {
     case 39:// right
-      press('right');
+      if (pressed !== 'right') {
+        press('right');
+      }
       break;
 
     case 68:// d
-      press('right');
+      if (pressed !== 'right') {
+        press('right');
+      }
       break;
 
     case 37:// left
-      press('left');
+      if (pressed !== 'left') {
+        press('left');
+      }
       break;
 
     case 65:// a
-      press('left');
+      if (pressed !== 'left') {
+        press('left');
+      }
       break;
 
     case 38:// up
-      press('up');
+      if (pressed !== 'up') {
+        press('up');
+      }
       break;
 
     case 87:// w
-      press('up');
+      if (pressed !== 'up') {
+        press('up');
+      }
       break;
 
     case 40:// down
-      press('down');
+      if (pressed !== 'down') {
+        press('down');
+      }
       break;
 
     case 83:// s
-      press('down');
+      if (pressed !== 'down') {
+        press('down');
+      }
       break;
 
     case 13://enter
-      press('start');
+      if (pressed !== 'start') {
+        press('start');
+      }
       break;
 
     case 32://spacebar
-      press('pause');
+      if (pressed !== 'pause') {
+        press('pause');
+      }
       break;
 
     case 77://m
-      press('sound');
+      if (pressed !== 'sound') {
+        press('sound');
+      }
       break;
 
     default:

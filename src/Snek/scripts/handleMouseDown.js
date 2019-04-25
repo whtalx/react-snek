@@ -7,7 +7,8 @@ export default function handleMouseDown(event) {
   const isWaiting = this.state.condition.isWaiting;
   const nextDirection = this.state.condition.nextDirection;
   const move = () => {
-    /* make snake move to new direction instantly
+    /**
+     * make snake move to new direction instantly
      * upd: better don't use on reverse
      */
     clearTimeout(this.gameTimeout);
