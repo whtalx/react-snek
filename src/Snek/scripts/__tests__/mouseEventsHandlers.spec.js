@@ -57,6 +57,7 @@ class TestObj extends Component {
     this.handleMouseDown = handleMouseDown.bind(this);
     this.handleMouseUp = handleMouseUp.bind(this);
   }
+  
   render() {
     return(
       <div

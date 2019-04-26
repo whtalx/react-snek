@@ -18,14 +18,17 @@ document.getElementById = getElementById;
 class TestObj extends Component {
   constructor() {
     super();
+    
     this.state = {
       condition: {
         button: '',
       },
     };
+    
     this.handleKeyDown = handleKeyDown.bind(this);
     this.handleKeyUp = handleKeyUp.bind(this);
   }
+
   render() {
     return(
       <div

@@ -9,16 +9,20 @@ configure({ adapter: new Adapter() });
 class Comp extends Component {
   constructor() {
     super();
+
     this.state = {
       area: {
         field: [],
       },
     };
+
     this.clrScr = clrScr.bind(this);
   }
+
   componentDidMount() {
     this.clrScr();
   }
+  
   render() {
     return;
   }

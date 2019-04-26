@@ -10,22 +10,28 @@ window.requestAnimationFrame = (f) => { f && f(); };
 class TestObj extends Component {
   constructor() {
     super();
+
     this.state = {
       condition: {
         isPlaying: true,
       },
     };
+
     this.slither = jest.fn();
     this.switchPixels = jest.fn();
     this.spiral = spiral.bind(this);
   }
+
+  componentDidMount() {
+    this.spiral();
+  }
+
   render() {
     return;
   }
 }
 
 const wrapper = shallow(<TestObj />);
-wrapper.instance().spiral();
 
 test('switchPixels called 200 times', () => {
   expect(wrapper.instance().switchPixels).toHaveBeenCalledTimes(200);

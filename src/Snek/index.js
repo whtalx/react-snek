@@ -8,6 +8,7 @@ import DPad from './DPad';
 export default class Snek extends Component {
   constructor() {
     super();
+    
     const area = {
       field: [],
       food: [],

@@ -14,6 +14,7 @@ class TestObj {
         isPlaying: false,
       },
     };
+    
     this.switchPixels = jest.fn();
     this.slither = slither.bind(this);
   }

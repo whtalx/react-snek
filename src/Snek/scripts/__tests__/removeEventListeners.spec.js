@@ -5,6 +5,7 @@ const removeEventListener = jest.fn((name) => {
 });
 
 document.removeEventListener = removeEventListener;
+
 const remove = removeEventListeners.bind({});
 remove();
 const result = removeEventListener.mock.results.map((item) => {

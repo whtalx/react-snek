@@ -10,6 +10,7 @@ window.requestAnimationFrame = (f) => { f && f(); };
 class TestObj extends Component {
   constructor() {
     super();
+
     this.state = {
       area: {
         food: [{ x: 0, y: 1, status: 'blink' }],
@@ -18,16 +19,21 @@ class TestObj extends Component {
       },
       condition: {},
     };
+
     this.switchPixels = jest.fn();
     this.wipe = wipe.bind(this);
   }
+
+  componentDidMount() {
+    this.wipe();
+  }
+
   render() {
     return;
   }
 }
 
 const wrapper = shallow(<TestObj />);
-wrapper.instance().wipe();
 
 test('switchPixels called 40 times', () => {
   expect(wrapper.instance().switchPixels).toHaveBeenCalledTimes(40);

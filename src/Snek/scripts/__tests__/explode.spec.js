@@ -1,6 +1,6 @@
 import explode from '../explode';
 
-window.setTimeout = (f, t) => { f && f(); };
+window.setTimeout = (f) => { f && f(); };
 
 class Obj {
   constructor() {
@@ -10,6 +10,7 @@ class Obj {
         snake: null,
       },
     };
+
     this.switchPixels = jest.fn();
     this.setState = jest.fn();
     this.playSound = jest.fn();

@@ -16,6 +16,7 @@ class Comp extends Component {
     };
     this.switchPixels = switchPixels.bind(this);
   }
+  
   render() {
     return;
   }
@@ -27,21 +28,25 @@ const properObjects = [
   { x: 2, y: 5, status: 'on' },
   { x: 3, y: 5, status: 'blink' }
 ];
+
 const wrongObjects = [
   { x: 11, y: 5, status: 'on' },
   { x: 2, y: 55, status: 'on' },
   { x: 3, y: 5, status: 'fffuuuu' }
 ];
+
 const properPixels = [
   <Pixel key={'pixel51'} status="on" />,
   <Pixel key={'pixel52'} status="on" />,
   <Pixel key={'pixel53'} status="blink" />,
 ];
+
 const wrongPixels = [
   <Pixel key={'pixel61'} status="on" />,
   <Pixel key={'pixel552'} status="on" />,
   <Pixel key={'pixel53'} status="fffuuuu" />,
 ];
+
 test('accept pixels with correct properties', () => {
   wrapper.instance().switchPixels(properObjects);
   expect(wrapper.state('area').field).toEqual(
