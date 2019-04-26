@@ -34,6 +34,8 @@ export default function levelUp() {
         state.data.lives += 1;
         state.data.speed = 0;
         state.data.lastScore = state.data.score;
+        /* prevent snake move before level starts */
+        state.condition.isAlive = false;
         return state;
       });
 
