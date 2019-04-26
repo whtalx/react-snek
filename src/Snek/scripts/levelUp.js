@@ -34,7 +34,6 @@ export default function levelUp() {
         state.data.lives += 1;
         state.data.speed = 0;
         state.data.lastScore = state.data.score;
-        state.condition.isAlive = false;
         return state;
       });
 

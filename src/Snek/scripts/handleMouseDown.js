@@ -6,6 +6,7 @@ export default function handleMouseDown(event) {
   const isPaused = this.state.condition.isPaused;
   const isWaiting = this.state.condition.isWaiting;
   const nextDirection = this.state.condition.nextDirection;
+
   const move = () => {
     /**
      * make snake move to new direction instantly
@@ -49,15 +50,16 @@ export default function handleMouseDown(event) {
         return;
     }
     
-    this.playSound('move');
-    
     if (direction !== opposite && !isAlongBorder) {
       this.setState((state) => {
         state.condition.nextDirection = whereTo;
       });
+    
+      this.playSound('move');
       this.turboSpeed();
       move();
     } else if (!isWaiting && direction === opposite) {
+      this.playSound('move');
       this.reverse();
     }
   }
