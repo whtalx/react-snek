@@ -27,7 +27,7 @@ export default function handleMouseDown(event) {
     let opposite;
     let isAlongBorder;
     const direction = this.state.condition.direction;
-    const snakeHead = this.state.area.snake[this.state.area.snake.length - 1];
+    const snakeHead = this.state.display.snake[this.state.display.snake.length - 1];
 
     switch (whereTo) {
       case 'left':

@@ -12,7 +12,7 @@ class TestObj extends Component {
     super();
 
     this.state = {
-      area: {
+      display: {
         food: [{ x: 0, y: 1, status: 'blink' }],
         snake: [{ x: 4, y: 4, status: 'blink' }],
         obstacle: [{ x: 8, y: 8, status: 'blink' }],

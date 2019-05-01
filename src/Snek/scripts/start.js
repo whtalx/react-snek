@@ -25,8 +25,8 @@ export default function start(keepStats = false) {
   
   /* reset game status to level start */
   this.setState((state) => {
-    state.area.obstacle = obstacle;
-    state.area.snake = [
+    state.display.obstacle = obstacle;
+    state.display.snake = [
       { x: 1, y: 5, status: 'on' },
       { x: 2, y: 5, status: 'on' },
       { x: 3, y: 5, status: 'blink' }

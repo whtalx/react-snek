@@ -11,8 +11,8 @@ class Comp extends Component {
     super();
 
     this.state = {
-      area: {
-        field: [],
+      display: {
+        area: [],
       },
     };
 
@@ -30,12 +30,12 @@ class Comp extends Component {
 
 const wrapper = shallow(<Comp />);
 
-test('fill area[\'field\'] state with 200 elements', () => {
-  expect(wrapper.state('area').field).toHaveLength(200);
+test('fill display[\'area\'] state with 200 elements', () => {
+  expect(wrapper.state('display').area).toHaveLength(200);
 });
 
 test('elemets are Pixel components with status="off"', () => {
-  wrapper.state('area').field.forEach((item, index) => {
+  wrapper.state('display').area.forEach((item, index) => {
     expect(item).toMatchObject(<Pixel key={`pixel${index}`} status="off" />);
   });
 });

@@ -7,18 +7,18 @@ export default function newFood(draw = true) {
     foodY = Math.floor(Math.random() * 20);
     
     /* if food appeared iside snake or inside obstacle -- make new food */
-    this.state.area.snake.forEach((item) => {
+    this.state.display.snake.forEach((item) => {
       if (item.x === foodX && item.y === foodY) { random(); }
     });
-    this.state.area.obstacle.forEach((item) => {
+    this.state.display.obstacle.forEach((item) => {
       if (item.x === foodX && item.y === foodY) { random(); }
     });
   }
 
   random();
   this.setState((state) => {
-    state.area.food = [{ x: foodX, y: foodY, status : 'blink' }];
+    state.display.food = [{ x: foodX, y: foodY, status : 'blink' }];
     return state;
   });
-  if (draw) { this.switchPixels(this.state.area.food); }
+  if (draw) { this.switchPixels(this.state.display.food); }
 }

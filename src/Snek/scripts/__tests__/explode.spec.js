@@ -5,7 +5,7 @@ window.setTimeout = (f) => { f && f(); };
 class Obj {
   constructor() {
     this.state = {
-      area: {
+      display: {
         obstacle: null,
         snake: null,
       },

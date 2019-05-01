@@ -1,8 +1,8 @@
 export default function reverse() {
-  const snake = this.state.area.snake;
+  const snake = this.state.display.snake;
   const reverse = (direction) => {
     this.setState((state) => {
-      state.area.snake.reverse();
+      state.display.snake.reverse();
       state.condition.nextDirection = direction;
       return state;
     });

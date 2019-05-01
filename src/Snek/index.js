@@ -8,13 +8,6 @@ import DPad from './DPad';
 export default class Snek extends Component {
   constructor() {
     super();
-    
-    const area = {
-      field: [],
-      food: [],
-      obstacle: [],
-      snake: [],
-    }
 
     const condition = {
       button: null,
@@ -39,11 +32,18 @@ export default class Snek extends Component {
       scoreCoefficient: 25,
       subtrahend: 0,
     }
+    
+    const display = {
+      area: [],
+      food: [],
+      obstacle: [],
+      snake: [],
+    }
 
     this.state = {
-      area,
       condition,
       data,
+      display,
     }
 
     this.methods = methods.bind(this);
@@ -72,7 +72,7 @@ export default class Snek extends Component {
           lives={this.state.data.lives}
           paused={this.state.condition.isPaused}
           sound={!this.state.condition.isMuted}
-          children={this.state.area.field}
+          children={this.state.display.area}
         />
         <Controls button={this.state.condition.button} />
         <DPad button={this.state.condition.button} />

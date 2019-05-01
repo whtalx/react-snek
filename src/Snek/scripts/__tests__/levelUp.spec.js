@@ -34,7 +34,7 @@ class TestObj extends Component {
     super();
 
     this.state = {
-      area: {
+      display: {
         snake: [null, null, null],
       },
       condition: {

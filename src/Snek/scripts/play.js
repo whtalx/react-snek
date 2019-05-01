@@ -1,7 +1,7 @@
 export default function play() {
-  let food = this.state.area.food[0];
-  let snake = this.state.area.snake;
-  let obstacle = this.state.area.obstacle;
+  let food = this.state.display.food[0];
+  let snake = this.state.display.snake;
+  let obstacle = this.state.display.obstacle;
   let nextDirection = this.state.condition.nextDirection;
 
   let gameOver = (pixel) => {
@@ -87,11 +87,11 @@ export default function play() {
 
   /* draw snake with new coordinates */
   this.setState((state) => {
-    state.area.snake = snake;
+    state.display.snake = snake;
     return state;
   });
 
-  this.switchPixels(this.state.area.snake);
+  this.switchPixels(this.state.display.snake);
 
   /* play turbo sound if in turbo mode */
   if (this.state.data.subtrahend === 325) { this.playSound('turbo'); }

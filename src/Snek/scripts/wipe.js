@@ -13,7 +13,7 @@ export default function wipe() {
     line.forEach((lineItem) => {
       lineItem.status = 'off';
 
-      this.state.area.obstacle.forEach((obstacleItem) => {
+      this.state.display.obstacle.forEach((obstacleItem) => {
         if (
           obstacleItem.x === lineItem.x
           && obstacleItem.y === lineItem.y
@@ -22,7 +22,7 @@ export default function wipe() {
         }
       });
 
-      this.state.area.snake.forEach((snakeItem) => {
+      this.state.display.snake.forEach((snakeItem) => {
         if (
           snakeItem.x === lineItem.x
           && snakeItem.y === lineItem.y
@@ -32,10 +32,10 @@ export default function wipe() {
       });
 
       if (
-        this.state.area.food[0].x === lineItem.x
-        && this.state.area.food[0].y === lineItem.y
+        this.state.display.food[0].x === lineItem.x
+        && this.state.display.food[0].y === lineItem.y
       ) {
-        lineItem.status = this.state.area.food[0].status;
+        lineItem.status = this.state.display.food[0].status;
       }
     });
   }

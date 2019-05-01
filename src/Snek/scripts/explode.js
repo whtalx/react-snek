@@ -43,8 +43,8 @@ export default function explode(pixel, gameRestart = true) {
       makeMedium('off');
       makeLarge('off');
       this.switchPixels(large.concat(medium));
-      this.switchPixels(this.state.area.obstacle);
-      this.switchPixels(this.state.area.snake);
+      this.switchPixels(this.state.display.obstacle);
+      this.switchPixels(this.state.display.snake);
       if (counter < 3 ) {
         this.animationTimeout = setTimeout(badaboom, 80);
       } else {

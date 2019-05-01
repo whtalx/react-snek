@@ -21,7 +21,7 @@ class TestObj extends Component {
   constructor() {
     super();
 
-    this.area = {
+    this.display = {
       snake: [{ x: 0, y: 5 }],
     };
 
@@ -37,7 +37,7 @@ class TestObj extends Component {
     }
 
     this.state = {
-      area: this.area,
+      display: this.display,
       condition: this.condition,
       data: {
         speed: 0,
@@ -173,7 +173,7 @@ describe('handleMouseDown', () => {
     });
 
     test('reverse', () => {
-      wrapper.instance().area.snake[0].x = 5;
+      wrapper.instance().display.snake[0].x = 5;
       wrapper.find('#left').simulate('mousedown');
       expect(wrapper.instance().reverse).toBeCalled();
     });

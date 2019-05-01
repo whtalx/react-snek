@@ -10,8 +10,8 @@ class Comp extends Component {
   constructor() {
     super();
     this.state = {
-      area: {
-        field: [],
+      display: {
+        area: [],
       },
     };
     this.switchPixels = switchPixels.bind(this);
@@ -49,7 +49,7 @@ const wrongPixels = [
 
 test('accept pixels with correct properties', () => {
   wrapper.instance().switchPixels(properObjects);
-  expect(wrapper.state('area').field).toEqual(
+  expect(wrapper.state('display').area).toEqual(
     expect.arrayContaining(properPixels),
     );
 });
@@ -57,7 +57,7 @@ test('accept pixels with correct properties', () => {
 test('reject pixels with incorrect properties', () => {
   wrapper.instance().switchPixels(wrongObjects);
   wrongPixels.forEach((item) => {
-    expect(wrapper.state('area').field).toEqual(
+    expect(wrapper.state('display').area).toEqual(
       expect.not.arrayContaining([item]),
     );
   });

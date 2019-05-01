@@ -11,7 +11,7 @@ export default function switchPixels(pixelsArray) {
         && (item.status === 'on' || item.status === 'off' || item.status === 'blink')
       ) {
         let index = item.x + item.y * 10;
-        state.area.field[index] = <Pixel key={`pixel${index}`} status={item.status} />;
+        state.display.area[index] = <Pixel key={`pixel${index}`} status={item.status} />;
       }
     });
     return state;

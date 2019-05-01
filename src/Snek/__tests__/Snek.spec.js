@@ -45,9 +45,9 @@ describe('Rendering:', () => {
 });
 
 describe('States:', () => {
-  test('area', () => {
-    expect(wrapper.state('area')).toEqual({
-      field: [],
+  test('display', () => {
+    expect(wrapper.state('display')).toEqual({
+      area: [],
       food: [],
       obstacle: [],
       snake: [],
@@ -115,7 +115,7 @@ describe('Passing props:', () => {
 
     test('children', () => {
       const array = [{ u: 'a' }, { a: 'u' }];
-      wrapper.setState({ area: { field: array }});
+      wrapper.setState({ display: { area: array }});
       expect(wrapper.find('Display').prop('children')).toEqual(array);
     });
   });

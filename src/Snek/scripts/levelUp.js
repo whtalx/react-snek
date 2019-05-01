@@ -2,7 +2,7 @@ export default function levelUp() {
   let score = this.state.data.score;
 
   /* increase speed every third food eaten */
-  if (this.state.area.snake.length % 3 === 0) {
+  if (this.state.display.snake.length % 3 === 0) {
     this.setState((state) => {
       state.data.speed += 1;
       state.data.subtrahend = (state.data.speed + 1) * state.data.speedCoefficient;
