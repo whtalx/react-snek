@@ -1,60 +1,12 @@
+import keysMap from '../../data/keysMap';
+
 export default function handleKeyUp(event) {
-  const mouseUp = new Event('mouseup', { bubbles: true });
-  const release = (button) => {
-    document.getElementById(button).dispatchEvent(mouseUp);
-  }
-
-  this.setState((state) => {
-    state.condition.button = null;
-    return state;
-  });
-
-  switch (event.which) {
-    case 39:// right
-      release('right');
-      break;
-
-    case 68:// d
-      release('right');
-      break;
-
-    case 37:// left
-      release('left');
-      break;
-
-    case 65:// a
-      release('left');
-      break;
-
-    case 38:// up
-      release('up');
-      break;
-
-    case 87:// w
-      release('up');
-      break;
-
-    case 40:// down
-      release('down');
-      break;
-
-    case 83:// s
-      release('down');
-      break;
-
-    case 13://enter
-      release('start');
-      break;
-
-    case 32://spacebar
-      release('pause');
-      break;
-
-    case 77://m
-      release('sound');
-      break;
-
-    default:
-      return null;
+  if (keysMap.has(event.which)) {
+    const mouseUp = new Event('mouseup', { bubbles: true });
+    document.getElementById(keysMap.get(event.which)).dispatchEvent(mouseUp);
+    this.setState((state) => {
+      state.condition.button = null;
+      return state;
+    });
   }
 }
