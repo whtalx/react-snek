@@ -24,41 +24,44 @@ export default function handleMouseDown(event) {
 
   const turn = (whereTo) => {
     if (!isAlive || isPaused || nextDirection !== null) { return; }
-    let opposite;
-    let isAlongBorder;
+
     const direction = this.state.condition.direction;
     const snakeHead = this.state.display.snake[this.state.display.snake.length - 1];
-
-    switch (whereTo) {
-      case 'left':
-        opposite = 'right';
-        isAlongBorder = snakeHead.x === 0;
-        break;
-      case 'right':
-        opposite = 'left';
-        isAlongBorder = snakeHead.x === 9;
-        break;
-      case 'up':
-        opposite = 'down';
-        isAlongBorder = snakeHead.y === 0;
-        break;
-      case 'down':
-        opposite = 'up';
-        isAlongBorder = snakeHead.y === 19;
-        break;
-      default:
-        return;
-    }
+    const directionsMap = new Map([
+      ['left', {
+        opposite: 'right',
+        isAlongBorder: snakeHead.x === 0,
+      }],
+      ['right', {
+        opposite: 'left',
+        isAlongBorder: snakeHead.x === 9,
+      }],
+      ['up', {
+        opposite: 'down',
+        isAlongBorder: snakeHead.y === 0,
+      }],
+      ['down', {
+        opposite: 'up',
+        isAlongBorder: snakeHead.y === 19,
+      }],
+    ]);
     
-    if (direction !== opposite && !isAlongBorder) {
+    if (
+      directionsMap.has(whereTo)
+      && direction !== directionsMap.get(whereTo).opposite
+      && !directionsMap.get(whereTo).isAlongBorder
+    ) {
       this.setState((state) => {
         state.condition.nextDirection = whereTo;
       });
-    
       this.playSound('move');
       this.turboSpeed();
       move();
-    } else if (!isWaiting && direction === opposite) {
+    } else if (
+      directionsMap.has(whereTo)
+      && direction === directionsMap.get(whereTo).opposite
+      && !isWaiting
+    ) {
       this.playSound('move');
       this.reverse();
     }

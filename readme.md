@@ -11,8 +11,8 @@ The game simulate 90s «Brick Game» version of [Snake](https://en.wikipedia.org
 Display indicators:
 1) Total score of current game.
 2) Highest score of all games. It stored in `localStorage`.
-3) Current level. There is 7 levels, started with zero («00»). On each level there is obstacles, which amount equals level value.
-4) Current speed, also started with zero. Speed increasing with every third food eaten. On seventh speed current level completing.
+3) Current level. There is 7 levels, started with zero («00»). In each level there is obstacles, which amount equals level value.
+4) Current speed, also started with zero. Speed increasing with every third food eaten. On reaching seventh speed current level completing.
 5) Lives amount. First level starting with three lives, on every next level this amount increases by one. This picture showing 5 lives out of 9:
 <div align="center"><img src="./images/lives.png" /></div>
 
