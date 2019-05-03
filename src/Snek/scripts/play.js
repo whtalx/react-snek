@@ -1,55 +1,39 @@
 export default function play() {
-  let food = this.state.display.food[0];
-  let snake = this.state.display.snake;
-  let obstacle = this.state.display.obstacle;
-  let nextDirection = this.state.condition.nextDirection;
-
-  let gameOver = (pixel) => {
+  const food = this.state.display.food[0];
+  const snake = this.state.display.snake;
+  const obstacle = this.state.display.obstacle;
+  const gameOver = (pixel) => {
     clearTimeout(this.gameTimeout);
     this.setState((state) => {
       state.data.lives -= 1;
       state.condition.isAlive = false;
       return state;
     });
-    this.state.data.lives > 0? this.explode(pixel, false) : this.explode(pixel);
+
+    this.state.data.lives > 0 ? this.explode(pixel, false) : this.explode(pixel);
   }
 
-  /* declaring snake parts */
-  let tail = snake[0];
-  let head = snake[snake.length - 1];
-  let nextCoord = { x: head.x, y: head.y, status: head.status };
-
   /* get moving direction and let it possible to set new direction */
-  if (nextDirection !== null) {
+  if (this.state.condition.nextDirection !== null) {
     this.setState((state) => {
-      state.condition.direction = nextDirection;
+      state.condition.direction = state.condition.nextDirection;
       state.condition.nextDirection = null;
       return state;
     });
   }
 
-  let direction = this.state.condition.direction;
+  const direction = this.state.condition.direction;
 
-  switch (direction) {
-    case 'right':
-      nextCoord.x += 1;
-      break;
-
-    case 'left':
-      nextCoord.x -= 1;
-      break;
-
-    case 'down':
-      nextCoord.y += 1;
-      break;
-
-    case 'up':
-      nextCoord.y -= 1;
-      break;
-
-    default:
-      break;
-  }
+  /* declaring snake parts */
+  const tail = snake[0];
+  const head = snake[snake.length - 1];
+  const nextCoordMap = new Map([
+    ['left', { x: head.x - 1, y: head.y, status: head.status }],
+    ['right', { x: head.x + 1, y: head.y, status: head.status }],
+    ['up', { x: head.x, y: head.y - 1, status: head.status }],
+    ['down', { x: head.x, y: head.y + 1, status: head.status }],
+  ]);
+  const nextCoord = nextCoordMap.get(direction);
 
   /* remove tail */
   snake.shift();
@@ -85,7 +69,7 @@ export default function play() {
   nextCoord.status = 'blink';
   snake.push(nextCoord);
 
-  /* draw snake with new coordinates */
+  /* draw snake with new head */
   this.setState((state) => {
     state.display.snake = snake;
     return state;
