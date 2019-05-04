@@ -27,13 +27,13 @@ export default function play() {
   /* declaring snake parts */
   const tail = snake[0];
   const head = snake[snake.length - 1];
-  const nextCoordMap = new Map([
+  const newHeadMap = new Map([
     ['left', { x: head.x - 1, y: head.y, status: head.status }],
     ['right', { x: head.x + 1, y: head.y, status: head.status }],
     ['up', { x: head.x, y: head.y - 1, status: head.status }],
     ['down', { x: head.x, y: head.y + 1, status: head.status }],
   ]);
-  const nextCoord = nextCoordMap.get(direction);
+  const newHead = newHeadMap.get(direction);
 
   /* remove tail */
   snake.shift();
@@ -42,32 +42,32 @@ export default function play() {
 
   /* bite itself game over */
   snake.forEach((item) => {
-    if (item.x === nextCoord.x && item.y === nextCoord.y) {
+    if (item.x === newHead.x && item.y === newHead.y) {
       gameOver([item]);
     }
   });
 
   /* bump an obstacle game over */
   obstacle.forEach((item) => {
-    if (item.x === nextCoord.x && item.y === nextCoord.y) {
+    if (item.x === newHead.x && item.y === newHead.y) {
       gameOver([item]);
     }
   });
 
   /* get off screen game over */
   if (
-    nextCoord.x > 9
-    || nextCoord.x < 0
-    || nextCoord.y > 19
-    || nextCoord.y < 0
+    newHead.x > 9
+    || newHead.x < 0
+    || newHead.y > 19
+    || newHead.y < 0
   ) {
     gameOver([head]);
   }
 
   /* make new head */
   head.status = 'on';
-  nextCoord.status = 'blink';
-  snake.push(nextCoord);
+  newHead.status = 'blink';
+  snake.push(newHead);
 
   /* draw snake with new head */
   this.setState((state) => {
@@ -75,13 +75,13 @@ export default function play() {
     return state;
   });
 
-  this.switchPixels(this.state.display.snake);
+  this.switchPixels([head, newHead]);
 
   /* play turbo sound if in turbo mode */
   if (this.state.data.subtrahend === 325) { this.playSound('turbo'); }
 
   /*grow if eating food */
-  if (nextCoord.x === food.x && nextCoord.y === food.y) {
+  if (newHead.x === food.x && newHead.y === food.y) {
     snake.unshift(tail);
     this.levelUp();
   } else {
