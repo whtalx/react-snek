@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "6dc4dab53d57aecf362f",
+    "revision": "cd050d949f38c05b8ff3",
     "url": "/react-snek/static/css/main.ef61e74a.chunk.css"
   },
   {
-    "revision": "6dc4dab53d57aecf362f",
-    "url": "/react-snek/static/js/main.de4fbe5d.chunk.js"
+    "revision": "cd050d949f38c05b8ff3",
+    "url": "/react-snek/static/js/main.e93a0d2b.chunk.js"
   },
   {
     "revision": "e037d10deb72bb61cc55",
     "url": "/react-snek/static/js/runtime~main.aeda6471.js"
   },
   {
-    "revision": "44ccdba18b4a5cb98485",
-    "url": "/react-snek/static/js/2.2f81be61.chunk.js"
+    "revision": "f8fbf9c6abdf4af15272",
+    "url": "/react-snek/static/js/2.9f91294d.chunk.js"
   },
   {
     "revision": "ce409a4dbe4918929313e5a3f24d3e35",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/react-snek/static/media/arrows.9f7df41b.svg"
   },
   {
-    "revision": "bc6dcb2c994c3f737b7d6a4e17fb8b30",
+    "revision": "3182e2357e205bfd2bfaeeb52699d8f9",
     "url": "/react-snek/index.html"
   }
 ];
